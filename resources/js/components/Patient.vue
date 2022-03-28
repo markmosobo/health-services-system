@@ -16,8 +16,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Name</th>
                       <th>Gender</th>
                       <th>Address</th>
                       <th v-if="$gate.isSuperAdminOrAdminOrDocOrNurse()">First Visit</th>
@@ -27,8 +26,7 @@
                   <tbody>
                     <tr v-for="patient in patients.data" :key="patient.id">
                       <td>{{patient.id}}</td>
-                      <td>{{patient.first_name}}</td>
-                      <td>{{patient.last_name}}</td>
+                      <td>{{patient.first_name}} {{patient.last_name}}</td>
                       <td>{{patient.gender | capitalizeFirstLetter}}</td>
                       <td>{{patient.address}}</td>
                       <td v-if="$gate.isSuperAdminOrAdminOrDocOrNurse()">{{patient.created_at | monthDateTime}}</td>

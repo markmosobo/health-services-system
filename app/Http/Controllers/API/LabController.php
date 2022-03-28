@@ -48,12 +48,6 @@ class LabController extends Controller
         }
     }
 
-    public function countLabs(){
-        $user = auth('api')->user();
-        $labs = Laboratory::all()->where('consult_doctor_id',$user->id)->count();
-        return response()->json($labs);
-    }
-
     public function countPendingLabs(){
         $pendinglabs = Laboratory::all()->where('status','0')->count();
         return response()->json($pendinglabs);

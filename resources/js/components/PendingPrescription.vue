@@ -11,8 +11,8 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+              <no-pending-task v-if ="labfindingscount == 0"></no-pending-task>
+              <div v-else class="card-body table-responsive p-0">                <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -160,6 +160,7 @@
                 editmode: false,
                 patients: {},
                 labfindings: {},
+                labfindingscount: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
@@ -217,11 +218,15 @@
               },
               loadLabFindings(){
                   axios.get('api/labfindings').then((response) => {this.labfindings = response.data});
+              },
+              loadLabFindingsCount(){
+                  axios.get('api/countpendinglabfindings').then((response) => {this.labfindingscount = response.data});
               }
         },
         mounted() {
             this.listPatients();
             this.loadLabFindings();
+            this.loadLabFindingsCount();
             Fire.$on('Refresh',() => {this.loadLabFindings();})
         }
     }

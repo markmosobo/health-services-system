@@ -19,7 +19,8 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
+              <no-pending-task v-if ="pendinglabscount == 0"></no-pending-task>
+              <div v-else class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
@@ -165,11 +166,15 @@
 </template>
 
 <script>
+import NoPendingTask from './NoPendingTask.vue';
+import NotFound from './NotFound.vue';
     export default {
+  components: { NotFound, NoPendingTask },
         data(){
             return{
                 editmode: false,
                 pendinglabs: {},
+                pendinglabscount: {},
                 patientslist: {},
                 form: new Form({
                         id: '',
@@ -234,8 +239,12 @@
               loadPendingLabs(){
                   axios.get('api/pendinglab').then((response) => {this.pendinglabs = response.data});
               },
+              loadPendingLabsCount(){
+                  axios.get('api/countpendinglabs').then((response) => {this.pendinglabscount = response.data});
+              },
         },
         mounted() {
+            this.loadPendingLabsCount();
             this.listPatients();
             this.loadPendingLabs();
             Fire.$on('Refresh',() => {this.loadPendingLabs();})

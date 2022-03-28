@@ -43,8 +43,14 @@ class PrescriptionController extends Controller
             $prescription->update(array('status' => 1));
             $prescription->save();
         }
-    } 
-    
+    }
+
+    public function countPrescriptions(){
+        $user = auth('api')->user();
+        $prescription = Prescription::all()->where('status','1')->where('prescribe_doctor_id',$user->id)->count();
+        return response()->json($prescription);
+    }
+
     public function countPendingPrescriptions(){
         $pendingpreps = Prescription::all()->where('status','0')->count();
         return response()->json($pendingpreps);

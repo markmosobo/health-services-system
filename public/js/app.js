@@ -4066,6 +4066,189 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['app'],
   data: function data() {
@@ -4074,7 +4257,9 @@ __webpack_require__.r(__webpack_exports__);
       patients: {},
       patientvitals: {},
       consultations: {},
-      labs: {},
+      labfindings: {},
+      prescriptions: {},
+      drugpurchases: {},
       pendinglabs: {},
       pendinglabfindings: {},
       pendingdrugsales: {},
@@ -4112,46 +4297,60 @@ __webpack_require__.r(__webpack_exports__);
         _this4.consultations = response.data;
       });
     },
-    loadLabs: function loadLabs() {
+    loadLabFindings: function loadLabFindings() {
       var _this5 = this;
 
-      axios.get('api/countlabs').then(function (response) {
-        _this5.labs = response.data;
+      axios.get('api/countlabfindings').then(function (response) {
+        _this5.labfindings = response.data;
+      });
+    },
+    loadPrescriptions: function loadPrescriptions() {
+      var _this6 = this;
+
+      axios.get('api/countprescriptions').then(function (response) {
+        _this6.prescriptions = response.data;
       });
     },
     loadPendingLabsCount: function loadPendingLabsCount() {
-      var _this6 = this;
+      var _this7 = this;
 
       axios.get('api/countpendinglabs').then(function (response) {
-        _this6.pendinglabs = response.data;
+        _this7.pendinglabs = response.data;
       });
     },
     loadPendingLabFindingsCount: function loadPendingLabFindingsCount() {
-      var _this7 = this;
+      var _this8 = this;
 
       axios.get('api/countpendinglabfindings').then(function (response) {
-        _this7.pendinglabfindings = response.data;
+        _this8.pendinglabfindings = response.data;
+      });
+    },
+    loadDrugPurchases: function loadDrugPurchases() {
+      var _this9 = this;
+
+      axios.get('api/countdrugpurchases').then(function (response) {
+        _this9.drugpurchases = response.data;
       });
     },
     loadPendingDrugSales: function loadPendingDrugSales() {
-      var _this8 = this;
+      var _this10 = this;
 
       axios.get('api/countpendingdrugsales').then(function (response) {
-        _this8.pendingdrugsales = response.data;
+        _this10.pendingdrugsales = response.data;
       });
     },
     loadCompletedLabFindings: function loadCompletedLabFindings() {
-      var _this9 = this;
+      var _this11 = this;
 
       axios.get('api/completedlabfindings').then(function (response) {
-        _this9.completedlabfindings = response.data;
+        _this11.completedlabfindings = response.data;
       });
     },
     loadCompletedPrescriptions: function loadCompletedPrescriptions() {
-      var _this10 = this;
+      var _this12 = this;
 
       axios.get('api/completedprescriptions').then(function (response) {
-        _this10.completedprescriptions = response.data;
+        _this12.completedprescriptions = response.data;
       });
     }
   },
@@ -4160,7 +4359,9 @@ __webpack_require__.r(__webpack_exports__);
     this.loadPatientCount();
     this.loadPatientVitals();
     this.loadConsultations();
-    this.loadLabs();
+    this.loadLabFindings();
+    this.loadPrescriptions();
+    this.loadDrugPurchases();
     this.loadPendingLabsCount();
     this.loadPendingLabFindingsCount();
     this.loadPendingDrugSales();
@@ -5935,6 +6136,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Notification.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Notification.vue?vue&type=script&lang=js& ***!
@@ -6212,8 +6473,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
 //
 //
 //
@@ -7406,6 +7665,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _NoPendingTask_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoPendingTask.vue */ "./resources/js/components/NoPendingTask.vue");
+/* harmony import */ var _NotFound_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotFound.vue */ "./resources/js/components/NotFound.vue");
 //
 //
 //
@@ -7572,11 +7833,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    NotFound: _NotFound_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    NoPendingTask: _NoPendingTask_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       editmode: false,
       pendinglabs: {},
+      pendinglabscount: {},
       patientslist: {},
       form: new Form({
         id: '',
@@ -7643,15 +7912,23 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/pendinglab').then(function (response) {
         _this3.pendinglabs = response.data;
       });
+    },
+    loadPendingLabsCount: function loadPendingLabsCount() {
+      var _this4 = this;
+
+      axios.get('api/countpendinglabs').then(function (response) {
+        _this4.pendinglabscount = response.data;
+      });
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
 
+    this.loadPendingLabsCount();
     this.listPatients();
     this.loadPendingLabs();
     Fire.$on('Refresh', function () {
-      _this4.loadPendingLabs();
+      _this5.loadPendingLabs();
     });
   }
 });
@@ -7830,6 +8107,7 @@ __webpack_require__.r(__webpack_exports__);
       editmode: false,
       patients: {},
       labfindings: {},
+      labfindingscount: {},
       form: new Form({
         id: '',
         patient_id: '',
@@ -7891,15 +8169,23 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/labfindings').then(function (response) {
         _this3.labfindings = response.data;
       });
+    },
+    loadLabFindingsCount: function loadLabFindingsCount() {
+      var _this4 = this;
+
+      axios.get('api/countpendinglabfindings').then(function (response) {
+        _this4.labfindingscount = response.data;
+      });
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
 
     this.listPatients();
     this.loadLabFindings();
+    this.loadLabFindingsCount();
     Fire.$on('Refresh', function () {
-      _this4.loadLabFindings();
+      _this5.loadLabFindings();
     });
   }
 });
@@ -9435,6 +9721,9 @@ var routes = [{
 }, {
   path: '/notifications',
   component: __webpack_require__(/*! ./components/Notification.vue */ "./resources/js/components/Notification.vue")["default"]
+}, {
+  path: '*',
+  component: __webpack_require__(/*! ./components/NotFound.vue */ "./resources/js/components/NotFound.vue")["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
@@ -9494,6 +9783,8 @@ Vue.prototype.$userId = document.querySelector("meta[name='currentuser_id']").ge
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); //pagination
 
 Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
+Vue.component('no-pending-task', __webpack_require__(/*! ./components/NoPendingTask.vue */ "./resources/js/components/NoPendingTask.vue")["default"]);
+Vue.component('not-found', __webpack_require__(/*! ./components/NotFound.vue */ "./resources/js/components/NotFound.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -70989,6 +71280,84 @@ component.options.__file = "resources/js/components/Message.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/NoPendingTask.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/NoPendingTask.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoPendingTask.vue?vue&type=template&id=9a128540& */ "./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540&");
+/* harmony import */ var _NoPendingTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoPendingTask.vue?vue&type=script&lang=js& */ "./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NoPendingTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NoPendingTask.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/NotFound.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/NotFound.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotFound.vue?vue&type=template&id=2ce50e5a& */ "./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a&");
+/* harmony import */ var _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotFound.vue?vue&type=script&lang=js& */ "./resources/js/components/NotFound.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NotFound.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Notification.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/Notification.vue ***!
@@ -71729,6 +72098,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NoPendingTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NoPendingTask.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NoPendingTask_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/NotFound.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/NotFound.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NotFound.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Notification.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/Notification.vue?vue&type=script&lang=js& ***!
@@ -72166,6 +72567,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Message_vue_vue_type_template_id_b91a6428___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Message_vue_vue_type_template_id_b91a6428___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Message.vue?vue&type=template&id=b91a6428& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Message.vue?vue&type=template&id=b91a6428&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NoPendingTask_vue_vue_type_template_id_9a128540___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NoPendingTask.vue?vue&type=template&id=9a128540& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_2ce50e5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NotFound.vue?vue&type=template&id=2ce50e5a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a&");
 
 
 /***/ }),
@@ -75836,10 +76271,19 @@ var render = function() {
             _vm._m(5),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
-              _c("span", { staticClass: "info-box-text" }, [_vm._v("Labs")]),
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/labs" } }, [
+                    _vm._v("Lab Tests")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("span", { staticClass: "info-box-number" }, [
-                _vm._v(_vm._s(_vm.labs))
+                _vm._v(_vm._s(_vm.labfindings))
               ])
             ])
           ])
@@ -76026,9 +76470,16 @@ var render = function() {
             _vm._m(6),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
-              _c("span", { staticClass: "info-box-text" }, [
-                _vm._v("All Patients")
-              ]),
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/patients" } }, [
+                    _vm._v(" Patients")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("span", { staticClass: "info-box-number" }, [
                 _vm._v(_vm._s(_vm.patients))
@@ -76042,9 +76493,16 @@ var render = function() {
             _vm._m(7),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
-              _c("span", { staticClass: "info-box-text" }, [
-                _vm._v("Patient Vitals")
-              ]),
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/patientvitals" } }, [
+                    _vm._v("Patient Vitals")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("span", { staticClass: "info-box-number" }, [
                 _vm._v(_vm._s(_vm.patientvitals))
@@ -76060,10 +76518,19 @@ var render = function() {
             _vm._m(8),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
-              _c("span", { staticClass: "info-box-text" }, [_vm._v("Labs")]),
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/labs" } }, [
+                    _vm._v("Lab Tests")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("span", { staticClass: "info-box-number" }, [
-                _vm._v(_vm._s(_vm.labs))
+                _vm._v(_vm._s(_vm.labfindings))
               ])
             ])
           ])
@@ -76247,11 +76714,53 @@ var render = function() {
       [
         _vm._m(9),
         _vm._v(" "),
-        _vm._m(10),
+        _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
+          _c("div", { staticClass: "info-box mb-3" }, [
+            _vm._m(10),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/patients" } }, [
+                    _vm._v("Patients")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.patients))
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "clearfix hidden-md-up" }),
         _vm._v(" "),
-        _vm._m(11),
+        _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
+          _c("div", { staticClass: "info-box mb-3" }, [
+            _vm._m(11),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c(
+                "span",
+                { staticClass: "info-box-text" },
+                [
+                  _c("router-link", { attrs: { to: "/drugsales" } }, [
+                    _vm._v("Sales")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.drugpurchases))
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
           _c("ul", { staticClass: "breadcrumb float-sm-right" }, [
@@ -76500,49 +77009,29 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row mt-1" }, [
       _c("div", { staticClass: "col-lg-6" }, [
-        _vm.$gate.isDoc()
+        _vm.$gate.isStaff()
           ? _c("div", { staticClass: "card" }, [
               _vm._m(15),
+              _vm._v(" "),
+              _vm._m(16)
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$gate.isDoc()
+          ? _c("div", { staticClass: "card" }, [
+              _vm._m(17),
               _vm._v(" "),
               _c("div", { staticClass: "card-body table-responsive p-0" }, [
                 _c(
                   "table",
                   { staticClass: "table table-striped table-valign-middle" },
                   [
-                    _vm._m(16),
+                    _vm._m(18),
                     _vm._v(" "),
                     _c(
                       "tbody",
                       [
                         _vm._l(_vm.completedlabfindings.data, function(item) {
-                          return _c("tr", { key: item.id }, [
-                            _c("td", [
-                              _vm._v(
-                                "\n                  " +
-                                  _vm._s(item.patient.first_name) +
-                                  " " +
-                                  _vm._s(item.patient.last_name) +
-                                  "\n                "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(17, true),
-                            _vm._v(" "),
-                            _vm._m(18, true),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                "\n                  " +
-                                  _vm._s(
-                                    _vm._f("monthDateTime")(item.created_at)
-                                  ) +
-                                  "\n                "
-                              )
-                            ])
-                          ])
-                        }),
-                        _vm._v(" "),
-                        _vm._l(_vm.completedprescriptions.data, function(item) {
                           return _c("tr", { key: item.id }, [
                             _c("td", [
                               _vm._v(
@@ -76568,6 +77057,34 @@ var render = function() {
                               )
                             ])
                           ])
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.completedprescriptions.data, function(item) {
+                          return _c("tr", { key: item.id }, [
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(item.patient.first_name) +
+                                  " " +
+                                  _vm._s(item.patient.last_name) +
+                                  "\n                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(21, true),
+                            _vm._v(" "),
+                            _vm._m(22, true),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(
+                                    _vm._f("monthDateTime")(item.created_at)
+                                  ) +
+                                  "\n                "
+                              )
+                            ])
+                          ])
                         })
                       ],
                       2
@@ -76576,10 +77093,230 @@ var render = function() {
                 )
               ])
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$gate.isNurse()
+          ? _c("div", { staticClass: "card" }, [
+              _vm._m(23),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body table-responsive p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-striped table-valign-middle" },
+                  [
+                    _vm._m(24),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      [
+                        _vm._l(_vm.completedlabfindings.data, function(item) {
+                          return _c("tr", { key: item.id }, [
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(item.patient.first_name) +
+                                  " " +
+                                  _vm._s(item.patient.last_name) +
+                                  "\n                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(25, true),
+                            _vm._v(" "),
+                            _vm._m(26, true),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(
+                                    _vm._f("monthDateTime")(item.created_at)
+                                  ) +
+                                  "\n                "
+                              )
+                            ])
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.completedprescriptions.data, function(item) {
+                          return _c("tr", { key: item.id }, [
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(item.patient.first_name) +
+                                  " " +
+                                  _vm._s(item.patient.last_name) +
+                                  "\n                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(27, true),
+                            _vm._v(" "),
+                            _vm._m(28, true),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(
+                                    _vm._f("monthDateTime")(item.created_at)
+                                  ) +
+                                  "\n                "
+                              )
+                            ])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$gate.isPharm()
+          ? _c("div", { staticClass: "card" }, [
+              _vm._m(29),
+              _vm._v(" "),
+              _vm._m(30)
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$gate.isAccountant()
+          ? _c("div", { staticClass: "card" }, [
+              _vm._m(31),
+              _vm._v(" "),
+              _vm._m(32)
+            ])
           : _vm._e()
       ]),
       _vm._v(" "),
-      _vm._m(21)
+      _c("div", { staticClass: "col-lg-6" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(33),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm.$gate.isDoc()
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center border-bottom mb-3"
+                  },
+                  [
+                    _vm._m(34),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "d-flex flex-column text-right" }, [
+                      _c("span", { staticClass: "font-weight-bold" }, [
+                        _c("i", {
+                          staticClass: "ion ion-android-arrow-up text-success"
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s((_vm.consultations / _vm.patients) * 100) +
+                            "%\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v("CONSULTATION RATE")
+                      ])
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$gate.isPharm()
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center border-bottom mb-3"
+                  },
+                  [
+                    _vm._m(35),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "d-flex flex-column text-right" }, [
+                      _c("span", { staticClass: "font-weight-bold" }, [
+                        _c("i", {
+                          staticClass: "ion ion-android-arrow-up text-success"
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s((_vm.drugpurchases / _vm.patients) * 100) +
+                            "%\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v("SALES RATE")
+                      ])
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$gate.isDocOrNurse()
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center border-bottom mb-3"
+                  },
+                  [
+                    _vm._m(36),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "d-flex flex-column text-right" }, [
+                      _c("span", { staticClass: "font-weight-bold" }, [
+                        _c("i", {
+                          staticClass: "ion ion-android-arrow-up text-warning"
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s((_vm.labfindings / _vm.patients) * 100) +
+                            "%\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v("LAB TESTING RATE")
+                      ])
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$gate.isDoc()
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center mb-0"
+                  },
+                  [
+                    _vm._m(37),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "d-flex flex-column text-right" }, [
+                      _c("span", { staticClass: "font-weight-bold" }, [
+                        _c("i", {
+                          staticClass: "ion ion-android-arrow-down text-danger"
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s((_vm.prescriptions / _vm.patients) * 100) +
+                            "%\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v("PRESCRIPTION RATE")
+                      ])
+                    ])
+                  ]
+                )
+              : _vm._e()
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -76694,36 +77431,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-      _c("div", { staticClass: "info-box mb-3" }, [
-        _c("span", { staticClass: "info-box-icon bg-danger elevation-1" }, [
-          _c("i", { staticClass: "fas fa-user-injured" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "info-box-content" }, [
-          _c("span", { staticClass: "info-box-text" }, [_vm._v("Patients")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "info-box-number" }, [_vm._v("41,410")])
-        ])
-      ])
+    return _c("span", { staticClass: "info-box-icon bg-danger elevation-1" }, [
+      _c("i", { staticClass: "fas fa-user-injured" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-      _c("div", { staticClass: "info-box mb-3" }, [
-        _c("span", { staticClass: "info-box-icon bg-success elevation-1" }, [
-          _c("i", { staticClass: "fas fa-user-injured" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "info-box-content" }, [
-          _c("span", { staticClass: "info-box-text" }, [_vm._v("Sales")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "info-box-number" }, [_vm._v("760")])
-        ])
-      ])
+    return _c("span", { staticClass: "info-box-icon bg-success elevation-1" }, [
+      _c("i", { staticClass: "fas fa-user-injured" })
     ])
   },
   function() {
@@ -76769,6 +77486,55 @@ var staticRenderFns = [
           _c("span", { staticClass: "info-box-text" }, [_vm._v("Bills")]),
           _vm._v(" "),
           _c("span", { staticClass: "info-box-number" }, [_vm._v("760")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("Patient Visits")]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "javascript:void(0);" } }, [
+          _vm._v("View Report")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("p", { staticClass: "d-flex flex-column" }, [
+          _c("span", { staticClass: "text-bold text-lg" }, [_vm._v("820")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Patients Over Time")])
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "ml-auto d-flex flex-column text-right" }, [
+          _c("span", { staticClass: "text-success" }, [
+            _c("i", { staticClass: "fas fa-arrow-up" }),
+            _vm._v(" 12.5%\n                ")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-muted" }, [_vm._v("Since last week")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-row justify-content-end" }, [
+        _c("span", { staticClass: "mr-2" }, [
+          _c("i", { staticClass: "fas fa-square text-primary" }),
+          _vm._v(" This Week\n              ")
+        ]),
+        _vm._v(" "),
+        _c("span", [
+          _c("i", { staticClass: "fas fa-square text-gray" }),
+          _vm._v(" Last Week\n              ")
         ])
       ])
     ])
@@ -76841,108 +77607,216 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header border-0" }, [
-          _c("h3", { staticClass: "card-title" }, [
-            _vm._v("Performance Scale")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-tools" }, [
-            _c(
-              "a",
-              { staticClass: "btn btn-sm btn-tool", attrs: { href: "#" } },
-              [_c("i", { staticClass: "fas fa-download" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "btn btn-sm btn-tool", attrs: { href: "#" } },
-              [_c("i", { staticClass: "fas fa-bars" })]
-            )
-          ])
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Latest Completed Tasks")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c("a", { staticClass: "btn btn-tool btn-sm", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fas fa-download" })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "d-flex justify-content-between align-items-center border-bottom mb-3"
-            },
-            [
-              _c("p", { staticClass: "text-success text-xl" }, [
-                _c("i", { staticClass: "ion ion-ios-refresh-empty" })
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "d-flex flex-column text-right" }, [
-                _c("span", { staticClass: "font-weight-bold" }, [
-                  _c("i", {
-                    staticClass: "ion ion-android-arrow-up text-success"
-                  }),
-                  _vm._v(" 12%\n                ")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-muted" }, [
-                  _vm._v("CONVERSION RATE")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "d-flex justify-content-between align-items-center border-bottom mb-3"
-            },
-            [
-              _c("p", { staticClass: "text-warning text-xl" }, [
-                _c("i", { staticClass: "ion ion-ios-cart-outline" })
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "d-flex flex-column text-right" }, [
-                _c("span", { staticClass: "font-weight-bold" }, [
-                  _c("i", {
-                    staticClass: "ion ion-android-arrow-up text-warning"
-                  }),
-                  _vm._v(" 0.8%\n                ")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-muted" }, [
-                  _vm._v("SALES RATE")
-                ])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "d-flex justify-content-between align-items-center mb-0"
-            },
-            [
-              _c("p", { staticClass: "text-danger text-xl" }, [
-                _c("i", { staticClass: "ion ion-ios-people-outline" })
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "d-flex flex-column text-right" }, [
-                _c("span", { staticClass: "font-weight-bold" }, [
-                  _c("i", {
-                    staticClass: "ion ion-android-arrow-down text-danger"
-                  }),
-                  _vm._v(" 1%\n                ")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-muted" }, [
-                  _vm._v("REGISTRATION RATE")
-                ])
-              ])
-            ]
-          )
+        _c("a", { staticClass: "btn btn-tool btn-sm", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fas fa-bars" })
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Patient")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Task")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Date")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_c("i", { staticClass: "fas fa-vials" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("span", { staticClass: "badge badge-info" }, [_vm._v("Success")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_c("i", { staticClass: "fas fa-tablets" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("span", { staticClass: "badge badge-info" }, [_vm._v("Success")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("Sales")]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "javascript:void(0);" } }, [
+          _vm._v("View Report")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("p", { staticClass: "d-flex flex-column" }, [
+          _c("span", { staticClass: "text-bold text-lg" }, [
+            _vm._v("$18,230.00")
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Sales Over Time")])
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "ml-auto d-flex flex-column text-right" }, [
+          _c("span", { staticClass: "text-success" }, [
+            _c("i", { staticClass: "fas fa-arrow-up" }),
+            _vm._v(" 33.1%\n                ")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-muted" }, [
+            _vm._v("Since last month")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-row justify-content-end" }, [
+        _c("span", { staticClass: "mr-2" }, [
+          _c("i", { staticClass: "fas fa-square text-primary" }),
+          _vm._v(" This year\n              ")
+        ]),
+        _vm._v(" "),
+        _c("span", [
+          _c("i", { staticClass: "fas fa-square text-gray" }),
+          _vm._v(" Last year\n              ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("Processed Bills")]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "javascript:void(0);" } }, [
+          _vm._v("View Report")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("p", { staticClass: "d-flex flex-column" }, [
+          _c("span", { staticClass: "text-bold text-lg" }, [_vm._v("820")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Patients Over Time")])
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "ml-auto d-flex flex-column text-right" }, [
+          _c("span", { staticClass: "text-success" }, [
+            _c("i", { staticClass: "fas fa-arrow-up" }),
+            _vm._v(" 12.5%\n                ")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-muted" }, [_vm._v("Since last week")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-row justify-content-end" }, [
+        _c("span", { staticClass: "mr-2" }, [
+          _c("i", { staticClass: "fas fa-square text-primary" }),
+          _vm._v(" This Week\n              ")
+        ]),
+        _vm._v(" "),
+        _c("span", [
+          _c("i", { staticClass: "fas fa-square text-gray" }),
+          _vm._v(" Last Week\n              ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Performance Scale")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c("a", { staticClass: "btn btn-sm btn-tool", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fas fa-download" })
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "btn btn-sm btn-tool", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fas fa-bars" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-success text-xl" }, [
+      _c("i", { staticClass: "ion ion-ios-refresh-empty" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-success text-xl" }, [
+      _c("i", { staticClass: "ion ion-ios-refresh-empty" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-warning text-xl" }, [
+      _c("i", { staticClass: "ion ion-ios-cart-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-danger text-xl" }, [
+      _c("i", { staticClass: "ion ion-ios-people-outline" })
     ])
   }
 ]
@@ -81065,6 +81939,892 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NoPendingTask.vue?vue&type=template&id=9a128540& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "content" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-10" }, [
+          _c("h5", { staticClass: "mt-3", staticStyle: { align: "center" } }, [
+            _vm._v("There are no pending tasks ")
+          ]),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              attrs: {
+                id: "fcc143ea-52ad-438e-9e3d-3172c539f37d",
+                "data-name": "Layer 1",
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "600",
+                height: "100%",
+                viewBox: "0 0 935 693.25557"
+              }
+            },
+            [
+              _c("title", [_vm._v("add_content")]),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M185.67241,796.62778,170.5,754.145s16.68966,8.34482,17.44828,18.96551c0,0-3.79311-53.10345-11.37931-64.48276,0,0,12.13793,1.51725,25.7931,60.68966,0,0,2.27586-68.27586-18.2069-88,0,0,28.069,22.75862,30.34483,72.069v43.24138Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M698,796l10-28s-11,5.5-11.5,12.5c0,0,2.5-35.00007,7.5-42.50008,0,0-8,1-17,40.00008,0,0-1.5-45.00009,12-58.00012,0,0-18.5,15-20,47.5001V796Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M537.931,796,530,773.7931s8.72414,4.36207,9.12069,9.9138c0,0-1.98276-27.75862-5.94828-33.7069,0,0,6.34483.7931,13.48276,31.72414,0,0,1.18966-35.68966-9.51724-46,0,0,14.67241,11.89655,15.86207,37.67241V796Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M529.1084,644.37173c-4,0-8.02442-.12891-11.98535-.38086l.12695-1.9961c3.92383.25,7.90918.377,11.84766.377l.11816-.001v2l-.09375.001Zm12.20605-.39746-.13086-1.9961c3.9668-.25879,7.97559-.65136,11.91407-1.166l.25976,1.98242C549.376,643.31606,545.32422,643.71255,541.31445,643.97427Zm-36.2373-1.14649c-3.98828-.51758-8.00684-1.17285-11.94434-1.94922l.38672-1.96289c3.89453.76856,7.87012,1.417,11.81543,1.92774Zm60.22168-1.998-.38867-1.96094c3.89648-.77344,7.81933-1.68653,11.6582-2.71387l.51758,1.93164C573.20508,639.12563,569.23926,640.04849,565.29883,640.82974Zm-83.95606-2.68067c-3.875-1.03223-7.77343-2.209-11.58593-3.499l.64062-1.89453c3.77149,1.27539,7.62744,2.44043,11.46,3.46093ZM588.667,634.57192l-.64258-1.89453c3.751-1.27441,7.5127-2.69238,11.18164-4.21582l.76758,1.84766C596.26367,631.84829,592.46,633.28286,588.667,634.57192Zm-130.25781-4.18554c-3.71094-1.53516-7.4248-3.2168-11.03857-4.999l.88476-1.793c3.57422,1.76172,7.24756,3.42579,10.91846,4.94434Zm152.57129-5.07618-.88672-1.793c3.5625-1.76172,7.10938-3.66211,10.542-5.64844l1.002,1.73047C618.167,621.60806,614.582,623.52993,610.98047,625.3102Zm-174.293-5.63574c-3.481-2.01074-6.94091-4.16406-10.28368-6.39941l1.11133-1.66211c3.30713,2.21094,6.72949,4.34082,10.17235,6.3291Zm195.21388-6.47363-1.11328-1.66211c3.29687-2.20605,6.56738-4.55371,9.72168-6.97852l1.21875,1.58594C638.54,608.59731,635.2334,610.97036,631.90137,613.20083ZM416.562,606.21938c-3.186-2.44531-6.335-5.02929-9.35937-7.67968l1.31836-1.50391c2.9917,2.62207,6.10693,5.17773,9.25879,7.59766ZM651.0791,598.464l-1.32031-1.50293c2.98633-2.62158,5.92578-5.37549,8.7373-8.186l1.41407,1.41406C657.06836,593.03042,654.09766,595.81411,651.0791,598.464ZM398.36475,590.2687c-2.84424-2.84033-5.63037-5.80957-8.28077-8.82617l1.502-1.32031c2.62256,2.98388,5.37842,5.92187,8.19189,8.73144Zm269.82274-8.91211-1.5039-1.31933c2.62305-2.98877,5.18164-6.10206,7.60352-9.25391l1.58594,1.21875C673.4248,575.18813,670.83887,578.33511,668.18749,581.35659ZM382.396,572.0978c-2.44922-3.1831-4.8252-6.48779-7.06153-9.82226l1.66114-1.11426c2.21191,3.29931,4.5625,6.56836,6.98535,9.7168Zm300.53955-9.93359-1.66211-1.11231c2.21289-3.30664,4.34472-6.72754,6.33594-10.16894l1.73046,1.00195C687.32715,555.36343,685.17285,558.82192,682.93555,562.16421ZM368.92969,552.01577c-2.01514-3.47656-3.939-7.061-5.71778-10.65381l1.792-.88769c1.75976,3.55371,3.66308,7.09961,5.65625,10.53857Zm326.12988-10.81055-1.793-.88574c1.76074-3.564,3.42676-7.23633,4.95215-10.915l1.84766.76563C698.52441,533.88931,696.83984,537.6022,695.05957,541.20522ZM358.20605,530.35854c-1.541-3.70605-2.978-7.50927-4.271-11.3042l1.89355-.64453c1.27832,3.75293,2.69971,7.51514,4.22412,11.18116Zm346.13184-11.53271-1.89453-.6416c1.27637-3.76563,2.44336-7.62061,3.46875-11.4585l1.93164.5166C706.80762,511.12173,705.62793,515.01919,704.33789,518.82583ZM350.4126,507.47573c-1.042-3.87988-1.96778-7.84521-2.75244-11.78515l1.96191-.39063c.77539,3.89746,1.69141,7.81934,2.72217,11.65723Zm360.16748-12.02295-1.96289-.38769c.77148-3.89746,1.42285-7.87207,1.93652-11.81348l1.98242.25879C712.01758,487.49477,711.3584,491.51284,710.58008,495.45278ZM345.689,483.75112c-.52294-3.97314-.92236-8.02441-1.188-12.042l1.99609-.13184c.26221,3.97461.65772,7.98243,1.17481,11.91309ZM713.709,471.466l-1.99609-.12891c.25488-3.95166.38477-7.97705.38477-11.96484l-.001-.47461h2l.001.46826C714.09766,463.40249,713.9668,467.47134,713.709,471.466Zm-367.6123-11.855h-2l.00049-.24512c0-3.94043.12549-7.92871.37353-11.84766l1.9961.126c-.24512,3.87744-.36963,7.82324-.36963,11.728Zm365.585-12.67774c-.26562-3.96728-.666-7.9751-1.18945-11.91162l1.98242-.26367c.5293,3.98.93359,8.03125,1.20312,12.0415ZM347.61035,435.72768l-1.9834-.25585c.51368-3.98438,1.167-8.00342,1.94043-11.94532l1.96289.38575C348.76465,427.81069,348.11865,431.78628,347.61035,435.72768Zm360.915-12.51416c-.78027-3.895-1.70117-7.81543-2.7373-11.65332l1.93164-.52148c1.04687,3.88037,1.97754,7.84424,2.7666,11.78223ZM352.22168,412.2477l-1.93262-.51367c1.03223-3.88574,2.20752-7.78467,3.49268-11.58838l1.89453.63965C354.40527,404.54751,353.24316,408.404,352.22168,412.2477ZM702.28906,400.112c-1.28418-3.75586-2.71-7.51562-4.23828-11.17529l1.8457-.77051c1.54493,3.7002,2.98633,7.50147,4.28516,11.29834ZM359.88477,389.55972l-1.84864-.76368c1.53516-3.71582,3.21485-7.43066,4.99268-11.0415l1.79394.88379C363.06445,382.20962,361.40283,385.88393,359.88477,389.55972Zm333.20019-11.5c-1.75976-3.54541-3.667-7.08838-5.66894-10.53174l1.72851-1.00489c2.02442,3.48047,3.95215,7.063,5.73145,10.647Zm-322.61767-9.99414-1.73243-.999c2.00733-3.48,4.15772-6.9414,6.39209-10.2876l1.66309,1.11036C374.58008,361.19985,372.45264,364.62368,370.46729,368.06558Zm310.60009-10.67872c-2.21875-3.2998-4.57324-6.56591-6.998-9.708l1.584-1.22168c2.4502,3.17627,4.83106,6.478,7.07422,9.81347Zm-297.30371-9.23779-1.5874-1.2168c2.44531-3.18994,5.02734-6.34082,7.67432-9.36425l1.50488,1.31738C388.73682,341.87661,386.18262,344.99331,383.76367,348.14907Zm282.68848-9.7041c-2.624-2.978-5.38281-5.91211-8.20313-8.72119l1.41211-1.417c2.84961,2.83935,5.63965,5.80566,8.291,8.81591Zm-266.92041-8.30859-1.416-1.41211c2.83789-2.84473,5.80567-5.63282,8.8208-8.28614l1.32129,1.501C405.2749,324.5646,402.33887,327.32241,399.53174,330.13638Zm249.96338-8.583c-2.9961-2.61963-6.11426-5.17188-9.26758-7.58594l1.21484-1.58789c3.18848,2.43994,6.34082,5.02,9.36914,7.668Zm-231.99854-7.2251-1.2207-1.584c3.18066-2.45118,6.48437-4.82911,9.81836-7.06787l1.11523,1.66015C423.91113,309.55142,420.64307,311.904,417.49658,314.32827Zm212.98584-7.32812c-3.30859-2.20606-6.73437-4.33106-10.18066-6.31641l.998-1.7334c3.48438,2.00733,6.94727,4.15576,10.292,6.38574Zm-193.12793-6.00586-1.0039-1.7295c3.46923-2.01416,7.05224-3.94043,10.6499-5.72509l.88867,1.792C444.33057,297.09683,440.78662,299.0021,437.35449,300.99429Zm172.3711-5.94825c-3.57227-1.75634-7.24707-3.415-10.92383-4.93115l.76172-1.84863c3.71777,1.53223,7.43359,3.20947,11.04492,4.98486ZM458.77,290.37319l-.76953-1.84619c3.70556-1.54346,7.50781-2.98291,11.30127-4.27783l.64648,1.89258C466.1958,287.423,462.43506,288.84683,458.77,290.37319Zm128.80225-4.46c-3.76563-1.269-7.62305-2.42871-11.46387-3.44678l.51172-1.93359c3.88379,1.0293,7.7832,2.20166,11.59082,3.48486Zm-106.17383-3.26269-.51953-1.93164c3.87744-1.04395,7.84179-1.97217,11.78222-2.75977l.39258,1.96094C489.15527,280.69936,485.23438,281.61782,481.39844,282.65054Zm83.043-2.86768c-3.89453-.76221-7.87012-1.40527-11.81641-1.91211l.25391-1.9834c3.98925.51172,8.00879,1.16211,11.94726,1.93262Zm-59.57911-1.82031-.26171-1.98242c3.97265-.52539,8.02343-.92774,12.042-1.19532l.13281,1.99561C512.80078,277.04507,508.792,277.443,504.8623,277.96255Zm35.84571-1.228c-3.83887-.24023-7.74512-.3623-11.61035-.3623l-.35645.00048v-2l.35254-.00048c3.91113,0,7.85938.123,11.73926.36621Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#e6e6e6"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M825.1084,473.37173c-4,0-8.02442-.12891-11.98535-.38086l.12695-1.9961c3.92383.25,7.90918.377,11.84766.377l.11816-.001v2l-.09375.001Zm12.20605-.39746-.13086-1.9961c3.9668-.25879,7.97559-.65136,11.91407-1.166l.25976,1.98242C845.376,472.31606,841.32422,472.71255,837.31445,472.97427Zm-36.2373-1.14649c-3.98828-.51758-8.00684-1.17285-11.94434-1.94922l.38672-1.96289c3.89453.76856,7.87012,1.417,11.81543,1.92774Zm60.22168-1.998-.38867-1.96094c3.89648-.77344,7.81933-1.68653,11.6582-2.71387l.51758,1.93164C869.20508,468.12563,865.23926,469.04849,861.29883,469.82974Zm-83.95606-2.68067c-3.875-1.03223-7.77343-2.209-11.58593-3.499l.64062-1.89453c3.77149,1.27539,7.62744,2.44043,11.46,3.46093ZM884.667,463.57192l-.64258-1.89453c3.751-1.27441,7.5127-2.69238,11.18164-4.21582l.76758,1.84766C892.26367,460.84829,888.46,462.28286,884.667,463.57192Zm-130.25781-4.18554c-3.71094-1.53516-7.4248-3.2168-11.03857-4.999l.88476-1.793c3.57422,1.76172,7.24756,3.42579,10.91846,4.94434Zm152.57129-5.07618-.88672-1.793c3.5625-1.76172,7.10938-3.66211,10.542-5.64844l1.002,1.73047C914.167,450.60806,910.582,452.52993,906.98047,454.3102Zm-174.293-5.63574c-3.481-2.01074-6.94091-4.16406-10.28368-6.39941l1.11133-1.66211c3.30713,2.21094,6.72949,4.34082,10.17235,6.3291Zm195.21388-6.47363-1.11328-1.66211c3.29687-2.20605,6.56738-4.55371,9.72168-6.97852l1.21875,1.58594C934.54,437.59731,931.2334,439.97036,927.90137,442.20083ZM712.562,435.21938c-3.186-2.44531-6.335-5.02929-9.35937-7.67968l1.31836-1.50391c2.9917,2.62207,6.10693,5.17773,9.25879,7.59766ZM947.0791,427.464l-1.32031-1.50293c2.98633-2.62158,5.92578-5.37549,8.7373-8.186l1.41407,1.41406C953.06836,422.03042,950.09766,424.81411,947.0791,427.464ZM694.36475,419.2687c-2.84424-2.84033-5.63037-5.80957-8.28077-8.82617l1.502-1.32031c2.62256,2.98388,5.37842,5.92187,8.19189,8.73144Zm269.82274-8.91211-1.5039-1.31933c2.62305-2.98877,5.18164-6.10206,7.60352-9.25391l1.58594,1.21875C969.4248,404.18813,966.83887,407.33511,964.18749,410.35659ZM678.396,401.0978c-2.44922-3.1831-4.8252-6.48779-7.06153-9.82226l1.66114-1.11426c2.21191,3.29931,4.5625,6.56836,6.98535,9.7168Zm300.53955-9.93359-1.66211-1.11231c2.21289-3.30664,4.34472-6.72754,6.33594-10.16894l1.73046,1.00195C983.32715,384.36343,981.17285,387.82192,978.93555,391.16421ZM664.92969,381.01577c-2.01514-3.47656-3.939-7.061-5.71778-10.65381l1.792-.88769c1.75976,3.55371,3.66308,7.09961,5.65625,10.53857Zm326.12988-10.81055-1.793-.88574c1.76074-3.564,3.42676-7.23633,4.95215-10.915l1.84766.76563C994.52441,362.88931,992.83984,366.6022,991.05957,370.20522ZM654.20605,359.35854c-1.541-3.70605-2.978-7.50927-4.271-11.3042l1.89355-.64453c1.27832,3.75293,2.69971,7.51514,4.22412,11.18116Zm346.13184-11.53271-1.89453-.6416c1.27637-3.76563,2.44336-7.62061,3.46875-11.4585l1.93164.5166C1002.80762,340.12173,1001.62793,344.01919,1000.33789,347.82583ZM646.4126,336.47573c-1.042-3.87988-1.96778-7.84521-2.75244-11.78515l1.96191-.39063c.77539,3.89746,1.69141,7.81934,2.72217,11.65723Zm360.16748-12.02295-1.96289-.38769c.77148-3.89746,1.42285-7.87207,1.93652-11.81348l1.98242.25879C1008.01758,316.49477,1007.3584,320.51284,1006.58008,324.45278ZM641.689,312.75112c-.52294-3.97314-.92236-8.02441-1.188-12.042l1.99609-.13184c.26221,3.97461.65772,7.98243,1.17481,11.91309Zm368.02-12.28515-1.99609-.12891c.25488-3.95166.38477-7.97705.38477-11.96484l-.001-.47461h2l.001.46826C1010.09766,292.40249,1009.9668,296.47134,1009.709,300.466Zm-367.6123-11.855h-2l.00049-.24512c0-3.94043.12549-7.92871.37353-11.84766l1.9961.126c-.24512,3.87744-.36963,7.82324-.36963,11.728Zm365.585-12.67774c-.26562-3.96728-.666-7.9751-1.18945-11.91162l1.98242-.26367c.5293,3.98.93359,8.03125,1.20312,12.0415ZM643.61035,264.72768l-1.9834-.25585c.51368-3.98438,1.167-8.00342,1.94043-11.94532l1.96289.38575C644.76465,256.81069,644.11865,260.78628,643.61035,264.72768Zm360.915-12.51416c-.78027-3.895-1.70117-7.81543-2.7373-11.65332l1.93164-.52148c1.04687,3.88037,1.97754,7.84424,2.7666,11.78223ZM648.22168,241.2477l-1.93262-.51367c1.03223-3.88574,2.20752-7.78467,3.49268-11.58838l1.89453.63965C650.40527,233.54751,649.24316,237.404,648.22168,241.2477ZM998.28906,229.112c-1.28418-3.75586-2.71-7.51562-4.23828-11.17529l1.8457-.77051c1.54493,3.7002,2.98633,7.50147,4.28516,11.29834ZM655.88477,218.55972l-1.84864-.76368c1.53516-3.71582,3.21485-7.43066,4.99268-11.0415l1.79394.88379C659.06445,211.20962,657.40283,214.88393,655.88477,218.55972Zm333.20019-11.5c-1.75976-3.54541-3.667-7.08838-5.66894-10.53174l1.72851-1.00489c2.02442,3.48047,3.95215,7.063,5.73145,10.647Zm-322.61767-9.99414-1.73243-.999c2.00733-3.48,4.15772-6.9414,6.39209-10.2876l1.66309,1.11036C670.58008,190.19985,668.45264,193.62368,666.46729,197.06558Zm310.60009-10.67872c-2.21875-3.2998-4.57324-6.56591-6.998-9.708l1.584-1.22168c2.4502,3.17627,4.83106,6.478,7.07422,9.81347Zm-297.30371-9.23779-1.5874-1.2168c2.44531-3.18994,5.02734-6.34082,7.67432-9.36425l1.50488,1.31738C684.73682,170.87661,682.18262,173.99331,679.76367,177.14907Zm282.68848-9.7041c-2.624-2.978-5.38281-5.91211-8.20313-8.72119l1.41211-1.417c2.84961,2.83935,5.63965,5.80566,8.291,8.81591Zm-266.92041-8.30859-1.416-1.41211c2.83789-2.84473,5.80567-5.63282,8.8208-8.28614l1.32129,1.501C701.2749,153.5646,698.33887,156.32241,695.53174,159.13638Zm249.96338-8.583c-2.9961-2.61963-6.11426-5.17188-9.26758-7.58594l1.21484-1.58789c3.18848,2.43994,6.34082,5.02,9.36914,7.668Zm-231.99854-7.2251-1.2207-1.584c3.18066-2.45118,6.48437-4.82911,9.81836-7.06787l1.11523,1.66015C719.91113,138.55142,716.64307,140.904,713.49658,143.32827Zm212.98584-7.32812c-3.30859-2.20606-6.73437-4.33106-10.18066-6.31641l.998-1.7334c3.48438,2.00733,6.94727,4.15576,10.292,6.38574Zm-193.12793-6.00586-1.0039-1.7295c3.46923-2.01416,7.05224-3.94043,10.6499-5.72509l.88867,1.792C740.33057,126.09683,736.78662,128.0021,733.35449,129.99429Zm172.3711-5.94825c-3.57227-1.75634-7.24707-3.415-10.92383-4.93115l.76172-1.84863c3.71777,1.53223,7.43359,3.20947,11.04492,4.98486ZM754.77,119.37319l-.76953-1.84619c3.70556-1.54346,7.50781-2.98291,11.30127-4.27783l.64648,1.89258C762.1958,116.423,758.43506,117.84683,754.77,119.37319Zm128.80225-4.46c-3.76563-1.269-7.62305-2.42871-11.46387-3.44678l.51172-1.93359c3.88379,1.0293,7.7832,2.20166,11.59082,3.48486Zm-106.17383-3.26269-.51953-1.93164c3.87744-1.044,7.84179-1.97217,11.78222-2.75977l.39258,1.96094C785.15527,109.69936,781.23438,110.61782,777.39844,111.65054Zm83.043-2.86768c-3.89453-.76221-7.87012-1.40527-11.81641-1.91211l.25391-1.9834c3.98925.51172,8.00879,1.16211,11.94726,1.93262Zm-59.57911-1.82031-.26171-1.98242c3.97265-.52539,8.02343-.92774,12.042-1.19532l.13281,1.99561C808.80078,106.04507,804.792,106.443,800.8623,106.96255Zm35.84571-1.228c-3.83887-.24023-7.74512-.3623-11.61035-.3623l-.35645.00048v-2l.35254-.00048c3.91113,0,7.85938.123,11.73926.36621Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#e6e6e6"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M356.63171,239.62778h-.00006c-27.71759,0-47.8963,18.82032-54.69879,45.69019L293.5,325.62778h6l13-33-2.73682,33H316.5l5-17-1.05261,17H401.5V284.496A44.86825,44.86825,0,0,0,356.63171,239.62778Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M345,292.12778s4,24-6,28-11,4-11,4l18,55,22,7,24-65-11-5s-11-15-7-24Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#a0616a"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M310,481.12778s-20,24-15,107l-1,24s-52,135-18,142,37,12,40,4,51-192,51-192,39,191,58,189,44,4,43-11-24-130-24-130-5-137-31-145S334,458.12778,310,481.12778Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d: "M284,747.12778l-9,23s-16,22-6,25,24-5,24-5,8-30,8-38Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d: "M450,747.12778l9,23s16,22,6,25-24-5-24-5-8-30-8-38Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("circle", {
+                attrs: {
+                  cx: "225.5",
+                  cy: "175.75557",
+                  r: "25",
+                  fill: "#a0616a"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M362,360.12778s-22-10-31-39l-16,5s5,32,2,39c0,0-4,101-2,103s-16,19-10,21,38-3,34-9l-4-6,68,1s-5,14,9,14,6-27,6-27l-9-93s-10-34-7-46l-14-5S380,347.12778,362,360.12778Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#3f3d56"
+                }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "208.597 162 207.755 170 230.597 170 233.597 164 232.966 170 260.597 170 241.597 140 199.597 141 189.597 170 204.597 170 208.597 162",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "400",
+                  y: "208.25557",
+                  width: "261",
+                  height: "148",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("circle", {
+                attrs: { cx: "454.5", cy: "242.25557", r: "24", fill: "#fff" }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "492.5",
+                  y: "238.25557",
+                  width: "138",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "492.5",
+                  y: "258.25557",
+                  width: "138",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "430.5",
+                  y: "278.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "430.5",
+                  y: "298.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "430.5",
+                  y: "318.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "430.5",
+                  y: "338.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "567.409 357.256 399 357.256 399 207.256 662 207.256 662 266.204 660 266.204 660 209.256 401 209.256 401 355.256 567.409 355.256 567.409 357.256",
+                  fill: "#3f3d56"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "96",
+                  y: "420.25557",
+                  width: "261",
+                  height: "148",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "264.41 569.256 96 569.256 96 419.256 359 419.256 359 478.204 357 478.204 357 421.256 98 421.256 98 567.256 264.41 567.256 264.41 569.256",
+                  fill: "#3f3d56"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M317.5,325.62778s-21-1-21,16,2,71,2,71l2,17-1,69s-19,43-6,44,20-39,20-39l4-36s-2.5-97.5.5-101.5Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#a0616a"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M401.5,322.62778s21-1,21,16-2,71-2,71l-2,17,1,69s19,43,6,44-20-39-20-39l-4-36s2.5-97.5-.5-101.5Z",
+                  transform: "translate(-132.5 -103.37222)",
+                  fill: "#a0616a"
+                }
+              }),
+              _c("circle", {
+                attrs: { cx: "228", cy: "494.25557", r: "46", fill: "#6c63ff" }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "259 491.256 231 491.256 231 463.256 225 463.256 225 491.256 197 491.256 197 497.256 225 497.256 225 525.256 231 525.256 231 497.256 259 497.256 259 491.256",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "805.5",
+                  y: "113.62778",
+                  width: "261",
+                  height: "148",
+                  transform: "translate(1739.5 271.88335) rotate(-180)",
+                  fill: "#f2f2f2"
+                }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "935 159.256 766.591 159.256 766.591 157.256 933 157.256 933 11.256 674 11.256 674 68.203 672 68.203 672 9.256 935 9.256 935 159.256",
+                  fill: "#3f3d56"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "704",
+                  y: "26.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "704",
+                  y: "44.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "704",
+                  y: "62.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "704",
+                  y: "80.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "704",
+                  y: "98.25557",
+                  width: "200",
+                  height: "8",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  x: "861",
+                  y: "120.25557",
+                  width: "43",
+                  height: "23",
+                  fill: "#fff"
+                }
+              }),
+              _c("rect", {
+                attrs: {
+                  y: "691.25557",
+                  width: "799",
+                  height: "2",
+                  fill: "#2f2e41"
+                }
+              }),
+              _c("circle", {
+                attrs: { cx: "657", cy: "351.25557", r: "20", fill: "#6c63ff" }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "670.478 349.951 658.304 349.951 658.304 337.777 655.696 337.777 655.696 349.951 643.522 349.951 643.522 352.56 655.696 352.56 655.696 364.734 658.304 364.734 658.304 352.56 670.478 352.56 670.478 349.951",
+                  fill: "#fff"
+                }
+              }),
+              _c("circle", {
+                attrs: { cx: "668", cy: "155.25557", r: "20", fill: "#6c63ff" }
+              }),
+              _c("polygon", {
+                attrs: {
+                  points:
+                    "681.478 153.951 669.304 153.951 669.304 141.777 666.696 141.777 666.696 153.951 654.522 153.951 654.522 156.56 666.696 156.56 666.696 168.734 669.304 168.734 669.304 156.56 681.478 156.56 681.478 153.951",
+                  fill: "#fff"
+                }
+              })
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=template&id=2ce50e5a& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5" }, [
+      _c("div", { staticClass: "col-md-10" }, [
+        _c("h5", [_vm._v("Page not found")]),
+        _vm._v(" "),
+        _c(
+          "svg",
+          {
+            attrs: {
+              id: "fd59ce54-f850-4dfc-bc34-dd7d379d600e",
+              "data-name": "Layer 1",
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "600",
+              height: "100%",
+              viewBox: "0 0 1074.392 584.231"
+            }
+          },
+          [
+            _c("title", [_vm._v("page not found")]),
+            _c("ellipse", {
+              attrs: {
+                cx: "540.64346",
+                cy: "549.3094",
+                rx: "527.5",
+                ry: "34.9216",
+                fill: "#f2f2f2"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M583.47969,324.89424c-85.94407,0-147.651,55.13938-147.651,183.79791,0,145.813,61.70691,184.41057,147.651,184.41057s151.327-42.27352,151.327-184.41057C734.80664,356.75255,669.42376,324.89424,583.47969,324.89424Zm.56495,319.80837c-59.52686,0-90.62592-34.92288-90.62592-135.9163,0-89.11185,32.37209-136.10461,91.899-136.10461s91.899,30.86774,91.899,136.10461C677.21663,607.23367,643.5715,644.70261,584.04464,644.70261Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M384.36531,591.40121H348.831V486.76183A20.95585,20.95585,0,0,0,327.87517,465.806h-8.32638a20.95585,20.95585,0,0,0-20.95586,20.95585V591.40121H198.36285a11.96327,11.96327,0,0,1-10.57763-17.552l106.0824-200.78034A20.95585,20.95585,0,0,0,284.28724,344.33l-6.26231-2.9572a20.95585,20.95585,0,0,0-27.4293,9.07005L121.21416,592.4754a28.41578,28.41578,0,0,0-3.35584,13.39612v0a28.41583,28.41583,0,0,0,28.41584,28.41583H298.59293v66.16727a25.119,25.119,0,0,0,25.119,25.119h.00005a25.119,25.119,0,0,0,25.119-25.119V634.28739h35.53428a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,384.36531,591.40121Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#6c63ff"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1042.36183,591.40121h-35.53428V486.76183A20.95585,20.95585,0,0,0,985.87169,465.806h-8.32638a20.95585,20.95585,0,0,0-20.95586,20.95585V591.40121H856.35937a11.96326,11.96326,0,0,1-10.57763-17.552L951.86413,373.06891A20.95586,20.95586,0,0,0,942.28376,344.33l-6.26231-2.9572a20.95586,20.95586,0,0,0-27.42931,9.07005L779.21068,592.4754a28.41578,28.41578,0,0,0-3.35584,13.39612v0a28.41583,28.41583,0,0,0,28.41583,28.41583H956.58945v66.16727a25.119,25.119,0,0,0,25.119,25.119h0a25.119,25.119,0,0,0,25.119-25.119V634.28739h35.53428a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,1042.36183,591.40121Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#6c63ff"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M394.16787,579.148H358.63358V474.50864a20.95585,20.95585,0,0,0-20.95585-20.95586h-8.32638a20.95586,20.95586,0,0,0-20.95586,20.95586V579.148H208.16541a11.96327,11.96327,0,0,1-10.57763-17.552L303.67017,360.81572a20.95586,20.95586,0,0,0-9.58037-28.73893l-6.26231-2.9572a20.95586,20.95586,0,0,0-27.42931,9.07L131.01672,580.2222a28.41582,28.41582,0,0,0-3.35584,13.39613v0a28.41583,28.41583,0,0,0,28.41583,28.41583H308.39549v66.16727a25.119,25.119,0,0,0,25.119,25.119h.00005a25.119,25.119,0,0,0,25.119-25.119V622.0342h35.53429a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,394.16787,579.148Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1060.74162,579.148h-35.53428V474.50864a20.95586,20.95586,0,0,0-20.95586-20.95586H995.9251a20.95586,20.95586,0,0,0-20.95586,20.95586V579.148H874.73916a11.96327,11.96327,0,0,1-10.57763-17.552L970.24392,360.81572a20.95586,20.95586,0,0,0-9.58037-28.73893l-6.26231-2.9572a20.95586,20.95586,0,0,0-27.42931,9.07L797.59047,580.2222a28.41582,28.41582,0,0,0-3.35584,13.39613v0a28.41583,28.41583,0,0,0,28.41583,28.41583H974.96924v66.16727a25.119,25.119,0,0,0,25.119,25.119h0a25.119,25.119,0,0,0,25.119-25.119V622.0342h35.53428a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,1060.74162,579.148Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M603.0848,313.86637c-85.94407,0-147.651,55.13937-147.651,183.79791,0,145.813,61.70691,184.41057,147.651,184.41057s151.327-42.27352,151.327-184.41057C754.41175,345.72467,689.02887,313.86637,603.0848,313.86637Zm.565,319.80836c-59.52686,0-90.62592-34.92287-90.62592-135.91629,0-89.11185,32.37209-136.10461,91.899-136.10461s91.899,30.86774,91.899,136.10461C696.82174,596.20579,663.17661,633.67473,603.64975,633.67473Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("circle", {
+              attrs: {
+                cx: "471.14108",
+                cy: "18.25044",
+                r: "12.90118",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "502.60736",
+                cy: "46.88476",
+                rx: "36.18622",
+                ry: "46.88476",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M565.66136,237.49419c-18.1276,0-33.1413-17.27052-35.77576-39.80484a60.9759,60.9759,0,0,0-.41046,7.07991c0,25.89373,16.20114,46.88476,36.18622,46.88476s36.18623-20.991,36.18623-46.88476a60.9759,60.9759,0,0,0-.41046-7.07991C598.80267,220.22367,583.789,237.49419,565.66136,237.49419Z",
+                transform: "translate(-63.054 -157.8845)",
+                opacity: "0.1"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M639.29619,342.07326c-.77711,3.19345-4.12792,5.751-7.83881,7.53791-7.80188,3.75682-17.4253,4.87788-26.7597,5.25418a45.17622,45.17622,0,0,1-7.1445-.132,20.5371,20.5371,0,0,1-12.25052-5.63141,1.68086,1.68086,0,0,1,.04371-2.84388c4.9694-5.45888,13.2622-8.80605,21.61613-11.21609,6.3344-1.82743,17.3813-6.56089,24.29013-5.9221C637.94444,329.73864,640.2774,338.04112,639.29619,342.07326Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#3f3d56"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M639.29619,342.07326c-.77711,3.19345-4.12792,5.751-7.83881,7.53791-7.80188,3.75682-17.4253,4.87788-26.7597,5.25418a45.17622,45.17622,0,0,1-7.1445-.132,20.5371,20.5371,0,0,1-12.25052-5.63141,1.68086,1.68086,0,0,1,.04371-2.84388c4.9694-5.45888,13.2622-8.80605,21.61613-11.21609,6.3344-1.82743,17.3813-6.56089,24.29013-5.9221C637.94444,329.73864,640.2774,338.04112,639.29619,342.07326Z",
+                transform: "translate(-63.054 -157.8845)",
+                opacity: "0.1"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M540.09786,318.2059a19.76967,19.76967,0,0,0-1.1987,15.07476,26.33914,26.33914,0,0,0,8.82921,12.49683c10.09467,8.09163,23.98784,9.20512,36.92477,9.09278a284.6495,284.6495,0,0,0,33.90525-2.32384,40.53788,40.53788,0,0,0,11.00143-2.55442c4.22242-1.82679,7.93282-5.17756,9.436-9.5257s.43625-9.67246-3.13383-12.57428c-3.13686-2.54969-7.46265-2.9004-11.49775-3.14289l-23.08764-1.38745c2.281-2.30839,5.31816-3.614,8.09586-5.29216,3.68523-2.22642,6.13358-5.96455,8.81312-9.33471a129.00143,129.00143,0,0,1,13.4386-13.817c.75138,4.31038,3.4782,7.8499,6.68733,10.824s6.90841,5.36845,10.2439,8.20013c8.0786,6.85838,13.89583,16.1669,22.39215,22.50043a43.82885,43.82885,0,0,0,16.04862-8.0122l-3.30209-5.98141a3.94,3.94,0,0,0-1.24459-1.55282c-.93465-.575-2.13975-.27872-3.225-.44144-2.90082-.435-4.16771-3.784-5.306-6.48737-3.12491-7.42173-9.108-13.17993-14.21783-19.40381a98.00854,98.00854,0,0,1-9.99577-14.72284c-1.71652-3.10162-3.288-6.33107-5.61746-9.00321s-5.59358-4.773-9.1385-4.78051c-3.13222-.00662-6.02122,1.58355-8.71422,3.18308a230.47679,230.47679,0,0,0-23.63018,16.09894c-3.94376,3.0617-7.86306,6.29645-12.48933,8.17393-1.94748.79035-4.00044,1.33052-5.86924,2.29223-3.27313,1.6844-5.75721,4.53435-8.43128,7.06415C566.27712,311.89225,553.219,317.73841,540.09786,318.2059Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#3f3d56"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M588.3737,253.98251a23.77444,23.77444,0,0,1-1.73379,8.03335,10.04492,10.04492,0,0,1-5.76772,5.57269,12.37513,12.37513,0,0,1-5.62306.18249,10.88232,10.88232,0,0,1-4.58151-1.56071c-2.16484-1.48837-3.24415-4.14413-3.63748-6.74325-.39333-2.596-.21714-5.24857-.46885-7.86342a42.94439,42.94439,0,0,0-1.202-6.25549c-.16993-.68282-.343-1.36248-.51294-2.04216-.16674-.67967-.33037-1.35935-.48141-2.039-.13847-.63878-.26745-1.28068-.37761-1.92574-.09123-.54436-.173-1.09189-.23285-1.64255a18.42329,18.42329,0,0,0-.80867-4.81118,14.60727,14.60727,0,0,0-1.68659-2.854c-.28635-.40906-.56326-.81811-.81815-1.24292a5.88984,5.88984,0,0,1-.97226-3.74763,3.286,3.286,0,0,1,.14788-.601c.02516-.07552.05347-.151.085-.2234A1.80187,1.80187,0,0,0,560.932,223.07a3.43341,3.43341,0,0,0-.14788-1.77783,11.31808,11.31808,0,0,0-.95974-2.28761c-.2643-.47829-1.16108-1.34046-1.16738-1.888-.0126-1.10132,2.13972-1.98867,3.01134-2.42291a16.79623,16.79623,0,0,1,8.59657-1.74323c1.90369.129,3.9679.71428,5.0189,2.30962.944,1.438.81807,3.30081,1.22085,4.97169a1.47068,1.47068,0,0,0,.29892.66393,1.34135,1.34135,0,0,0,.73948.33982,4.54948,4.54948,0,0,0,1.416.05666h.00315a2.93138,2.93138,0,0,0,.37128-.05351,4.957,4.957,0,0,0,2.03271-.8779q.58531-.15576,1.18-.25488a.25112.25112,0,0,0,.04725-.00945c1.57646,4.97482,1.781,10.30836,3.07111,15.37444.63874,2.52044,1.55442,5.00943,1.6834,7.60225.00945.11327.0126.2297.01575.34612.0189.83386-.04717,1.674-.0126,2.50472a6.981,6.981,0,0,0,.12591,1.1139,15.61121,15.61121,0,0,0,.52546,1.74325l.00945.02831c.05977.18251.11643.36817.16363.55381.03457.1353.06607.26747.09127.40277l.00311.00943A14.93754,14.93754,0,0,1,588.3737,253.98251Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#fbbebe"
+              }
+            }),
+            _c("circle", {
+              attrs: {
+                cx: "503.23669",
+                cy: "44.99678",
+                r: "18.56511",
+                fill: "#fbbebe"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M684.15711,304.03278a30.445,30.445,0,0,0-5.236-14.10317q.72216,4.29513,1.44748,8.58714a3.214,3.214,0,0,1-3.36688-1.03523,10.33663,10.33663,0,0,1-1.76529-3.27565,67.46571,67.46571,0,0,0-8.2095-14.73567c-11.81876-.98489-23.50223-5.88418-33.89555-11.59532-10.39643-5.708-20.12582-12.5519-30.38382-18.50217a43.57346,43.57346,0,0,0-5.54436-2.832c-3.20954-1.287-6.81242-1.95406-9.85526-3.46759-.2045-.1007-.409-.20767-.61043-.31781a12.57834,12.57834,0,0,1-1.94459-1.30584,10.34363,10.34363,0,0,1-.93139-.8559,20.35115,20.35115,0,0,1-3.55886-5.95341c-1.63308-3.61232-2.21524-7.97041-3.84517-11.58274a11.20292,11.20292,0,0,1,2.50156-1.76525h.00315c.13213-.06924.2643-.13532.39962-.19824a11.9404,11.9404,0,0,1,2.00437-.73317q.58531-.15576,1.18-.25488a.25112.25112,0,0,0,.04725-.00945,11.56564,11.56564,0,0,1,5.49085.43424c2.58652.87477,4.76711,2.62115,6.94148,4.27313a114.02006,114.02006,0,0,1,10.14787,8.04908c1.79357,1.718,3.4298,3.606,5.35868,5.16676a42.14393,42.14393,0,0,0,5.05662,3.35116q15.65613,9.32658,31.31525,18.65005c3.53365,2.1051,7.07046,4.21019,10.52553,6.438,5.24855,3.38578,10.30828,7.05474,15.36493,10.72057q4.46978,3.23787,8.93647,6.47889a9.72771,9.72771,0,0,1,2.533,2.3411,8.4724,8.4724,0,0,1,1.12337,3.433A31.3874,31.3874,0,0,1,684.15711,304.03278Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#fbbebe"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M592.97726,267.9441c-1.25235,5.61674-6.92888,9.012-9.89617,13.94586-3.68784,6.12335-2.18378,13.241-.79922,20.25484q-3.79485,3.27095-7.59285,6.54186c-1.39708,1.19886-2.79417,2.404-4.29827,3.46444a57.35064,57.35064,0,0,1-6.85966,3.93956q-3.3606,1.72752-6.72119,3.45814a32.1282,32.1282,0,0,1-6.57961,2.78793c-4.41473,1.13278-9.10318.33982-13.4707-.97232a6.08761,6.08761,0,0,1-1.47264-.601,2.39351,2.39351,0,0,1-.69854-.63248,3.91067,3.91067,0,0,1-.44365-2.53933c.44365-7.35052,2.24036-14.54686,4.03081-21.68971a85.2598,85.2598,0,0,1,3.84832-12.57708,85.0766,85.0766,0,0,1,5.41538-10.151,68.36751,68.36751,0,0,1,7.92948-11.51353,18.47881,18.47881,0,0,0,3.67525-4.73882c1.11706-2.54876.686-5.472.91252-8.24732a17.14844,17.14844,0,0,1,1.63312-6.0069v-.00315a17.09326,17.09326,0,0,1,1.74321-2.88232q.45788,1.06671.91568,2.13027.30209.69855.59783,1.394.38706.89679.7678,1.78728,1.09973,2.55823,2.19637,5.11327a21.58968,21.58968,0,0,0,3.33538,5.944,6.49923,6.49923,0,0,0,11.12337-.85275,21.26125,21.26125,0,0,0,2.27185-6.0132,19.21547,19.21547,0,0,0,.25175-7.83509c-.75835-5.00945-2.88862-10.12585-4.43678-14.77972a14.94511,14.94511,0,0,1-1.07927-4.871,3.35144,3.35144,0,0,1,.05662-.56011c.00945-.04719.0189-.09754.02834-.14473a11.9404,11.9404,0,0,1,2.00437-.73317q.58531-.15576,1.18-.25488,2.04378,11.06355,4.09377,22.12709c.0315.17307.0661.34613.09756.52234.19509,1.05726.39333,2.11454.61358,3.16865.19828.95657.41223,1.91.65137,2.85715l.00945.02831c.08182.321.16678.63877.2549.95658l.00311.00943c.2423.86848.5129,1.73065.81811,2.58024C590.93825,257.47528,594.16355,262.62946,592.97726,267.9441Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#6c63ff"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M668.32144,346.87707a6.58269,6.58269,0,0,0,.61,3.14328c1.16192,2.12353,3.94981,2.60625,6.36228,2.80484a188.37688,188.37688,0,0,0,42.2657-1.28774,4.88565,4.88565,0,0,0,2.15136-.66766c1.98985-1.39509.76329-4.7951-1.40951-5.88355s-4.75126-.82614-7.1353-1.29748a22.47912,22.47912,0,0,1-6.67794-2.89617q-7.25234-4.16669-14.293-8.68808c-2.79453-1.79464-6.09272-3.70993-9.23987-2.64587C672.43,332.34264,668.26533,337.68065,668.32144,346.87707Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#3f3d56"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M564.43732,240.87367v.00315c-.022.13215-.04406.26116-.07237.39018-.0346.214-.07551.43108-.11642.645-.39018,1.99812-.86847,3.98678-1.41913,5.96287-1.5104,5.45939-3.53366,10.83069-5.54121,16.12332q-8.08055,21.28692-16.16423,42.577c-1.35936,3.57457-2.71554,7.15228-4.26054,10.65448-.516,1.16741-1.04782,2.34424-1.57647,3.53368-1.89427,4.25737-3.713,8.65322-4.31716,13.18436a27.44976,27.44976,0,0,0-.19194,9.04027c.60416,2.97042,2.40718,5.8716,5.22969,6.96977,1.37823.53808,3.35113,1.25865,2.97355,2.69037-.2045.78665-1.09817,1.17055-1.90057,1.3027a7.31234,7.31234,0,0,1-5.966-1.718c-1.50725-1.33732-2.66518-3.41725-4.66959-3.64065-1.38767-.151-2.66518.67966-3.93643,1.26178-5.18564,2.36942-11.22719.71114-16.674-.9723.42794-2.20579,2.64318-3.65953,4.84267-4.10006,2.19949-.44367,4.47449-.129,6.718-.18879a3.50958,3.50958,0,0,0,2.04216-.52549,3.70545,3.70545,0,0,0,1.10132-1.88169,78.96356,78.96356,0,0,0,3.21273-13.14661c.7237-4.66645,1.02581-9.40527,2.05787-14.01507.80241-3.59661,2.0422-7.07991,3.10572-10.61044a224.68238,224.68238,0,0,0,5.0598-22.07674,78.02019,78.02019,0,0,0,1.42543-9.36751c.17935-2.6117.09438-5.236.34609-7.83826a60.8877,60.8877,0,0,1,2.11141-9.99683q1.44427-5.34769,2.88547-10.68911c1.42544-5.2706,2.95465-10.74572,6.567-14.84264a13.96159,13.96159,0,0,1,10.02834-4.78915,9.8819,9.8819,0,0,1,2.13027.22969c.11639.02831.23285.05664.34923.0881a8.63447,8.63447,0,0,1,2.17437.89995c1.11388-.708,1.68025-.45942,2.41974.63246a6.97319,6.97319,0,0,1,.88107,3.79485A52.42378,52.42378,0,0,1,564.43732,240.87367Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#fbbebe"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M565.66136,245.0461l-.0472.04719-.25486.25488-2.5299,2.52675-1.23976-5.20767-4.25109-17.854a9.8819,9.8819,0,0,1,2.13027.22969,3.286,3.286,0,0,1,.14788-.601l.20135.68911,1.44118,4.90245,2.72811,9.30773.45,1.53241v.00315Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#6c63ff"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M581.71523,188.0873a12.58165,12.58165,0,0,1-3.70049,8.89583,12.31392,12.31392,0,0,1-1.36008,1.17634,12.52812,12.52812,0,0,1-7.53567,2.52415H554.023a12.5902,12.5902,0,0,1,0-25.18037h15.096A12.62919,12.62919,0,0,1,581.71523,188.0873Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("circle", {
+              attrs: {
+                cx: "532.81499",
+                cy: "18.25044",
+                r: "12.90118",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M595.55433,163.23377c-.15825,0-.31505.00628-.472.01193a12.89776,12.89776,0,0,1,0,25.77849c.15694.00565.31374.01193.472.01193a12.90117,12.90117,0,1,0,0-25.80235Z",
+                transform: "translate(-63.054 -157.8845)",
+                opacity: "0.1"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M534.19508,163.23377c.15825,0,.31505.00628.472.01193a12.89776,12.89776,0,0,0,0,25.77849c-.157.00565-.31375.01193-.472.01193a12.90118,12.90118,0,0,1,0-25.80235Z",
+                transform: "translate(-63.054 -157.8845)",
+                opacity: "0.1"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M576.65466,198.15947a12.52812,12.52812,0,0,1-7.53567,2.52415H554.023a12.52833,12.52833,0,0,1-7.53574-2.52415Z",
+                transform: "translate(-63.054 -157.8845)",
+                opacity: "0.1"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M674.13958,291.64042s3.25228,9.37161,6.229,6.87633L677.996,286.26693Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#fbbebe"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1069.91781,577.43414a20.81252,20.81252,0,1,0,2.7716-39.91524l.52093,10.7122-5.06814-9.18045a20.734,20.734,0,0,0-10.68367,11.72261,20.40847,20.40847,0,0,0-1.19713,5.62986A20.80856,20.80856,0,0,0,1069.91781,577.43414Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1094.99516,701.67756c-1.78906-9.11027,5.9633-17.1868,13.62086-22.43651s16.605-10.40779,19.21775-19.31684c3.755-12.80387-7.43-24.52981-16.13564-34.64176a125.30044,125.30044,0,0,1-16.52359-24.55738c-1.81107-3.5325-3.47558-7.22528-3.95221-11.16626-.68641-5.67546,1.13693-11.32309,2.9739-16.73673q9.17925-27.05169,19.62843-53.65005",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1070.77493,574.6762a20.81252,20.81252,0,1,0,2.7716-39.91524l.52093,10.7122-5.06815-9.18045a20.734,20.734,0,0,0-10.68366,11.72261,20.40847,20.40847,0,0,0-1.19713,5.62986A20.80855,20.80855,0,0,0,1070.77493,574.6762Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1092.45136,515.47266a20.78819,20.78819,0,0,1,14.97993-13.19764l1.71361,10.18378,3.177-10.69566a20.81,20.81,0,1,1-19.87057,13.70952Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1093.59418,511.7954a20.7882,20.7882,0,0,1,14.97993-13.19763l1.71361,10.18378,3.177-10.69567a20.81,20.81,0,1,1-19.87057,13.70952Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1108.04474,625.48885a20.81,20.81,0,0,0,18.419-37.02267l-2.44121,8.21926-1.73105-10.30382a.36183.36183,0,0,0-.053-.0201,20.81113,20.81113,0,1,0-14.1938,39.12733Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1109.035,621.76417a20.81,20.81,0,0,0,18.419-37.02267l-2.44121,8.21926-1.73105-10.30382a.3621.3621,0,0,0-.053-.0201,20.81113,20.81113,0,1,0-14.1938,39.12733Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1086.37782,660.05148a20.80131,20.80131,0,1,0,4.01058-16.29737l9.27267,13.95654-12.66994-7.40768A20.61638,20.61638,0,0,0,1086.37782,660.05148Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M1087.23494,657.29354a20.80131,20.80131,0,1,0,4.01058-16.29737l9.27267,13.95655-12.66994-7.40769A20.61626,20.61626,0,0,0,1087.23494,657.29354Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M72.06146,628.13325a13.67421,13.67421,0,1,0,1.821-26.225l.34227,7.03811-3.32987-6.03172a13.62263,13.62263,0,0,0-7.01936,7.702,13.40883,13.40883,0,0,0-.78654,3.69893A13.6716,13.6716,0,0,0,72.06146,628.13325Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M88.53774,709.76344c-1.17545-5.98561,3.918-11.292,8.94915-14.7412s10.90978-6.8381,12.62642-12.69151c2.46711-8.41238-4.88167-16.11653-10.60142-22.76027A82.32442,82.32442,0,0,1,88.6556,643.43581a22.20962,22.20962,0,0,1-2.59668-7.33643c-.451-3.72888.747-7.43947,1.95391-10.99634q6.03093-17.77346,12.89623-35.24906",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M72.62461,626.32123a13.6742,13.6742,0,1,0,1.821-26.225l.34227,7.03812L71.458,601.10258a13.62262,13.62262,0,0,0-7.01936,7.702,13.40912,13.40912,0,0,0-.78654,3.69892A13.67158,13.67158,0,0,0,72.62461,626.32123Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M86.86641,587.42343a13.65822,13.65822,0,0,1,9.84209-8.67109l1.12587,6.69093,2.08737-7.02725a13.67252,13.67252,0,1,1-13.05533,9.00741Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M87.61727,585.0074a13.65822,13.65822,0,0,1,9.84209-8.67108l1.12587,6.69093L100.6726,576a13.67252,13.67252,0,1,1-13.05533,9.0074Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M97.11155,659.70607a13.67255,13.67255,0,0,0,12.10164-24.32457l-1.60392,5.4002-1.13733-6.76979a.238.238,0,0,0-.0348-.0132,13.67329,13.67329,0,1,0-9.32559,25.70736Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M97.76214,657.25889a13.67255,13.67255,0,0,0,12.10164-24.32457l-1.60392,5.4002-1.13733-6.7698a.238.238,0,0,0-.0348-.0132,13.67329,13.67329,0,1,0-9.32559,25.70737Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M82.876,682.41435a13.66684,13.66684,0,1,0,2.635-10.70767l6.09231,9.16971-8.32438-4.867A13.54535,13.54535,0,0,0,82.876,682.41435Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#57b894"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M83.43913,680.60233a13.66684,13.66684,0,1,0,2.635-10.70767l6.09231,9.16971-8.32439-4.867A13.54535,13.54535,0,0,0,83.43913,680.60233Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "480.946",
+                cy: "319.1155",
+                rx: "17",
+                ry: "22",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "573.446",
+                cy: "319.6155",
+                rx: "17",
+                ry: "22",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M623.5,542.5c0,9.94-13.88,18-31,18s-31-8.06-31-18c0-8.61,10.41-15.81,24.32-17.57a50.10353,50.10353,0,0,1,6.68-.43,50.69869,50.69869,0,0,1,11.13,1.2C615.25,528.29,623.5,534.84,623.5,542.5Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#2f2e41"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "484.946",
+                cy: "314.1155",
+                rx: "17",
+                ry: "22",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "577.446",
+                cy: "314.6155",
+                rx: "17",
+                ry: "22",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("ellipse", {
+              attrs: {
+                cx: "533.446",
+                cy: "379.6155",
+                rx: "31",
+                ry: "18",
+                fill: "none",
+                stroke: "#3f3d56",
+                "stroke-miterlimit": "10"
+              }
+            }),
+            _c("path", {
+              attrs: {
+                d:
+                  "M604,527.2a4.93658,4.93658,0,0,1-1.32,3.392A4.33873,4.33873,0,0,1,599.5,532h-10a4.66433,4.66433,0,0,1-4.5-4.8,4.90458,4.90458,0,0,1,.82-2.74134A47.02,47.02,0,0,1,592.5,524a47.66454,47.66454,0,0,1,11.13,1.28A5.06656,5.06656,0,0,1,604,527.2Z",
+                transform: "translate(-63.054 -157.8845)",
+                fill: "#fff"
+              }
+            }),
+            _c("circle", {
+              attrs: { cx: "484.946", cy: "308.1155", r: "5", fill: "#fff" }
+            }),
+            _c("circle", {
+              attrs: { cx: "577.946", cy: "308.1155", r: "5", fill: "#fff" }
+            }),
+            _c("circle", {
+              attrs: {
+                cx: "582.946",
+                cy: "355.1155",
+                r: "5",
+                fill: "#6c63ff",
+                opacity: "0.3"
+              }
+            }),
+            _c("circle", {
+              attrs: {
+                cx: "460.946",
+                cy: "355.1155",
+                r: "5",
+                fill: "#6c63ff",
+                opacity: "0.3"
+              }
+            })
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Notification.vue?vue&type=template&id=6a4ce154&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Notification.vue?vue&type=template&id=6a4ce154& ***!
@@ -81595,9 +83355,7 @@ var render = function() {
                 _c("tr", [
                   _c("th", [_vm._v("ID")]),
                   _vm._v(" "),
-                  _c("th", [_vm._v("First Name")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Last Name")]),
+                  _c("th", [_vm._v("Name")]),
                   _vm._v(" "),
                   _c("th", [_vm._v("Gender")]),
                   _vm._v(" "),
@@ -81617,9 +83375,13 @@ var render = function() {
                   return _c("tr", { key: patient.id }, [
                     _c("td", [_vm._v(_vm._s(patient.id))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.first_name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.last_name))]),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(patient.first_name) +
+                          " " +
+                          _vm._s(patient.last_name)
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
@@ -84426,76 +86188,97 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row mt-3" }, [
       _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body table-responsive p-0" }, [
-            _c("table", { staticClass: "table table-hover text-nowrap" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.pendinglabs.data, function(lab) {
-                  return _c("tr", { key: lab.id }, [
-                    _c("td", [_vm._v(_vm._s(lab.id))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        _vm._s(lab.patient.first_name) +
-                          " " +
-                          _vm._s(lab.patient.last_name)
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
+        _c(
+          "div",
+          { staticClass: "card" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.pendinglabscount == 0
+              ? _c("no-pending-task")
+              : _c("div", { staticClass: "card-body table-responsive p-0" }, [
+                  _c(
+                    "table",
+                    { staticClass: "table table-hover text-nowrap" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("ID")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Patient")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Test(s)")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Action")])
+                        ])
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "a",
-                        {
-                          staticStyle: { align: "center" },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.viewModal(lab)
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "fa fa-eye green" })]
+                        "tbody",
+                        _vm._l(_vm.pendinglabs.data, function(lab) {
+                          return _c("tr", { key: lab.id }, [
+                            _c("td", [_vm._v(_vm._s(lab.id))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(lab.patient.first_name) +
+                                  " " +
+                                  _vm._s(lab.patient.last_name)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  staticStyle: { align: "center" },
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.viewModal(lab)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-eye green" })]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.$gate.isDocOrNurse(),
+                                      expression: "$gate.isDocOrNurse()"
+                                    }
+                                  ],
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editModal(lab)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v("Post Finding "),
+                                  _c("i", { staticClass: "fas fa-vials" })
+                                ]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.$gate.isDocOrNurse(),
-                              expression: "$gate.isDocOrNurse()"
-                            }
-                          ],
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.editModal(lab)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v("Post Finding "),
-                          _c("i", { staticClass: "fas fa-vials" })
-                        ]
-                      )
-                    ])
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
-        ])
+                    ]
+                  )
+                ])
+          ],
+          1
+        )
       ])
     ]),
     _vm._v(" "),
@@ -84543,7 +86326,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
@@ -84614,7 +86397,7 @@ var render = function() {
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(2)
                 ])
               ])
             ])
@@ -84698,7 +86481,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(4)
+                    _vm._m(3)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
@@ -84770,7 +86553,7 @@ var render = function() {
                         : _vm._e()
                     ]),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _vm._m(4),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", [_vm._v("Finding")]),
@@ -84898,22 +86681,6 @@ var staticRenderFns = [
             ])
           ]
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("ID")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Patient")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Test(s)")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Action")])
       ])
     ])
   },
@@ -85065,76 +86832,97 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row mt-3" }, [
       _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body table-responsive p-0" }, [
-            _c("table", { staticClass: "table table-hover text-nowrap" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.labfindings.data, function(item) {
-                  return _c("tr", { key: item.id }, [
-                    _c("td", [_vm._v(_vm._s(item.id))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        _vm._s(item.patient.first_name) +
-                          " " +
-                          _vm._s(item.patient.last_name)
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
+        _c(
+          "div",
+          { staticClass: "card" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.labfindingscount == 0
+              ? _c("no-pending-task")
+              : _c("div", { staticClass: "card-body table-responsive p-0" }, [
+                  _c(
+                    "table",
+                    { staticClass: "table table-hover text-nowrap" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("ID")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Patient")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Lab Result(s)")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Action")])
+                        ])
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "a",
-                        {
-                          staticStyle: { align: "center" },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.viewModal(item)
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "fa fa-eye green" })]
+                        "tbody",
+                        _vm._l(_vm.labfindings.data, function(item) {
+                          return _c("tr", { key: item.id }, [
+                            _c("td", [_vm._v(_vm._s(item.id))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(item.patient.first_name) +
+                                  " " +
+                                  _vm._s(item.patient.last_name)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  staticStyle: { align: "center" },
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.viewModal(item)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-eye green" })]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.$gate.isDoc(),
+                                      expression: "$gate.isDoc()"
+                                    }
+                                  ],
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.editModal(item)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v("Prescribe "),
+                                  _c("i", { staticClass: "fas fa-tablets" })
+                                ]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.$gate.isDoc(),
-                              expression: "$gate.isDoc()"
-                            }
-                          ],
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.editModal(item)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v("Prescribe "),
-                          _c("i", { staticClass: "fas fa-tablets" })
-                        ]
-                      )
-                    ])
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
-        ])
+                    ]
+                  )
+                ])
+          ],
+          1
+        )
       ])
     ]),
     _vm._v(" "),
@@ -85182,7 +86970,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
@@ -85372,7 +87160,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _vm._m(2)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
@@ -85587,22 +87375,6 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("ID")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Patient")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Lab Result(s)")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Action")])
-      ])
     ])
   },
   function() {

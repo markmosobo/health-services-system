@@ -46,6 +46,12 @@ class LabFindingController extends Controller
             $labfinding->save();
         }
     } 
+
+    public function countLabFindings(){
+        $user = auth('api')->user();
+        $labs = LabFinding::all()->where('lab_user_id',$user->id)->count();
+        return response()->json($labs);
+    }
     
     public function countPendingLabFindings(){
         $pendinglabfindings = LabFinding::all()->where('status','0')->count();

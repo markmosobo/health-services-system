@@ -38,6 +38,7 @@ let routes = [
     { path: '/bills', component: require('./components/Bill.vue').default },
     { path: '/payment', component: require('./components/Payment.vue').default },
     { path: '/notifications', component: require('./components/Notification.vue').default },
+    { path: '*', component: require('./components/NotFound.vue').default }
 
   ]
 
@@ -113,6 +114,8 @@ Vue.prototype.$userId = document.querySelector("meta[name='currentuser_id']").ge
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
+Vue.component('no-pending-task', require('./components/NoPendingTask.vue').default);
+Vue.component('not-found', require('./components/NotFound.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -28,6 +28,12 @@ class DrugPurchaseController extends Controller
         'drugs' => $request['drugs']           
        ]);
     }
+
+    public function countDrugPurchases(){
+        $user = auth('api')->user();
+        $drugpurchases = DrugPurchase::all()->where('pharm_user_id',$user->id)->count();
+        return response()->json($drugpurchases);
+    }
     
     public function countPendingDrugSales(){
         $pendingdrugsales = DrugPurchase::all()->where('status','0')->count();
