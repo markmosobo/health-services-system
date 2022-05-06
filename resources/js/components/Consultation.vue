@@ -34,7 +34,7 @@
                               <i class="fa fa-edit blue"></i>
                           </a>
                           <span v-show="$gate.isDoc()">/</span>
-                          <a href="#" v-if="$gate.isDoc()" @click = "deleteLab(item.id)">
+                          <a href="#" v-if="$gate.isDoc()" @click = "deleteConsultation(item.id)">
                               <i class="fa fa-trash red"></i>
                           </a>                        
                       </td>
@@ -190,7 +190,42 @@
                   .catch(() => {
                   this.$Progress.fail();  
                   })
-              },              
+              }, 
+              deleteConsultation(id){
+                this.$Progress.start();
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if (result.isConfirmed) { 
+                  //send request to the server
+                  this.form.delete('api/consult/'+id).then(() => {
+                  this.$Progress.finish();
+                  Swal.fire(
+                    'Deleted!',
+                    'Consultation has been deleted.',
+                    'success'
+                  )
+                  Fire.$emit('Refresh');
+                  }).catch(() => {
+                  this.$Progress.fail();  
+                    Swal.fire(
+                    'Failed!',
+                    'There was something wrong.',
+                    'warning'
+                  )
+                  }); 
+                  }else if(result.isDenied) {
+                    console.log('cancelled')
+                  }
+                                   
+                })
+              },                           
               listPatients(){
                   axios.get('api/listpatients').then((response) => {
                     this.patients = response.data.data;

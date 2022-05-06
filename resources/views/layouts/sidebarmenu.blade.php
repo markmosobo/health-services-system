@@ -124,17 +124,11 @@
               @endcan  
               @can('isSuperAdmin')  
               <li class="nav-item">
-                <router-link to ="/bills" class="nav-link">
-                  <i class="fas fa-money-bill nav-icon green"></i>
-                  <p>Bills</p>
+                <router-link to ="/tasks" class="nav-link">
+                  <i class="fas fa-file nav-icon white"></i>
+                  <p>Manage Tasks</p>
                 </router-link>
               </li>
-              <li class="nav-item">
-                <router-link to ="/labs" class="nav-link">
-                  <i class="fas fa-vials purple nav-icon"></i>
-                  <p>Labs</p>
-                </router-link>
-              </li> 
               @endcan                                     
             </ul>
           </li>

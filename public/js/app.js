@@ -3505,28 +3505,58 @@ __webpack_require__.r(__webpack_exports__);
         _this2.$Progress.fail();
       });
     },
-    listPatients: function listPatients() {
+    deleteConsultation: function deleteConsultation(id) {
       var _this3 = this;
 
+      this.$Progress.start();
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          //send request to the server
+          _this3.form["delete"]('api/consult/' + id).then(function () {
+            _this3.$Progress.finish();
+
+            Swal.fire('Deleted!', 'Consultation has been deleted.', 'success');
+            Fire.$emit('Refresh');
+          })["catch"](function () {
+            _this3.$Progress.fail();
+
+            Swal.fire('Failed!', 'There was something wrong.', 'warning');
+          });
+        } else if (result.isDenied) {
+          console.log('cancelled');
+        }
+      });
+    },
+    listPatients: function listPatients() {
+      var _this4 = this;
+
       axios.get('api/listpatients').then(function (response) {
-        _this3.patients = response.data.data;
+        _this4.patients = response.data.data;
       });
     },
     loadConsultations: function loadConsultations() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('api/consult').then(function (response) {
-        _this4.consultations = response.data;
+        _this5.consultations = response.data;
       });
     }
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this6 = this;
 
     this.listPatients();
     this.loadConsultations();
     Fire.$on('Refresh', function () {
-      _this5.loadConsultations();
+      _this6.loadConsultations();
     });
   }
 });
@@ -3544,6 +3574,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -75628,7 +75721,7 @@ var render = function() {
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
-                                  return _vm.deleteLab(item.id)
+                                  return _vm.deleteConsultation(item.id)
                                 }
                               }
                             },
@@ -77187,12 +77280,20 @@ var render = function() {
               _vm._v(" "),
               _vm._m(32)
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$gate.isSuperAdminOrAdmin()
+          ? _c("div", { staticClass: "card" }, [
+              _vm._m(33),
+              _vm._v(" "),
+              _vm._m(34)
+            ])
           : _vm._e()
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg-6" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(33),
+          _vm._m(35),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _vm.$gate.isDoc()
@@ -77203,7 +77304,7 @@ var render = function() {
                       "d-flex justify-content-between align-items-center border-bottom mb-3"
                   },
                   [
-                    _vm._m(34),
+                    _vm._m(36),
                     _vm._v(" "),
                     _c("p", { staticClass: "d-flex flex-column text-right" }, [
                       _c("span", { staticClass: "font-weight-bold" }, [
@@ -77233,7 +77334,7 @@ var render = function() {
                       "d-flex justify-content-between align-items-center border-bottom mb-3"
                   },
                   [
-                    _vm._m(35),
+                    _vm._m(37),
                     _vm._v(" "),
                     _c("p", { staticClass: "d-flex flex-column text-right" }, [
                       _c("span", { staticClass: "font-weight-bold" }, [
@@ -77263,7 +77364,7 @@ var render = function() {
                       "d-flex justify-content-between align-items-center border-bottom mb-3"
                   },
                   [
-                    _vm._m(36),
+                    _vm._m(38),
                     _vm._v(" "),
                     _c("p", { staticClass: "d-flex flex-column text-right" }, [
                       _c("span", { staticClass: "font-weight-bold" }, [
@@ -77293,7 +77394,7 @@ var render = function() {
                       "d-flex justify-content-between align-items-center mb-0"
                   },
                   [
-                    _vm._m(37),
+                    _vm._m(39),
                     _vm._v(" "),
                     _c("p", { staticClass: "d-flex flex-column text-right" }, [
                       _c("span", { staticClass: "font-weight-bold" }, [
@@ -77312,6 +77413,32 @@ var render = function() {
                       ])
                     ])
                   ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(40),
+            _vm._v(" "),
+            _vm.$gate.isSuperAdminOrAdmin()
+              ? _c("div", { staticClass: "position-relative mb-4" }, [
+                  _vm._m(41),
+                  _vm._v(" "),
+                  _c("canvas", {
+                    staticClass: "chartjs-render-monitor",
+                    staticStyle: {
+                      display: "block",
+                      width: "479px",
+                      height: "200px"
+                    },
+                    attrs: { id: "sales-chart", height: "200", width: "479" }
+                  })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$gate.isSuperAdminOrAdmin()
+              ? _c(
+                  "div",
+                  { staticClass: "d-flex flex-row justify-content-end" },
+                  [_vm._m(42), _vm._v(" "), _vm._m(43)]
                 )
               : _vm._e()
           ])
@@ -77774,6 +77901,74 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("h3", { staticClass: "card-title" }, [
+          _vm._v("Latest Patient Visits")
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "javascript:void(0);" } }, [
+          _vm._v("View Report")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("p", { staticClass: "d-flex flex-column" }, [
+          _c("span", { staticClass: "text-bold text-lg" }, [_vm._v("820")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Patients Over Time")])
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "ml-auto d-flex flex-column text-right" }, [
+          _c("span", { staticClass: "text-success" }, [
+            _c("i", { staticClass: "fas fa-arrow-up" }),
+            _vm._v(" 12.5%\n                ")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-muted" }, [_vm._v("Since last week")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "position-relative mb-4" }, [
+        _c("div", { staticClass: "chartjs-size-monitor" }, [
+          _c("div", { staticClass: "chartjs-size-monitor-expand" }, [
+            _c("div", {})
+          ]),
+          _c("div", { staticClass: "chartjs-size-monitor-shrink" }, [
+            _c("div", {})
+          ])
+        ]),
+        _vm._v(" "),
+        _c("canvas", {
+          staticClass: "chartjs-render-monitor",
+          staticStyle: { display: "block", width: "479px", height: "200px" },
+          attrs: { id: "visitors-chart", height: "200", width: "479" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-row justify-content-end" }, [
+        _c("span", { staticClass: "mr-2" }, [
+          _c("i", { staticClass: "fas fa-square text-primary" }),
+          _vm._v(" This Week\n              ")
+        ]),
+        _vm._v(" "),
+        _c("span", [
+          _c("i", { staticClass: "fas fa-square text-gray" }),
+          _vm._v(" Last Week\n              ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
       _c("h3", { staticClass: "card-title" }, [_vm._v("Performance Scale")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
@@ -77817,6 +78012,58 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-danger text-xl" }, [
       _c("i", { staticClass: "ion ion-ios-people-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex" }, [
+      _c("p", { staticClass: "d-flex flex-column" }, [
+        _c("span", { staticClass: "text-bold text-lg" }, [
+          _vm._v("$18,230.00")
+        ]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Sales Over Time")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "ml-auto d-flex flex-column text-right" }, [
+        _c("span", { staticClass: "text-success" }, [
+          _c("i", { staticClass: "fas fa-arrow-up" }),
+          _vm._v(" 33.1%\n                ")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-muted" }, [_vm._v("Since last month")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "chartjs-size-monitor" }, [
+      _c("div", { staticClass: "chartjs-size-monitor-expand" }, [
+        _c("div", {})
+      ]),
+      _c("div", { staticClass: "chartjs-size-monitor-shrink" }, [_c("div", {})])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", { staticClass: "fas fa-square text-primary" }),
+      _vm._v(" This year\n              ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("i", { staticClass: "fas fa-square text-gray" }),
+      _vm._v(" Last year\n              ")
     ])
   }
 ]
