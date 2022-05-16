@@ -39,6 +39,7 @@ Route::apiResources([
     'prescribe' => API\PrescriptionController::class,
     'purchasedrug' => API\DrugPurchaseController::class,
     'drug' => API\DrugController::class,
+    'labtest' => API\LabTestController::class,
     'payment' => API\PaymentController::class
 ]);
 
