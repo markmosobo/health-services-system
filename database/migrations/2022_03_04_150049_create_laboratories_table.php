@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBillsTable extends Migration
+class CreateLaboratoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,21 @@ class CreateBillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('laboratories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('bill_no')->nullable();
             $table->integer('patient_id')->unsigned();
             $table->foreign('patient_id')
                     ->references('id')
                     ->on('patients');
-            $table->float('doctor_charge')->nullable();
-            $table->float('room_charge')->nullable();
-            $table->integer('no_of_days')->nullable();
-            $table->float('lab_chargebill')->nullable();        
+            $table->integer('consult_doctor_id')->unsigned();
+            $table->foreign('consult_doctor_id')
+                    ->references('id')
+                    ->on('users');
+            $table->integer('lab_test_id')->unsigned();
+            $table->foreign('lab_test_id')
+                    ->references('id')
+                    ->on('lab_tests');                    
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +39,6 @@ class CreateBillsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('laboratories');
     }
 }

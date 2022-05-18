@@ -5,12 +5,18 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Drug;
+use App\Http\Resources\DrugResource;
 
 class DrugController extends Controller
 {
     public function index()
     {
         return Drug::latest()->paginate(10);
+    }
+
+    public function list(){
+        $list = Drug::all();
+        return DrugResource::collection($list);        
     }
 
     public function store(Request $request){

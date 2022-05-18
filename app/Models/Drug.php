@@ -10,6 +10,8 @@ class Drug extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'quantity'
+        'dose_form',
+        'quantity',
+        'price'
     ];
 }

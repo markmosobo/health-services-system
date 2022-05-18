@@ -16,8 +16,8 @@
                     <tr>
                       <th>Patient</th>
                       <th>Symptoms</th>
-                      <th>Test(s)</th>
-                      <th>Last Visit</th>
+                      <th>Consulted On</th>
+                      <th>Status</th>
                       <th>Modify</th>
                     </tr>
                   </thead>
@@ -25,8 +25,8 @@
                     <tr v-for="item in consultations.data" :key="item.id">
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
                       <td>{{item.symptoms | capitalizeFirstLetter}}</td>
-                      <td>{{item.test | capitalizeFirstLetter}}</td>                      
                       <td>{{item.created_at | monthDateTime}}</td>
+                      <td>{{item.status }}</td>                      
                       <td >
                           <a href="#" @click = "editModal(item)">
                               <i class="fa fa-edit blue"></i>
@@ -100,7 +100,18 @@
 
                             <div class="form-group">
 
-                                <label>Test(s) to be done:</label>
+                                <label>Diagnostics</label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
+                                    <label class="form-check-label">Test(s) to be done:</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Drugs:</label>
+                                </div>  
+
                                 <select class="form-control" v-model="form.lab_test_id">
                                   <option 
                                       v-for="lab in labtests" :key="lab.id"
@@ -108,6 +119,15 @@
                                       :selected="lab.id == form.lab_test_id">{{ lab.name }} </option>
                                 </select>
                                     <div v-if="form.errors.has('lab_test_id')" v-html="form.errors.get('lab_test_id')" />
+
+                                <select class="form-control" v-model="form.drug_id" hidden>
+                                  <option 
+                                      v-for="drug in drugs" :key="drug.id"
+                                      :value="drug.id"
+                                      :selected="drug.id == form.drug_id">{{ drug.name }} </option>
+                                </select>
+                                    <div v-if="form.errors.has('drug_id')" v-html="form.errors.get('drug_id')" />
+
                             </div>                            
                            
                     </div>
@@ -137,11 +157,14 @@
                 patients: {},
                 consultations: {},
                 labtests: {},
+                drugs: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
                         lab_test_id: '',
+                        drug_id: '',
                         symptoms: '',
+                        status: ''
                 })
             }
         },
@@ -151,11 +174,11 @@
                   this.form.reset();
                   $('#addNew').modal('show')  
               },
-              editModal(item){
+              editModal(lab){
                   this.editmode = true,
                   this.form.reset();
                   $('#addNew').modal('show')
-                  this.form.fill(item);  
+                  this.form.fill(lab);  
               },              
               updateConsultation(){
                   this.$Progress.start();
@@ -235,7 +258,12 @@
                   axios.get('api/listlabtests').then((response) => {
                     this.labtests = response.data.data;
                     });
-              },              
+              }, 
+              listDrugs(){
+                  axios.get('api/listdrugs').then((response) => {
+                    this.drugs = response.data.data;
+                    });
+              },                            
               loadConsultations(){
                   axios.get('api/consult').then((response) => {this.consultations = response.data});
               },
@@ -243,6 +271,7 @@
         mounted() {
             this.listPatients();
             this.listLabTests();
+            this.listDrugs();
             this.loadConsultations();
             Fire.$on('Refresh',() => {this.loadConsultations();})
         }

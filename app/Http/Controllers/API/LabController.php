@@ -15,7 +15,7 @@ class LabController extends Controller
     }
 
     public function index(){
-        $labs = Laboratory::latest()->with('patient')->where('status', 0)->paginate(10);
+        $labs = Laboratory::latest()->with('patient','test')->where('status', 0)->paginate(10);
         return response()->json($labs);
     }
 
@@ -34,7 +34,7 @@ class LabController extends Controller
         return Laboratory::create([
             'patient_id' => $request['patient_id'],
             'consult_doctor_id' => $user->id,
-            'tests' => $request['tests']
+            'lab_test_id' => $request['lab_test_id']
         ]);        
     }
 

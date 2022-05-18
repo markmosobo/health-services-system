@@ -52,6 +52,7 @@ Route::get('labfindings',[API\LabFindingController::class,'labFindings']);
 Route::get('pendingprescribe',[API\PrescriptionController::class,'pendingPrescribe']);
 Route::get('listlabs',[API\LabController::class,'list']);
 Route::get('listlabtests',[API\LabTestController::class,'list']);
+Route::get('listdrugs',[API\DrugController::class,'list']);
 Route::get('listusers',[API\UserController::class,'list']);
 Route::get('listpayments',[API\PaymentController::class,'list']);
 Route::get('sentmessage',[API\MessageController::class,'indexsent']);

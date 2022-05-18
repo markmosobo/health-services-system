@@ -28,6 +28,7 @@ class CreateConsultationsTable extends Migration
             $table->foreign('lab_test_id')
                     ->references('id')
                     ->on('lab_tests');
+            $table->string('status')->nullable();        
             $table->timestamps();
         });
     }

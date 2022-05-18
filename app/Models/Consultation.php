@@ -15,7 +15,8 @@ class Consultation extends Model
         'patient_id',
         'doctor_id',
         'symptoms',
-        'lab_test_id'
+        'lab_test_id',
+        'status'
     ];
 
     public function doctor()
