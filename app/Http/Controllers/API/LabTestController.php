@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LabTest;
+use App\Http\Resources\LabTestResource;
 
 class LabTestController extends Controller
 {
@@ -13,9 +14,9 @@ class LabTestController extends Controller
         return LabTest::latest()->paginate(10);
     }
 
-    public function list()
-    {
-
+    public function list(){
+        $list = LabTest::all();
+        return LabTestResource::collection($list);        
     }
 
     public function store(Request $request)

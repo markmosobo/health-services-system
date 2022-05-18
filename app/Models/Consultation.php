@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Patient;
 use App\Models\User;
+use App\Models\LabTest;
 
 class Consultation extends Model
 {
@@ -14,19 +15,8 @@ class Consultation extends Model
         'patient_id',
         'doctor_id',
         'symptoms',
-        'status',
-        'tests'
+        'lab_test_id'
     ];
-
-    public function setTestAttribute($value)
-    {
-        $this->attributes['tests'] = json_encode($value);
-    }
-
-    public function getTestAttribute($value)
-    {
-        return $this->attributes['tests'] = json_decode($value);
-    }
 
     public function doctor()
     {
@@ -36,5 +26,10 @@ class Consultation extends Model
     public function patient()
     {
         return $this->belongsTo(Patient::class);
+    }
+
+    public function test()
+    {
+        return $this->belongsTo(LabTest::class);
     }
 }

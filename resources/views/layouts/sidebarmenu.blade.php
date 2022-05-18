@@ -25,7 +25,13 @@
                   <i class="fas fa-user-md nav-icon teal"></i>
                   <p>Consultations</p>
                 </router-link>
-              </li>               
+              </li> 
+              <li class="nav-item">
+                <router-link to="/labtest" class="nav-link">
+                  <i class="fas fa-user-md nav-icon teal"></i>
+                  <p>Lab Tests</p>
+                </router-link>
+              </li>                             
               @endcan           
 
              @can('isAccountant')

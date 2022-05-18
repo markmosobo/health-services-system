@@ -15,7 +15,6 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
                       <th>Name</th>
                       <th>Gender</th>
                       <th>Address</th>
@@ -25,7 +24,6 @@
                   </thead>
                   <tbody>
                     <tr v-for="patient in patients.data" :key="patient.id">
-                      <td>{{patient.id}}</td>
                       <td>{{patient.first_name}} {{patient.last_name}}</td>
                       <td>{{patient.gender | capitalizeFirstLetter}}</td>
                       <td>{{patient.address}}</td>

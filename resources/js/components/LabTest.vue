@@ -14,7 +14,6 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th v-show="$gate.isDoc()">ID</th>
                       <th>Name</th>
                       <th>Code</th>
                       <th v-show="$gate.isDoc()">Modify</th>
@@ -22,7 +21,6 @@
                   </thead>
                   <tbody>
                     <tr v-for="lab in labtests.data" :key="lab.id">
-                      <td v-show="$gate.isDoc()">{{lab.id}}</td>
                       <td>{{lab.name}}</td>
                       <td>{{lab.code}}</td>
                       <td v-show="$gate.isDoc()">
@@ -56,7 +54,7 @@
             aria-labelledby="addNewModal" aria-hidden="true">
             <div class="modal-dialog model-dialog-centered" role="document">
                 <div class="modal-content">
-                    <form @submit.prevent="editmode ? updateLabTest() : createLabTest())"> 
+                    <form @submit.prevent="editmode ? updateLabTest() : createLabTest()"> 
                     <div class="modal-header">
                         <h5 class="modal-title" v-show="editmode" id="addNewModalTitle">
                             Update Lab Test

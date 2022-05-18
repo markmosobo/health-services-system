@@ -14,20 +14,18 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
                       <th>Patient</th>
                       <th>Symptoms</th>
-                      <th>Status</th>
-                      <th>Consulted On</th>
+                      <th>Test(s)</th>
+                      <th>Last Visit</th>
                       <th>Modify</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="item in consultations.data" :key="item.id">
-                      <td>{{item.id}}</td>
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
                       <td>{{item.symptoms | capitalizeFirstLetter}}</td>
-                      <td>{{item.status | capitalizeFirstLetter}}</td>                      
+                      <td>{{item.test | capitalizeFirstLetter}}</td>                      
                       <td>{{item.created_at | monthDateTime}}</td>
                       <td >
                           <a href="#" @click = "editModal(item)">
@@ -102,13 +100,15 @@
 
                             <div class="form-group">
 
-                                <label>Tests to be done:</label><br>
-                                <label><input type="checkbox"  name="test[]" value="Malaria"> Malaria</label>
-                                <label><input type="checkbox"  name="test[]" value="Typhoid"> Typhoid</label>
-                                <label><input type="checkbox"  name="test[]" value="Brucella"> Brucella</label>
-                                <label><input type="checkbox"  name="test[]" value="HIV"> HIV/Aids</label>
-                                <label><input type="checkbox"  name="test[]" value="Covid 19"> COVID-19</label>
-                            </div>                             
+                                <label>Test(s) to be done:</label>
+                                <select class="form-control" v-model="form.lab_test_id">
+                                  <option 
+                                      v-for="lab in labtests" :key="lab.id"
+                                      :value="lab.id"
+                                      :selected="lab.id == form.lab_test_id">{{ lab.name }} </option>
+                                </select>
+                                    <div v-if="form.errors.has('lab_test_id')" v-html="form.errors.get('lab_test_id')" />
+                            </div>                            
                            
                     </div>
                     <div class="modal-footer">
@@ -136,12 +136,12 @@
                 editmode: false,
                 patients: {},
                 consultations: {},
+                labtests: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
+                        lab_test_id: '',
                         symptoms: '',
-                        tests: '',
-                        status: ''
                 })
             }
         },
@@ -151,11 +151,11 @@
                   this.form.reset();
                   $('#addNew').modal('show')  
               },
-              editModal(lab){
+              editModal(item){
                   this.editmode = true,
                   this.form.reset();
                   $('#addNew').modal('show')
-                  this.form.fill(lab);  
+                  this.form.fill(item);  
               },              
               updateConsultation(){
                   this.$Progress.start();
@@ -231,12 +231,18 @@
                     this.patients = response.data.data;
                     });
               },
+              listLabTests(){
+                  axios.get('api/listlabtests').then((response) => {
+                    this.labtests = response.data.data;
+                    });
+              },              
               loadConsultations(){
                   axios.get('api/consult').then((response) => {this.consultations = response.data});
               },
         },
         mounted() {
             this.listPatients();
+            this.listLabTests();
             this.loadConsultations();
             Fire.$on('Refresh',() => {this.loadConsultations();})
         }

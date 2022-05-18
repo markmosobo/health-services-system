@@ -20,6 +20,7 @@ let routes = [
     { path: '/rooms', component: require('./components/Room.vue').default },
     { path: '/consultation', component: require('./components/Consultation.vue').default },
     { path: '/labs', component: require('./components/Lab.vue').default },
+    { path: '/labtest', component: require('./components/LabTest.vue').default },
     { path: '/prescription', component: require('./components/Prescription.vue').default },
     { path: '/pendinglab', component: require('./components/PendingLab.vue').default },
     { path: '/pendingprescription', component: require('./components/PendingPrescription.vue').default },
