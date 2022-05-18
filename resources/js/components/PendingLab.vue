@@ -84,11 +84,13 @@
                             <div class="form-group">
 
                                 <label>Tests to be done:</label><br>
-                                <label><input type="checkbox"  name="test[]" value="Malaria"> Malaria</label>
-                                <label><input type="checkbox"  name="test[]" value="Typhoid"> Typhoid</label>
-                                <label><input type="checkbox"  name="test[]" value="Brucella"> Brucella</label>
-                                <label><input type="checkbox"  name="test[]" value="HIV"> HIV/Aids</label>
-                                <label><input type="checkbox"  name="test[]" value="Covid 19"> COVID-19</label>
+                                    <select readonly="readonly" class="form-control" v-model="form.lab_test_id">
+                                      <option 
+                                          v-for="test in labtests" :key="test.id"
+                                          :value="test.id"
+                                          :selected="test.id == form.lab_test_id">{{ test.name }} </option>
+                                    </select>
+                                    <div v-if="form.errors.has('lab_test_id')" v-html="form.errors.get('lab_test_id')" /> 
                             </div> 
 
                     </div>
@@ -133,11 +135,13 @@
                             <div class="form-group">
 
                                 <label>Tests done:</label><br>
-                                <label><input type="checkbox"  name="test[]" value="Malaria"> Malaria</label>
-                                <label><input type="checkbox"  name="test[]" value="Typhoid"> Typhoid</label>
-                                <label><input type="checkbox"  name="test[]" value="Brucella"> Brucella</label>
-                                <label><input type="checkbox"  name="test[]" value="HIV"> HIV/Aids</label>
-                                <label><input type="checkbox"  name="test[]" value="Covid 19"> COVID-19</label>
+                                    <select class="form-control" v-model="form.lab_tested_id">
+                                      <option 
+                                          v-for="test in labtests" :key="test.id"
+                                          :value="test.id"
+                                          :selected="test.id == form.lab_tested_id">{{ test.name }} </option>
+                                    </select>
+                                    <div v-if="form.errors.has('lab_tested_id')" v-html="form.errors.get('lab_tested_id')" /> 
                             </div> 
 
                             <div class="form-group">
@@ -176,10 +180,12 @@ import NotFound from './NotFound.vue';
                 pendinglabs: {},
                 pendinglabscount: {},
                 patientslist: {},
+                labtests: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
-                        tests: '',
+                        lab_test_id: '',
+                        lab_tested_id: '',
                         results: ''
                 })
             }
@@ -236,6 +242,11 @@ import NotFound from './NotFound.vue';
                     this.patientslist = response.data.data;
                     });
               },
+              listLabTests(){
+                  axios.get('api/listlabtests').then((response) => {
+                    this.labtests = response.data.data;
+                    });
+              },               
               loadPendingLabs(){
                   axios.get('api/pendinglab').then((response) => {this.pendinglabs = response.data});
               },
@@ -246,6 +257,7 @@ import NotFound from './NotFound.vue';
         mounted() {
             this.loadPendingLabsCount();
             this.listPatients();
+            this.listLabTests();
             this.loadPendingLabs();
             Fire.$on('Refresh',() => {this.loadPendingLabs();})
         }

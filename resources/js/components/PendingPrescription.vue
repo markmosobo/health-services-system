@@ -15,16 +15,16 @@
               <div v-else class="card-body table-responsive p-0">                <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
                       <th>Patient</th>
+                      <th>Test(s) Done</th>
                       <th>Lab Result(s)</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="item in labfindings.data" :key="item.id">
-                      <td>{{item.id}}</td>
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
+                      <td>{{item.tested.name}}</td>
                       <td>
                           <a href="#" style="align:center;" @click = "viewModal(item)">
                               <i class="fa fa-eye green"></i>
@@ -128,12 +128,53 @@
                             </div>
 
                             <div class="form-group">
-                            <label>Prescription</label>  
-                                    <textarea v-model="form.prescription" id="prescription"
-                                    name="prescription" class="form-control">
-                                    </textarea>
-                                    <div v-if="form.errors.has('prescription')" v-html="form.errors.get('prescription')" />
-                            </div>
+
+                                <label>Drugs and Medicine</label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
+                                    <label class="form-check-label">Tablet</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Injection</label>
+                                </div> 
+                                
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Liquid</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Inhalation</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Oral liquid</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">PFI</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <label class="form-check-label" for="inlineRadio2">Others</label>
+                                </div>
+
+                                <select class="form-control" v-model="form.drug_id">
+                                  <option 
+                                      v-for="item in drugs" :key="item.id"
+                                      :value="item.id"
+                                      :selected="item.id == form.drug_id">{{ item.name }} {{item.quantity}}</option>
+                                </select>
+                                    <div v-if="form.errors.has('drug_id')" v-html="form.errors.get('drug_id')" />
+
+                            </div>  
                            
                     </div>
                     <div class="modal-footer">
@@ -161,6 +202,7 @@
                 patients: {},
                 labfindings: {},
                 labfindingscount: {},
+                drugs: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
@@ -216,6 +258,11 @@
                     this.patients = response.data.data;
                     });
               },
+              listDrugs(){
+                  axios.get('api/listdrugs').then((response) => {
+                    this.drugs = response.data.data;
+                    });
+              },              
               loadLabFindings(){
                   axios.get('api/labfindings').then((response) => {this.labfindings = response.data});
               },
@@ -225,6 +272,7 @@
         },
         mounted() {
             this.listPatients();
+            this.listDrugs();
             this.loadLabFindings();
             this.loadLabFindingsCount();
             Fire.$on('Refresh',() => {this.loadLabFindings();})

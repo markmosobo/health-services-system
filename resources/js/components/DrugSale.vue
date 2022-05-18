@@ -14,17 +14,15 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Code</th>
                       <th>Patient</th>
-                      <th>Drug(s) </th>
+                      <th>Drug(s) & Medicine </th>
                       <th>Sold On</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="item in drugsales.data" :key="item.id">
-                      <td>{{item.id}}</td>
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
-                      <td>{{item.drugs}}</td>
+                      <td>{{item.drug.name}}</td>
                       <td>{{item.created_at | monthDateTime}}</td>
                     </tr>
   

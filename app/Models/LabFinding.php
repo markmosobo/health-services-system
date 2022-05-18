@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\LabTest;
 
 class LabFinding extends Model
 {
     use HasFactory;
-    protected $fillable = ['patient_id','lab_user_id','tests','results', 'status'];
+    protected $fillable = ['patient_id','lab_user_id','lab_tested_id','results', 'status'];
 
         // A lab test belongs to a patient
         public function patient()
@@ -23,13 +24,8 @@ class LabFinding extends Model
             return $this->belongsTo(User::class,'lab_user_id');
         } 
         
-        public function setTestAttribute($value)
+        public function tested()
         {
-            $this->attributes['tests'] = json_encode($value);
-        }
-    
-        public function getTestAttribute($value)
-        {
-            return $this->attributes['tests'] = json_decode($value);
+            return $this->belongsTo(LabTest::class,'lab_tested_id');
         }
 }

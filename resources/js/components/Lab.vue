@@ -14,18 +14,16 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Code</th>
                       <th>Patient</th>
-                      <th>Test(s) Done</th>
+                      <th>Test(s) Completed</th>
                       <th>Result(s)</th>
                       <th>Tested On</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="lab in labfindings.data" :key="lab.id">
-                      <td>{{lab.id}}</td>
                       <td>{{lab.patient.first_name}} {{lab.patient.last_name}}</td>
-                      <td>{{lab.tests}}</td>
+                      <td>{{lab.tested.name}}</td>
                       <td>{{lab.results}}</td>
                       <td>{{lab.created_at | monthDateTime}}</td>
                     </tr>

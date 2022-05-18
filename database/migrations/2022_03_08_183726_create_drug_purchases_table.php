@@ -23,7 +23,10 @@ class CreateDrugPurchasesTable extends Migration
             $table->foreign('pharm_user_id')
                     ->references('id')
                     ->on('users');
-            $table->longText('drugs')->nullable();        
+            $table->integer('purchaseddrug_id')->unsigned();  
+            $table->foreign('purchaseddrug_id')
+                    ->references('id')
+                    ->on('drugs');      
             $table->timestamps();
         });
     }

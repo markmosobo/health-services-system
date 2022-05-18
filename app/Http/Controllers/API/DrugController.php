@@ -22,12 +22,15 @@ class DrugController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'name' => 'required|string|max:191',
-            'quantity' => 'required|string'
+            'quantity' => 'required|string',
+            'dose_form' => 'required|string'
         ]);
 
         return Drug::create([
           'name' => $request['name'],
-          'quantity' => $request['quantity']     
+          'quantity' => $request['quantity'],
+          'dose_form' => $request->get('dose_form'),
+          'price' => $request->get('price')    
         ]);
     }
 
@@ -37,6 +40,7 @@ class DrugController extends Controller
 
         $this->validate($request,[
             'name' => 'required|string|max:191',
+            'dose_form' => 'required|string',
             'quantity' => 'required|string'
         ]);
 

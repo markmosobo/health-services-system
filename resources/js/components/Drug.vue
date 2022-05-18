@@ -16,6 +16,7 @@
                     <tr>
                       <th v-show="$gate.isPharm()">ID</th>
                       <th>Name</th>
+                      <th>Dose Form</th>
                       <th>Quantity</th>
                       <th v-show="$gate.isPharm()">Modify</th>
                     </tr>
@@ -24,6 +25,7 @@
                     <tr v-for="drug in drugs.data" :key="drug.id">
                       <td v-show="$gate.isPharm()">{{drug.id}}</td>
                       <td>{{drug.name}}</td>
+                      <td>{{drug.dose_form | capitalizeFirstLetter}}</td>
                       <td>{{drug.quantity}}</td>
                       <td v-show="$gate.isPharm()">
                           <a href="#" @click = "editModal(drug)">
@@ -76,6 +78,21 @@
                                     name="name" class="form-control">
                                     <div v-if="form.errors.has('name')" v-html="form.errors.get('name')" />
                             </div>
+
+                            <div class="form-group">
+                            <label>Dose Form</label>  
+                                    <select v-model="form.dose_form" id="dose_form"
+                                    name="dose_form" class="form-control">
+                                    <option value="">Select Form</option>
+                                    <option value="inhalation">Inhalation</option>
+                                    <option value="liquid">Liquid</option>
+                                    <option value="injection">Injection</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="oral liquid">Oral liquid</option>
+                                    <option value="pfi">PFI</option>
+                                      </select>
+                                    <div v-if="form.errors.has('dose_form')" v-html="form.errors.get('dose_form')" />
+                            </div>                            
                             
                             <div class="form-group">
                             <label>Quantity</label>  
@@ -111,7 +128,8 @@
             form: new Form({
                     id: '',
                     name : '',
-                    quantity : ''
+                    quantity : '',
+                    dose_form: ''
             })
           }
         },

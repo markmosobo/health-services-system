@@ -14,7 +14,6 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Code</th>
                       <th>Patient</th>
                       <th>Prescription(s)</th>
                       <th>Prescribed On</th>
@@ -22,9 +21,8 @@
                   </thead>
                   <tbody>
                     <tr v-for="item in prescriptions.data" :key="item.id">
-                      <td>{{item.id}}</td>
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
-                      <td>{{item.prescription}}</td>
+                      <td>{{item.drug.name}}</td>
                       <td>{{item.created_at | monthDateTime}}</td>
                     </tr>
   

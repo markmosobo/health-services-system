@@ -15,14 +15,14 @@ class PrescriptionController extends Controller
     
     public function index(){
         $user = auth('api')->user();
-        $prescriptions = Prescription::latest()->with('patient')
+        $prescriptions = Prescription::latest()->with('patient','drug')
         ->where('prescribe_doctor_id',$user->id)->paginate(10);
         return response()->json($prescriptions);
     }
 
     public function pendingPrescribe()
     {
-        $labs = Prescription::latest()->with('patient')->where('status', 0)->paginate(10);
+        $labs = Prescription::latest()->with('patient','drug')->where('status', 0)->paginate(10);
         return response()->json($labs);        
     }
 
@@ -32,7 +32,7 @@ class PrescriptionController extends Controller
        return Prescription::create([
         'patient_id' => $request['patient_id'],
         'prescribe_doctor_id' => $user->id,
-        'prescription' => $request['prescription']           
+        'drug_id' => $request['drug_id']           
        ]);
     }
 
@@ -58,7 +58,7 @@ class PrescriptionController extends Controller
 
     public function completedPrescriptions(){
         $user = auth('api')->user();
-        $prescription = Prescription::latest()->with('patient')->where('status', 1)->where('prescribe_doctor_id',$user->id)->paginate(2);
+        $prescription = Prescription::latest()->with('patient','drug')->where('status', 1)->where('prescribe_doctor_id',$user->id)->paginate(2);
         return response()->json($prescription);        
     }
 }

@@ -23,7 +23,10 @@ class CreatePrescriptionsTable extends Migration
             $table->foreign('prescribe_doctor_id')
                     ->references('id')
                     ->on('users');                    
-            $table->longText('prescription')->nullable();
+            $table->integer('drug_id')->unsigned();
+            $table->foreign('drug_id')
+                    ->references('id')
+                    ->on('drugs');
             $table->string('status')->default(0);        
             $table->timestamps();
         });

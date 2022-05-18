@@ -87,17 +87,6 @@
                                     <div v-if="form.errors.has('symptoms')" v-html="form.errors.get('symptoms')" />
                             </div>
 
-                            <!-- <div class="form-group">
-                            <label>Status</label>  
-                                    <select v-model="form.status" id="status"
-                                    name="status" class="form-control">
-                                    <option value="">Select Status</option>
-                                    <option value="outpatient">Outpatient</option>
-                                    <option value="inpatient">Inpatient</option>
-                                      </select>
-                                    <div v-if="form.errors.has('status')" v-html="form.errors.get('status')" />
-                            </div> -->
-
                             <div class="form-group">
 
                                 <label>Diagnostics</label>

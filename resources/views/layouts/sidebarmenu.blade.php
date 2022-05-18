@@ -25,13 +25,7 @@
                   <i class="fas fa-user-md nav-icon teal"></i>
                   <p>Consultations</p>
                 </router-link>
-              </li> 
-              <li class="nav-item">
-                <router-link to="/labtest" class="nav-link">
-                  <i class="fas fa-user-md nav-icon teal"></i>
-                  <p>Lab Tests</p>
-                </router-link>
-              </li>                             
+              </li>                            
               @endcan           
 
              @can('isAccountant')
@@ -180,14 +174,76 @@
             @endcan             
               <li class="nav-item">
               <router-link to="/profile" class="nav-link">
-                <i class="nav-icon fas fa-cog cyan"></i>
+                <i class="nav-icon fas fa-wrench cyan"></i>
                 <p>
-                Settings
+                Change password
                 </p>
               </router-link>
               </li>    			  
             </ul>           
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog blue"></i>
+              <p>
+                Settings
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            @can('isDoc')
+            <li class="nav-item">
+              <router-link to="/labtest" class="nav-link">
+                <i class="nav-icon fas fa-vials blue"></i>
+                <p>Manage Lab Tests </p>                            
+              </router-link>
+              </li>              
+            @endcan 
+            @can('isNurse')
+            <li class="nav-item">
+                <router-link to="/labtest" class="nav-link">
+                  <i class="fas fa-vials nav-icon red"></i>
+                  <p>Manage Lab Tests</p>
+                </router-link>
+            </li> 
+            @endcan 
+            @can('isPharm')
+            <li class="nav-item">
+                <router-link to="/drugsales" class="nav-link">
+                  <i class="fas fa-tablets nav-icon red"></i>
+                  <p>Manage Dosage</p>
+                </router-link>
+            </li> 
+            @endcan  
+            @can('isAccountant')   
+            <li class="nav-item">
+              <router-link to="/profile" class="nav-link">
+                <i class="nav-icon fas fa-user-md cyan"></i>
+                <p>
+                Consultation Charges
+                </p>
+              </router-link>
+              </li>                     
+              <li class="nav-item">
+              <router-link to="/profile" class="nav-link">
+                <i class="nav-icon fas fa-tablets cyan"></i>
+                <p>
+                Manage Drug Charges
+                </p>
+              </router-link>
+              </li> 
+              <li class="nav-item">
+              <router-link to="/profile" class="nav-link">
+                <i class="nav-icon fas fa-vials cyan"></i>
+                <p>
+                Manage Lab Test Charges
+                </p>
+              </router-link>
+              </li>               
+            @endcan                   			  
+            </ul>           
+          </li>          
 
           @can('isSuperAdmin')
           <li class="nav-item">

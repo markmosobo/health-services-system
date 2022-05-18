@@ -15,7 +15,7 @@ class DrugPurchaseController extends Controller
 
     public function index(){
         $user = auth('api')->user();
-        $drugpurchases = DrugPurchase::latest()->with('patient')
+        $drugpurchases = DrugPurchase::latest()->with('patient','drug')
         ->where('pharm_user_id',$user->id)->paginate(10);
         return response()->json($drugpurchases);
     }
@@ -25,7 +25,7 @@ class DrugPurchaseController extends Controller
        return DrugPurchase::create([
         'patient_id' => $request['patient_id'],
         'pharm_user_id' => $user->id,
-        'drugs' => $request['drugs']           
+        'purchaseddrug_id' => $request['purchaseddrug_id']           
        ]);
     }
 

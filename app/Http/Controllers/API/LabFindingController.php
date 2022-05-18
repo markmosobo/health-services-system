@@ -15,14 +15,14 @@ class LabFindingController extends Controller
     
     public function index(){
         $user = auth('api')->user();
-        $labs = LabFinding::latest()->with('patient')
+        $labs = LabFinding::latest()->with('patient','tested')
         ->where('lab_user_id',$user->id)->paginate(10);
         return response()->json($labs);
     }
 
     public function labFindings()
     {
-        $labs = LabFinding::latest()->with('patient')->where('status', 0)->paginate(10);
+        $labs = LabFinding::latest()->with('patient','tested')->where('status', 0)->paginate(10);
         return response()->json($labs);        
     }
 
@@ -32,7 +32,7 @@ class LabFindingController extends Controller
         return LabFinding::create([
         'patient_id' => $request['patient_id'],
         'lab_user_id' => $user->id,
-        'tests' => $request['tests'],
+        'lab_tested_id' => $request['lab_tested_id'],
         'results' => $request['results'] 
         ]);
                

@@ -17,6 +17,7 @@ class CreateLabTestsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('code')->nullable();
+            $table->float('charge')->nullable();
             $table->timestamps();
         });
     }
