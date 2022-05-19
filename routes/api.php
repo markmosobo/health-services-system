@@ -40,7 +40,8 @@ Route::apiResources([
     'purchasedrug' => API\DrugPurchaseController::class,
     'drug' => API\DrugController::class,
     'labtest' => API\LabTestController::class,
-    'payment' => API\PaymentController::class
+    'payment' => API\PaymentController::class,
+    'consultcharge' => API\ConsultationChargeController::class
 ]);
 
 Route::post('message',[API\ConversationController::class,'sendMessage']);
@@ -55,6 +56,7 @@ Route::get('listlabtests',[API\LabTestController::class,'list']);
 Route::get('listdrugs',[API\DrugController::class,'list']);
 Route::get('listusers',[API\UserController::class,'list']);
 Route::get('listpayments',[API\PaymentController::class,'list']);
+Route::get('listconsultationcharges',[API\ConsultationChargeController::class,'list']);
 Route::get('sentmessage',[API\MessageController::class,'indexsent']);
 Route::get('countmessage',[API\MessageController::class,'countMessage']);
 // Route::get('newmessage',[API\MessageController::class,'newMessage']);

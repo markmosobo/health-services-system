@@ -117,7 +117,19 @@
                                 </select>
                                     <div v-if="form.errors.has('drug_id')" v-html="form.errors.get('drug_id')" />
 
-                            </div>                            
+                            </div>  
+                            
+                            <div class="form-group">
+
+                                <label>Charge:</label>
+                                <select class="form-control" v-model="form.consult_charge_id">
+                                  <option 
+                                      v-for="item in consultationcharges" :key="item.id"
+                                      :value="item.id"
+                                      :selected="item.id == form.consult_charge_id">{{ item.consult_charge }}</option>
+                                </select>
+                                    <div v-if="form.errors.has('consult_charge_id')" v-html="form.errors.get('consult_charge_id')" />
+                            </div>                             
                            
                     </div>
                     <div class="modal-footer">
@@ -147,11 +159,13 @@
                 consultations: {},
                 labtests: {},
                 drugs: {},
+                consultationcharges: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
                         lab_test_id: '',
                         drug_id: '',
+                        consult_charge_id: '',
                         symptoms: '',
                         status: ''
                 })
@@ -252,7 +266,12 @@
                   axios.get('api/listdrugs').then((response) => {
                     this.drugs = response.data.data;
                     });
-              },                            
+              }, 
+              listCharges(){
+                  axios.get('api/listconsultationcharges').then((response) => {
+                    this.consultationcharges = response.data.data;
+                    });
+              },                                          
               loadConsultations(){
                   axios.get('api/consult').then((response) => {this.consultations = response.data});
               },
@@ -261,6 +280,7 @@
             this.listPatients();
             this.listLabTests();
             this.listDrugs();
+            this.listCharges();
             this.loadConsultations();
             Fire.$on('Refresh',() => {this.loadConsultations();})
         }

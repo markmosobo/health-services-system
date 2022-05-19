@@ -28,7 +28,11 @@ class CreateConsultationsTable extends Migration
             $table->foreign('lab_test_id')
                     ->references('id')
                     ->on('lab_tests');
-            $table->string('status')->nullable();        
+            $table->string('status')->nullable(); 
+            $table->integer('consult_charge_id')->unsigned(); 
+            $table->foreign('consult_charge_id')
+                    ->references('id')
+                    ->on('consultation_charges');      
             $table->timestamps();
         });
     }

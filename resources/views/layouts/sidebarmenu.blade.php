@@ -218,7 +218,7 @@
             @endcan  
             @can('isAccountant')   
             <li class="nav-item">
-              <router-link to="/profile" class="nav-link">
+              <router-link to="/consultationcharge" class="nav-link">
                 <i class="nav-icon fas fa-user-md cyan"></i>
                 <p>
                 Consultation Charges
@@ -226,7 +226,7 @@
               </router-link>
               </li>                     
               <li class="nav-item">
-              <router-link to="/profile" class="nav-link">
+              <router-link to="/drugcharge" class="nav-link">
                 <i class="nav-icon fas fa-tablets cyan"></i>
                 <p>
                 Manage Drug Charges
@@ -234,7 +234,7 @@
               </router-link>
               </li> 
               <li class="nav-item">
-              <router-link to="/profile" class="nav-link">
+              <router-link to="/labtestcharge" class="nav-link">
                 <i class="nav-icon fas fa-vials cyan"></i>
                 <p>
                 Manage Lab Test Charges
