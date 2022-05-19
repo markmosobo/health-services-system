@@ -4,24 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Patient;
+use App\Models\LabTest;
 
-class Bill extends Model
+class LabTestBill extends Model
 {
     use HasFactory;
-
     protected $fillable = 
     [
-        'bill_no',
         'patient_id',
-        'doctor_charge',
-        'room_charge',
-        'no_of_days',
-        'lab_chargebill'
+        'lab_test_charge_id'
     ];
 
     public function patient()
     {
         return $this->belongsTo(Patient::class,'patient_id');
     }
+
+    //A bill belongs to a lab test
+    public function test()
+    {
+        return $this->belongsTo(LabTest::class,'lab_test_charge_id');
+    } 
+   
 }

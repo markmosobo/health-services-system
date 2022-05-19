@@ -34,14 +34,18 @@ Route::apiResources([
     'lab' => API\LabFindingController::class,
     'inpatient' => API\InpatientController::class,
     'outpatient' => API\OutpatientController::class,
-    'bill' => API\BillController::class,
+    'consultbill' => API\ConsultationBillController::class,
+    'labtestbill' => API\LabTestBillController::class,
+    'drugbill' => API\DrugBillController::class,
     'consult' => API\ConsultationController::class,
     'prescribe' => API\PrescriptionController::class,
     'purchasedrug' => API\DrugPurchaseController::class,
     'drug' => API\DrugController::class,
     'labtest' => API\LabTestController::class,
     'payment' => API\PaymentController::class,
-    'consultcharge' => API\ConsultationChargeController::class
+    'consultcharge' => API\ConsultationChargeController::class,
+    'drugcharge' => API\DrugChargeController::class,
+    'labtestcharge' => API\LabTestChargeController::class
 ]);
 
 Route::post('message',[API\ConversationController::class,'sendMessage']);

@@ -25,7 +25,7 @@ class ConsultationController extends Controller
 
     public function index(){
         $user = auth('api')->user();
-        $consults = Consultation::latest()->with('patient','test','charge');
+        $consults = Consultation::latest()->with('patient','test');
         $userconsults = $consults->where('doctor_id',$user->id)->paginate(10);
         $consults = $userconsults;
         return response()->json($consults);
@@ -49,8 +49,7 @@ class ConsultationController extends Controller
           'patient_id' => $request['patient_id'],
           'doctor_id' => $user->id,      
           'symptoms' => $request['symptoms'],
-          'lab_test_id' => $request->input('lab_test_id'),
-          'consult_charge_id' => $request->get('consult_charge_id')
+          'lab_test_id' => $request->input('lab_test_id')
         ]);
     }
 

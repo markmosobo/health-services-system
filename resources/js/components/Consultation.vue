@@ -117,7 +117,7 @@
                                 </select>
                                     <div v-if="form.errors.has('drug_id')" v-html="form.errors.get('drug_id')" />
 
-                            </div>  
+                            </div> 
                             
                             <div class="form-group">
 
@@ -129,7 +129,7 @@
                                       :selected="item.id == form.consult_charge_id">{{ item.consult_charge }}</option>
                                 </select>
                                     <div v-if="form.errors.has('consult_charge_id')" v-html="form.errors.get('consult_charge_id')" />
-                            </div>                             
+                            </div>                            
                            
                     </div>
                     <div class="modal-footer">
@@ -157,9 +157,9 @@
                 editmode: false,
                 patients: {},
                 consultations: {},
+                consultationcharges: {},
                 labtests: {},
                 drugs: {},
-                consultationcharges: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
@@ -204,6 +204,7 @@
                   this.$Progress.start();
                   this.form.post('api/consult')
                   this.form.post('api/pendinglab')
+                  this.form.post('api/consultbill')
                   .then(() => {
                   $('#addNew').modal('hide')
                   this.$Progress.finish();                                      
@@ -271,7 +272,7 @@
                   axios.get('api/listconsultationcharges').then((response) => {
                     this.consultationcharges = response.data.data;
                     });
-              },                                          
+              },               
               loadConsultations(){
                   axios.get('api/consult').then((response) => {this.consultations = response.data});
               },

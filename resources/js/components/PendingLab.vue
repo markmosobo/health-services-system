@@ -221,7 +221,8 @@ import NotFound from './NotFound.vue';
                     this.$Progress.finish();
                     if (result.isConfirmed) {
                     this.form.put('api/pendinglab/'+ this.form.id)
-                    this.form.post('api/lab').then((response)=>{
+                    this.form.post('api/lab')
+                    this.form.put('api/labbill').then((response)=>{
                     toast.fire(
                     'Posted!',
                     "Lab finding has been posted.",

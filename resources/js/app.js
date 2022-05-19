@@ -38,6 +38,8 @@ let routes = [
     { path: '/analytics', component: require('./components/Analytics.vue').default },
     { path: '/bills', component: require('./components/Bill.vue').default },
     { path: '/consultationcharge', component: require('./components/ConsultationCharge.vue').default },
+    { path: '/drugcharge', component: require('./components/DrugCharge.vue').default },
+    { path: '/labtestcharge', component: require('./components/LabTestCharge.vue').default },
     { path: '/payment', component: require('./components/Payment.vue').default },
     { path: '/notifications', component: require('./components/Notification.vue').default },
     { path: '*', component: require('./components/NotFound.vue').default }

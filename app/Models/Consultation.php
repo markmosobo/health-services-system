@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Patient;
 use App\Models\User;
 use App\Models\LabTest;
-use App\Models\ConsultationCharge;
 
 class Consultation extends Model
 {
@@ -17,8 +16,7 @@ class Consultation extends Model
         'doctor_id',
         'symptoms',
         'lab_test_id',
-        'status',
-        'consult_charge_id'
+        'status'
     ];
 
     public function doctor()
@@ -36,8 +34,4 @@ class Consultation extends Model
         return $this->belongsTo(LabTest::class);
     }
 
-    public function charge()
-    {
-        return $this->belongsTo(ConsultationCharge::class);
-    }
 }
