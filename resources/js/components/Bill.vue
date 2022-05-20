@@ -17,10 +17,9 @@
                       <th>Bill ID</th>
                       <th>Patient</th>
                       <th>Doctor Charge</th>
-                      <th>Lab Chargebill</th>
-                      <th>Room Charge</th>
-                      <th>No of Days</th>
-                      <th>Transaction Date</th>
+                      <th>Lab Test(s) Charge</th>
+                      <th>Drug(s) Charge</th>
+                      <th>Total</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -28,11 +27,10 @@
                     <tr v-for="bill in bills.data" :key="bill.id">
                       <td><a href="#" @click="previewModal(bill.id)">BL{{bill.id}}</a></td>
                       <td>{{bill.patient.name}}</td>
-                      <td>{{bill.doctor_charge}}</td>
-                      <td>{{bill.lab_chargebill}}</td>
-                      <td>{{bill.room_charge}}</td>
-                      <td>{{bill.no_of_days}}</td>
-                      <td>{{bill.created_at | monthDateTime}}</td>
+                      <td>{{bill.consult_charge}}</td>
+                      <td>{{bill.lab_test_charge}}</td>
+                      <td>{{bill.drug_charge}}</td>
+                      <td>{{bill.drug_charge}}</td>
                       <td >
                           <a href="#" @click = "editModal(bill)">
                               <i class="fa fa-edit blue"></i>
@@ -218,9 +216,8 @@
                     id: '',
                     patient_id: '',
                     doctor_charge: '',
-                    room_charge: '',
-                    no_of_days: '',
-                    lab_chargebill: ''
+                    drug_charge: '',
+                    lab_test_charge: ''
                 })
             }
         },

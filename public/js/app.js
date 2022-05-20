@@ -3195,8 +3195,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3208,9 +3206,8 @@ __webpack_require__.r(__webpack_exports__);
         id: '',
         patient_id: '',
         doctor_charge: '',
-        room_charge: '',
-        no_of_days: '',
-        lab_chargebill: ''
+        drug_charge: '',
+        lab_test_charge: ''
       })
     };
   },
@@ -9030,7 +9027,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.form.post('api/lab');
 
-          _this.form.put('api/labbill').then(function (response) {
+          _this.form.post('api/labtestbill').then(function (response) {
             toast.fire('Posted!', "Lab finding has been posted.", 'success');
             Fire.$emit('Refresh');
           })["catch"](function () {
@@ -9337,7 +9334,9 @@ __webpack_require__.r(__webpack_exports__);
         if (result.isConfirmed) {
           _this.form.put('api/lab/' + _this.form.id);
 
-          _this.form.post('api/prescribe').then(function (response) {
+          _this.form.post('api/prescribe');
+
+          _this.form.post('api/drugbill').then(function (response) {
             toast.fire('Posted!', "Prescription has been posted.", 'success');
             Fire.$emit('Refresh');
           })["catch"](function () {
@@ -76936,17 +76935,13 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(bill.patient.name))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.doctor_charge))]),
+                    _c("td", [_vm._v(_vm._s(bill.consult_charge))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.lab_chargebill))]),
+                    _c("td", [_vm._v(_vm._s(bill.lab_test_charge))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.room_charge))]),
+                    _c("td", [_vm._v(_vm._s(bill.drug_charge))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.no_of_days))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm._f("monthDateTime")(bill.created_at))),
-                    ]),
+                    _c("td", [_vm._v(_vm._s(bill.drug_charge))]),
                     _vm._v(" "),
                     _c("td", [
                       _c(
@@ -77402,13 +77397,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Doctor Charge")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Lab Chargebill")]),
+        _c("th", [_vm._v("Lab Test(s) Charge")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Room Charge")]),
+        _c("th", [_vm._v("Drug(s) Charge")]),
         _vm._v(" "),
-        _c("th", [_vm._v("No of Days")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Transaction Date")]),
+        _c("th", [_vm._v("Total")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")]),
       ]),

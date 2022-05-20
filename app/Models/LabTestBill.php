@@ -12,7 +12,7 @@ class LabTestBill extends Model
     protected $fillable = 
     [
         'patient_id',
-        'lab_test_charge_id'
+        'lab_test_id'
     ];
 
     public function patient()
@@ -23,7 +23,7 @@ class LabTestBill extends Model
     //A bill belongs to a lab test
     public function test()
     {
-        return $this->belongsTo(LabTest::class,'lab_test_charge_id');
+        return $this->belongsTo(LabTest::class,'lab_test_id');
     } 
    
 }

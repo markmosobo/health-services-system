@@ -19,8 +19,8 @@ class CreateLabTestBillsTable extends Migration
             $table->foreign('patient_id')
                     ->references('id')
                     ->on('patients');   
-            $table->integer('lab_test_charge_id')->unsigned()->nullable();
-            $table->foreign('lab_test_charge_id')
+            $table->integer('lab_test_id')->unsigned()->nullable();
+            $table->foreign('lab_test_id')
                     ->references('id')
                     ->on('lab_tests'); 
             $table->timestamps();

@@ -12,7 +12,7 @@ class DrugBill extends Model
     protected $fillable = 
     [
         'patient_id',
-        'drug_charge_id'
+        'drug_id'
     ];
 
     public function patient()
@@ -23,6 +23,6 @@ class DrugBill extends Model
     //A bill belongs to a drug purchase
     public function drug()
     {
-        return $this->belongsTo(Drug::class,'drug_charge_id');
+        return $this->belongsTo(Drug::class,'drug_id');
     }     
 }

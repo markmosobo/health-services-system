@@ -237,7 +237,8 @@
                     this.$Progress.finish();
                     if (result.isConfirmed) {
                     this.form.put('api/lab/'+ this.form.id)
-                    this.form.post('api/prescribe').then((response)=>{
+                    this.form.post('api/prescribe')
+                    this.form.post('api/drugbill').then((response)=>{
                     toast.fire(
                     'Posted!',
                     "Prescription has been posted.",

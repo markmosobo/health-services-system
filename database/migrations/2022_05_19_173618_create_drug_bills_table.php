@@ -19,8 +19,8 @@ class CreateDrugBillsTable extends Migration
             $table->foreign('patient_id')
                     ->references('id')
                     ->on('patients');
-            $table->integer('drug_charge_id')->unsigned()->nullable();
-            $table->foreign('drug_charge_id')
+            $table->integer('drug_id')->unsigned()->nullable();
+            $table->foreign('drug_id')
                     ->references('id')
                     ->on('drugs'); 
             $table->timestamps();
