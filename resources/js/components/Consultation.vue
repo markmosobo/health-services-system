@@ -121,12 +121,12 @@
                             
                             <div class="form-group">
 
-                                <label>Charge:</label>
-                                <select class="form-control" v-model="form.consult_charge_id">
+                                <label>Charge</label>
+                                <select class="form-control" v-model="form.consult_charge">
                                   <option 
                                       v-for="item in consultationcharges" :key="item.id"
-                                      :value="item.id"
-                                      :selected="item.id == form.consult_charge_id">{{ item.consult_charge }}</option>
+                                      :value="item.consult_charge"
+                                      :selected="item.consult_charge == form.consult_charge">{{ item.consult_charge }}</option>
                                 </select>
                                     <div v-if="form.errors.has('consult_charge_id')" v-html="form.errors.get('consult_charge_id')" />
                             </div>                            
@@ -165,7 +165,7 @@
                         patient_id: '',
                         lab_test_id: '',
                         drug_id: '',
-                        consult_charge_id: '',
+                        consult_charge: '',
                         symptoms: '',
                         status: ''
                 })

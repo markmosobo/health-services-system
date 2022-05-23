@@ -19,10 +19,10 @@ class CreateConsultationBillsTable extends Migration
             $table->foreign('patient_id')
                     ->references('id')
                     ->on('patients');
-            $table->integer('consult_charge_id')->unsigned();
-            $table->foreign('consult_charge_id')
-                    ->references('id')
-                    ->on('consultation_charges');
+            $table->float('consult_charge')->nullable();
+            // $table->foreign('consult_charge_id')
+            //         ->references('id')
+            //         ->on('consultation_charges');
             $table->timestamps();
         });
     }

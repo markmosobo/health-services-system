@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{config('app.name')}} | Laravel-Vue Application </title>
+  <title>{{config('app.name')}} | Health Services Management System </title>
 
    <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('css/app.css')}}">

@@ -10,7 +10,7 @@ class DrugBillController extends Controller
 {
     public function index()
     {
-
+        return DrugBill::latest()->with('patient','drug')->paginate(10);
     }
 
     public function store(Request $request)

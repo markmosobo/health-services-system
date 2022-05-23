@@ -10,7 +10,7 @@ use App\Http\Resources\PatientResource;
 class PatientController extends Controller
 {
     public function index(){
-        return Patient::latest()->paginate(10);
+        return Patient::latest()->with('status')->paginate(10);
     }
 
     public function list(){

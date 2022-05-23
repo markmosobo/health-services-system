@@ -3195,10 +3195,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      bills: {},
+      patients: {},
       billpreview: {},
       editmode: false,
       patientslist: {},
@@ -3280,11 +3286,11 @@ __webpack_require__.r(__webpack_exports__);
         _this5.patientslist = response.data.data;
       });
     },
-    loadBills: function loadBills() {
+    loadPatients: function loadPatients() {
       var _this6 = this;
 
-      axios.get('api/bill').then(function (response) {
-        _this6.bills = response.data;
+      axios.get('api/patient').then(function (response) {
+        _this6.patients = response.data;
       });
     }
   },
@@ -3292,9 +3298,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this7 = this;
 
     this.listPatients();
-    this.loadBills();
+    this.loadPatients();
     Fire.$on('Refresh', function () {
-      _this7.loadBills();
+      _this7.loadPatients();
     });
   }
 });
@@ -3478,7 +3484,7 @@ __webpack_require__.r(__webpack_exports__);
         patient_id: '',
         lab_test_id: '',
         drug_id: '',
-        consult_charge_id: '',
+        consult_charge: '',
         symptoms: '',
         status: ''
       })
@@ -3605,6 +3611,101 @@ __webpack_require__.r(__webpack_exports__);
     this.loadConsultations();
     Fire.$on('Refresh', function () {
       _this9.loadConsultations();
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      editmode: false,
+      consultationbills: {},
+      patientslist: {},
+      form: new Form({
+        id: '',
+        patient_id: '',
+        tests: '',
+        results: ''
+      })
+    };
+  },
+  methods: {
+    loadConsultationBills: function loadConsultationBills() {
+      var _this = this;
+
+      axios.get('api/consultbill').then(function (response) {
+        _this.consultationbills = response.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.loadConsultationBills();
+    Fire.$on('Refresh', function () {
+      _this2.loadConsultationBills();
     });
   }
 });
@@ -4628,7 +4729,8 @@ __webpack_require__.r(__webpack_exports__);
       pendingdrugsales: {},
       completedlabfindings: {},
       completedprescriptions: {},
-      newmessages: {}
+      newmessages: {},
+      totalconsultfees: {}
     };
   },
   methods: {
@@ -4715,6 +4817,13 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/completedprescriptions').then(function (response) {
         _this12.completedprescriptions = response.data;
       });
+    },
+    loadBills: function loadBills() {
+      var _this13 = this;
+
+      axios.get('api/totalconsultfees').then(function (response) {
+        _this13.totalconsultfees = response.data;
+      });
     }
   },
   mounted: function mounted() {
@@ -4730,6 +4839,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loadPendingDrugSales();
     this.loadCompletedLabFindings();
     this.loadCompletedPrescriptions();
+    this.loadBills();
   }
 });
 
@@ -5327,6 +5437,93 @@ __webpack_require__.r(__webpack_exports__);
     this.loadDrugs();
     Fire.$on('Refresh', function () {
       _this6.loadDrugs();
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      drugbills: {}
+    };
+  },
+  methods: {
+    loadDrugBills: function loadDrugBills() {
+      var _this = this;
+
+      axios.get('api/drugbill').then(function (response) {
+        _this.drugbills = response.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.loadDrugBills();
+    Fire.$on('Refresh', function () {
+      _this2.loadDrugBills();
     });
   }
 });
@@ -6107,6 +6304,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6434,6 +6640,93 @@ __webpack_require__.r(__webpack_exports__);
     this.loadLabTests();
     Fire.$on('Refresh', function () {
       _this6.loadLabTests();
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      labtestbills: {}
+    };
+  },
+  methods: {
+    loadLabTestBills: function loadLabTestBills() {
+      var _this = this;
+
+      axios.get('api/labtestbill').then(function (response) {
+        _this.labtestbills = response.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.loadLabTestBills();
+    Fire.$on('Refresh', function () {
+      _this2.loadLabTestBills();
     });
   }
 });
@@ -9289,6 +9582,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9301,7 +9605,9 @@ __webpack_require__.r(__webpack_exports__);
         id: '',
         patient_id: '',
         results: '',
-        prescription: ''
+        prescription: '',
+        status: '',
+        patient_status: ''
       })
     };
   },
@@ -9652,6 +9958,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10915,6 +11230,15 @@ var routes = [{
 }, {
   path: '/bills',
   component: (__webpack_require__(/*! ./components/Bill.vue */ "./resources/js/components/Bill.vue")["default"])
+}, {
+  path: '/consultbill',
+  component: (__webpack_require__(/*! ./components/ConsultationBill.vue */ "./resources/js/components/ConsultationBill.vue")["default"])
+}, {
+  path: '/labtestbill',
+  component: (__webpack_require__(/*! ./components/LabTestBill.vue */ "./resources/js/components/LabTestBill.vue")["default"])
+}, {
+  path: '/drugbill',
+  component: (__webpack_require__(/*! ./components/DrugBill.vue */ "./resources/js/components/DrugBill.vue")["default"])
 }, {
   path: '/consultationcharge',
   component: (__webpack_require__(/*! ./components/ConsultationCharge.vue */ "./resources/js/components/ConsultationCharge.vue")["default"])
@@ -72758,6 +73082,45 @@ component.options.__file = "resources/js/components/Consultation.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ConsultationBill.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ConsultationBill.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConsultationBill.vue?vue&type=template&id=55540eca& */ "./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca&");
+/* harmony import */ var _ConsultationBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConsultationBill.vue?vue&type=script&lang=js& */ "./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConsultationBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ConsultationBill.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ConsultationCharge.vue":
 /*!********************************************************!*\
   !*** ./resources/js/components/ConsultationCharge.vue ***!
@@ -72910,6 +73273,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/Drug.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/DrugBill.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/DrugBill.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DrugBill.vue?vue&type=template&id=21345c9c& */ "./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c&");
+/* harmony import */ var _DrugBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DrugBill.vue?vue&type=script&lang=js& */ "./resources/js/components/DrugBill.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DrugBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DrugBill.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -73144,6 +73546,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/LabTest.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/LabTestBill.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/LabTestBill.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LabTestBill.vue?vue&type=template&id=1fc3c44b& */ "./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b&");
+/* harmony import */ var _LabTestBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LabTestBill.vue?vue&type=script&lang=js& */ "./resources/js/components/LabTestBill.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LabTestBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LabTestBill.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -73916,6 +74357,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultationBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ConsultationBill.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultationBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ConsultationCharge.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/ConsultationCharge.vue?vue&type=script&lang=js& ***!
@@ -73977,6 +74434,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Drug_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Drug.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Drug.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Drug_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DrugBill.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/DrugBill.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DrugBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DrugBill.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DrugBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -74073,6 +74546,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LabTest.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTest.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/LabTestBill.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/LabTestBill.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTestBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LabTestBill.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTestBill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -74445,6 +74934,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultationBill_vue_vue_type_template_id_55540eca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ConsultationBill.vue?vue&type=template&id=55540eca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ConsultationCharge.vue?vue&type=template&id=5eac69c8&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/ConsultationCharge.vue?vue&type=template&id=5eac69c8& ***!
@@ -74509,6 +75015,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Drug_vue_vue_type_template_id_d8d452ea___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Drug_vue_vue_type_template_id_d8d452ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Drug.vue?vue&type=template&id=d8d452ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Drug.vue?vue&type=template&id=d8d452ea&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DrugBill_vue_vue_type_template_id_21345c9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DrugBill.vue?vue&type=template&id=21345c9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c&");
 
 
 /***/ }),
@@ -74611,6 +75134,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTest_vue_vue_type_template_id_8d0204b8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTest_vue_vue_type_template_id_8d0204b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LabTest.vue?vue&type=template&id=8d0204b8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTest.vue?vue&type=template&id=8d0204b8&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LabTestBill_vue_vue_type_template_id_1fc3c44b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LabTestBill.vue?vue&type=template&id=1fc3c44b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b&");
 
 
 /***/ }),
@@ -76894,30 +77434,16 @@ var render = function () {
     _c("div", { staticClass: "row mt-3" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("h3", { staticClass: "card-title" }, [_vm._v("Bills")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-tools" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.newModal },
-                },
-                [_vm._v("Add New "), _c("i", { staticClass: "fas fa-vials" })]
-              ),
-            ]),
-          ]),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover text-nowrap" }, [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.bills.data, function (bill) {
-                  return _c("tr", { key: bill.id }, [
+                _vm._l(_vm.patients.data, function (item) {
+                  return _c("tr", { key: item.id }, [
                     _c("td", [
                       _c(
                         "a",
@@ -76925,23 +77451,27 @@ var render = function () {
                           attrs: { href: "#" },
                           on: {
                             click: function ($event) {
-                              return _vm.previewModal(bill.id)
+                              return _vm.previewModal(item.id)
                             },
                           },
                         },
-                        [_vm._v("BL" + _vm._s(bill.id))]
+                        [
+                          _vm._v(
+                            _vm._s(item.first_name) +
+                              " " +
+                              _vm._s(item.last_name)
+                          ),
+                        ]
                       ),
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.patient.name))]),
+                    _c("td", [_vm._v(_vm._s(item.status))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.consult_charge))]),
+                    _c("td", [_vm._v(_vm._s(item.total))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.lab_test_charge))]),
+                    _c("td", [_vm._v(_vm._s(item.paid))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.drug_charge))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(bill.drug_charge))]),
+                    _c("td", [_vm._v(_vm._s(item.balance))]),
                     _vm._v(" "),
                     _c("td", [
                       _c(
@@ -76950,7 +77480,7 @@ var render = function () {
                           attrs: { href: "#" },
                           on: {
                             click: function ($event) {
-                              return _vm.editModal(bill)
+                              return _vm.editModal(item)
                             },
                           },
                         },
@@ -76979,7 +77509,7 @@ var render = function () {
                               attrs: { href: "#" },
                               on: {
                                 click: function ($event) {
-                                  return _vm.deleteBill(bill.id)
+                                  return _vm.deleteBill(_vm.bill.id)
                                 },
                               },
                             },
@@ -76998,7 +77528,7 @@ var render = function () {
                                   attrs: { href: "#" },
                                   on: {
                                     click: function ($event) {
-                                      return _vm.generateBill(bill.id)
+                                      return _vm.generateBill(_vm.bill.id)
                                     },
                                   },
                                 },
@@ -77021,7 +77551,7 @@ var render = function () {
               _c(
                 "pagination",
                 {
-                  attrs: { data: _vm.bills },
+                  attrs: { data: _vm.patients },
                   on: { "pagination-change-page": _vm.getResults },
                 },
                 [
@@ -77120,72 +77650,10 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(2),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Patient:")]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.patient_id,
-                              expression: "form.patient_id",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          on: {
-                            change: function ($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function (o) {
-                                  return o.selected
-                                })
-                                .map(function (o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.form,
-                                "patient_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
-                          },
-                        },
-                        _vm._l(_vm.patientslist, function (pat) {
-                          return _c(
-                            "option",
-                            {
-                              key: pat.id,
-                              domProps: {
-                                value: pat.id,
-                                selected: pat.id == _vm.form.patient_id,
-                              },
-                            },
-                            [_vm._v(_vm._s(pat.name))]
-                          )
-                        }),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _vm.form.errors.has("patient_id")
-                        ? _c("div", {
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.form.errors.get("patient_id")
-                              ),
-                            },
-                          })
-                        : _vm._e(),
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", [_vm._v("Lab Charge")]),
                       _vm._v(" "),
@@ -77365,7 +77833,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-lg" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("div", { staticClass: "card-header" }, [
@@ -77374,10 +77842,10 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(4),
             ]),
             _vm._v(" "),
-            _vm._m(4),
+            _vm._m(5),
           ]),
         ]),
       ]
@@ -77389,19 +77857,53 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Bills")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Bill ID")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Patient")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Doctor Charge")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Lab Test(s) Charge")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Drug(s) Charge")]),
+        _c("th", [_vm._v("Status")]),
         _vm._v(" "),
         _c("th", [_vm._v("Total")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Paid")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Balance")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")]),
       ]),
@@ -78031,7 +78533,7 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", [_vm._v("Charge:")]),
+                      _c("label", [_vm._v("Charge")]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -78040,8 +78542,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.consult_charge_id,
-                              expression: "form.consult_charge_id",
+                              value: _vm.form.consult_charge,
+                              expression: "form.consult_charge",
                             },
                           ],
                           staticClass: "form-control",
@@ -78057,7 +78559,7 @@ var render = function () {
                                 })
                               _vm.$set(
                                 _vm.form,
-                                "consult_charge_id",
+                                "consult_charge",
                                 $event.target.multiple
                                   ? $$selectedVal
                                   : $$selectedVal[0]
@@ -78071,8 +78573,10 @@ var render = function () {
                             {
                               key: item.id,
                               domProps: {
-                                value: item.id,
-                                selected: item.id == _vm.form.consult_charge_id,
+                                value: item.consult_charge,
+                                selected:
+                                  item.consult_charge ==
+                                  _vm.form.consult_charge,
                               },
                             },
                             [_vm._v(_vm._s(item.consult_charge))]
@@ -78223,6 +78727,118 @@ var staticRenderFns = [
         { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
         [_vm._v("Drugs:")]
       ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ConsultationBill.vue?vue&type=template&id=55540eca& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row mt-3" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body table-responsive p-0" }, [
+            _c("table", { staticClass: "table table-hover text-nowrap" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.consultationbills.data, function (item) {
+                  return _c("tr", { key: item.id }, [
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(item.patient.first_name) +
+                          " " +
+                          _vm._s(item.patient.last_name)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.consult_charge))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm._f("monthDateTime")(item.created_at))),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Consultation Bills")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Patient")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charge")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charged On")]),
+      ]),
     ])
   },
 ]
@@ -79461,7 +80077,7 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [
-                _vm._v("Patients"),
+                _vm._v("Lab Test Fees"),
               ]),
               _vm._v(" "),
               _c("span", { staticClass: "info-box-number" }, [
@@ -80051,7 +80667,9 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "info-box-content" }, [
-          _c("span", { staticClass: "info-box-text" }, [_vm._v("CPU Traffic")]),
+          _c("span", { staticClass: "info-box-text" }, [
+            _vm._v("Consultation Fees"),
+          ]),
           _vm._v(" "),
           _c("span", { staticClass: "info-box-number" }, [
             _vm._v("\n              10\n              "),
@@ -80080,7 +80698,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "info-box-content" }, [
-          _c("span", { staticClass: "info-box-text" }, [_vm._v("Bills")]),
+          _c("span", { staticClass: "info-box-text" }, [_vm._v("Drug Sales")]),
           _vm._v(" "),
           _c("span", { staticClass: "info-box-number" }, [_vm._v("760")]),
         ]),
@@ -81907,6 +82525,118 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugBill.vue?vue&type=template&id=21345c9c& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row mt-3" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body table-responsive p-0" }, [
+            _c("table", { staticClass: "table table-hover text-nowrap" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.drugbills.data, function (item) {
+                  return _c("tr", { key: item.id }, [
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(item.patient.first_name) +
+                          " " +
+                          _vm._s(item.patient.last_name)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.drug.price))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm._f("monthDateTime")(item.created_at))),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Drug Bills")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Patient")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charge")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charged On")]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugCharge.vue?vue&type=template&id=342a591f&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DrugCharge.vue?vue&type=template&id=342a591f& ***!
@@ -83367,7 +84097,33 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [_vm._v("My Labs")]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
     ])
   },
   function () {
@@ -83832,6 +84588,118 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LabTestBill.vue?vue&type=template&id=1fc3c44b& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row mt-3" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body table-responsive p-0" }, [
+            _c("table", { staticClass: "table table-hover text-nowrap" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.labtestbills.data, function (item) {
+                  return _c("tr", { key: item.id }, [
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(item.patient.first_name) +
+                          " " +
+                          _vm._s(item.patient.last_name)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.test.charge))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm._f("monthDateTime")(item.created_at))),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Lab Test Bills")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Patient")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charge")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Charged On")]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -91605,6 +92473,71 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("Patient Status")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.patient_status,
+                              expression: "form.patient_status",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            id: "patient_status",
+                            name: "patient_status",
+                          },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "patient_status",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Select Patient Status"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "inpatient" } }, [
+                            _vm._v("Inpatient"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "outpatient" } }, [
+                            _vm._v("Outpatient"),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("patient_status")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("patient_status")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
                       _c("label", [_vm._v("Drugs and Medicine")]),
                       _vm._v(" "),
                       _c("br"),
@@ -92457,7 +93390,33 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [_vm._v("My Prescriptions")]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" },
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]),
+          ]
+        ),
+      ]),
     ])
   },
   function () {

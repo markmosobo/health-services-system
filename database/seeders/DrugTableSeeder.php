@@ -17,31 +17,36 @@ class DrugTableSeeder extends Seeder
         Drug::create([
             'name' => 'Acetylcysteine',
             'dose_form' => 'Injection',
-            'quantity' => '200mg/mL(10 mL amp)'
+            'quantity' => '200mg/mL(10 mL amp)',
+            'price' => 300
         ]);
 
         Drug::create([
             'name' => 'Benztropine56',
             'dose_form' => 'Injection',
-            'quantity' => '2mg/mL'
+            'quantity' => '2mg/mL',
+            'price' => 150
         ]);
 
         Drug::create([
             'name' => 'Paracetamol',
             'dose_form' => 'Tablet(scored)',
-            'quantity' => '500mg'
+            'quantity' => '500mg',
+            'price' => 200
         ]);
 
         Drug::create([
             'name' => 'Paracetamol',
             'dose_form' => 'Oral liquid',
-            'quantity' => '120mg.5mL(c)'
+            'quantity' => '120mg.5mL(c)',
+            'price' => 100
         ]);
 
         Drug::create([
             'name' => 'Acetylsalicylic acid (Aspirin)',
             'dose_form' => 'Tablet',
-            'quantity' => '300mg'
+            'quantity' => '300mg',
+            'price' => 200
         ]);
     }
 }

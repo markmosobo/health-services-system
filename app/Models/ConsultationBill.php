@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Patient;
+use App\Models\ConsultationCharge;
 
 class ConsultationBill extends Model
 {
@@ -12,7 +13,7 @@ class ConsultationBill extends Model
     protected $fillable = 
     [
         'patient_id',
-        'consult_charge_id'
+        'consult_charge'
     ];
 
     public function patient()

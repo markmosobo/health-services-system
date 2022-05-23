@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PatientResource;
 use Illuminate\Http\Request;
 use App\Models\Consultation;
 

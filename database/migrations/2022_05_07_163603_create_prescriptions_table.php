@@ -27,6 +27,7 @@ class CreatePrescriptionsTable extends Migration
             $table->foreign('drug_id')
                     ->references('id')
                     ->on('drugs');
+            $table->string('patient_status')->nullable();        
             $table->string('status')->default(0);        
             $table->timestamps();
         });

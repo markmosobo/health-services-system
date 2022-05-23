@@ -6,7 +6,15 @@
               <div class="card-header">
                 <h3 class="card-title">Bills</h3>
                 <div class="card-tools">
-                 <button type="button" class="btn btn-primary" @click = "newModal">Add New <i class="fas fa-vials"></i></button>   
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>                  
                 </div>
               </div>
               <!-- /.card-header -->
@@ -14,25 +22,23 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Bill ID</th>
                       <th>Patient</th>
-                      <th>Doctor Charge</th>
-                      <th>Lab Test(s) Charge</th>
-                      <th>Drug(s) Charge</th>
+                      <th>Status</th>                      
                       <th>Total</th>
+                      <th>Paid</th>
+                      <th>Balance</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="bill in bills.data" :key="bill.id">
-                      <td><a href="#" @click="previewModal(bill.id)">BL{{bill.id}}</a></td>
-                      <td>{{bill.patient.name}}</td>
-                      <td>{{bill.consult_charge}}</td>
-                      <td>{{bill.lab_test_charge}}</td>
-                      <td>{{bill.drug_charge}}</td>
-                      <td>{{bill.drug_charge}}</td>
+                    <tr v-for="item in patients.data" :key="item.id">
+                      <td><a href="#" @click="previewModal(item.id)">{{item.first_name}} {{item.last_name}}</a></td>
+                      <td>{{item.status}}</td>
+                      <td>{{item.total}}</td>
+                      <td>{{item.paid}}</td>
+                      <td>{{item.balance}}</td>
                       <td >
-                          <a href="#" @click = "editModal(bill)">
+                          <a href="#" @click = "editModal(item)">
                               <i class="fa fa-edit blue"></i>
                           </a>
                           <span v-show="$gate.isSuperAdminOrAdmin()">/</span>
@@ -50,7 +56,7 @@
               </div>             
               <!-- /.card-body -->
               <div class="card-footer">
-                <pagination :data="bills" @pagination-change-page="getResults">
+                <pagination :data="patients" @pagination-change-page="getResults">
                   	<span slot="prev-nav">&lt; Previous</span>
 	                  <span slot="next-nav">Next &gt;</span>
                 </pagination>
@@ -79,7 +85,7 @@
                         </button>
                     </div>
                     <div class="modal-body">                             
-                            <div class="form-group">
+                            <!-- <div class="form-group">
 
                                 <label>Patient:</label>
                                 <select class="form-control" v-model="form.patient_id">
@@ -89,7 +95,7 @@
                                       :selected="pat.id == form.patient_id">{{ pat.name }}</option>
                                 </select>
                                     <div v-if="form.errors.has('patient_id')" v-html="form.errors.get('patient_id')" />
-                            </div>  
+                            </div>   -->
 
                             <div class="form-group">
                             <label>Lab Charge</label>  
@@ -208,7 +214,7 @@
     export default {
         data(){
             return{
-                bills: {},
+                patients: {},
                 billpreview: {},
                 editmode:false,
                 patientslist: {},
@@ -282,14 +288,14 @@
                     this.patientslist = response.data.data;
                     });
               },
-              loadBills(){
-                  axios.get('api/bill').then((response) => {this.bills = response.data});
+              loadPatients(){
+                  axios.get('api/patient').then((response) => {this.patients = response.data});
               }            
         },
         mounted() {
             this.listPatients();
-            this.loadBills();
-            Fire.$on('Refresh',() => {this.loadBills()});
+            this.loadPatients();
+            Fire.$on('Refresh',() => {this.loadPatients()});
         }
     }
 </script>

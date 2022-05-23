@@ -15,7 +15,7 @@ class ConsultationChargeTableSeeder extends Seeder
     public function run()
     {
         ConsultationCharge::create([
-            'consult_charge' => 600
+            'consult_charge' => 200
         ]);
     }
 }

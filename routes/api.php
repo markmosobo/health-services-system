@@ -81,3 +81,6 @@ Route::get('countpendinglabfindings',[API\LabFindingController::class,'countPend
 Route::get('countpendingdrugsales',[API\DrugPurchaseController::class,'countPendingDrugSales']);
 Route::get('completedlabfindings',[API\LabFindingController::class,'completedLabFindings']);
 Route::get('completedprescriptions',[API\PrescriptionController::class,'completedPrescriptions']);
+Route::get('totalconsultfees',[API\ConsultationBillController::class,'totalfee']);
+Route::get('totallabtestfees',[API\LabTestBillController::class,'totalfee']);
+Route::get('totaldrugfees',[API\DrugBillController::class,'totalfee']);

@@ -32,6 +32,7 @@ class PrescriptionController extends Controller
        return Prescription::create([
         'patient_id' => $request['patient_id'],
         'prescribe_doctor_id' => $user->id,
+        'patient_status' => $request->get('patient_status'),
         'drug_id' => $request['drug_id']           
        ]);
     }

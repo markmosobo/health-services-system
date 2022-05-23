@@ -128,6 +128,17 @@
                             </div>
 
                             <div class="form-group">
+                            <label>Patient Status</label>  
+                                    <select v-model="form.patient_status" id="patient_status"
+                                    name="patient_status" class="form-control">
+                                    <option value="">Select Patient Status</option>
+                                    <option value="inpatient">Inpatient</option>
+                                    <option value="outpatient">Outpatient</option>
+                                    </select>
+                                    <div v-if="form.errors.has('patient_status')" v-html="form.errors.get('patient_status')" />
+                            </div>                            
+
+                            <div class="form-group">
 
                                 <label>Drugs and Medicine</label>
                                 <br>
@@ -207,7 +218,9 @@
                         id: '',
                         patient_id: '',
                         results: '',
-                        prescription: ''
+                        prescription: '',
+                        status: '',
+                        patient_status:''
                 })
             }
         },

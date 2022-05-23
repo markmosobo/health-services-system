@@ -329,7 +329,7 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
+                <span class="info-box-text">Consultation Fees</span>
                 <span class="info-box-number">
                   10
                   <small>%</small>
@@ -345,7 +345,7 @@
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-injured"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Patients</span>
+                <span class="info-box-text">Lab Test Fees</span>
                 <span class="info-box-number">{{patients}}</span>
               </div>
               <!-- /.info-box-content -->
@@ -362,7 +362,7 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user-injured"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Bills</span>
+                <span class="info-box-text">Drug Sales</span>
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->
@@ -783,7 +783,8 @@
             pendingdrugsales: {},
             completedlabfindings:{},
             completedprescriptions: {},
-            newmessages: {}
+            newmessages: {},
+            totalconsultfees: {}
           }
         },
         methods: { 
@@ -823,6 +824,9 @@
               loadCompletedPrescriptions(){
                 axios.get('api/completedprescriptions').then((response) => {this.completedprescriptions = response.data});
               },
+              loadBills(){
+                axios.get('api/totalconsultfees').then((response) => {this.totalconsultfees = response.data});
+              }
 
         },
         mounted() {
@@ -838,6 +842,7 @@
           this.loadPendingDrugSales();
           this.loadCompletedLabFindings();
           this.loadCompletedPrescriptions();
+          this.loadBills();
         }
     }
 </script>

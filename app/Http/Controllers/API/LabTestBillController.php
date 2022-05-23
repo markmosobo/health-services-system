@@ -10,7 +10,7 @@ class LabTestBillController extends Controller
 {
     public function index()
     {
-
+        return LabTestBill::latest()->with('patient','test')->paginate(10);
     }
 
     public function store(Request $request)

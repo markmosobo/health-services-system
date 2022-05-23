@@ -5,7 +5,7 @@
             <!--lab results -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">My Prescriptions</h3>
+                <h3 class="card-title">Consultation Bills</h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -24,14 +24,14 @@
                   <thead>
                     <tr>
                       <th>Patient</th>
-                      <th>Prescription(s)</th>
-                      <th>Prescribed On</th>
+                      <th>Charge</th>
+                      <th>Charged On</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="item in prescriptions.data" :key="item.id">
+                    <tr v-for="item in consultationbills.data" :key="item.id">
                       <td>{{item.patient.first_name}} {{item.patient.last_name}}</td>
-                      <td>{{item.drug.name}}</td>
+                      <td>{{item.consult_charge}}</td>
                       <td>{{item.created_at | monthDateTime}}</td>
                     </tr>
   
@@ -43,7 +43,7 @@
             <!-- /.card -->
           </div>
         </div>
-       
+     
     </div>
 </template>
 
@@ -52,29 +52,24 @@
         data(){
             return{
                 editmode: false,
-                prescriptions: {},
+                consultationbills: {},
                 patientslist: {},
                 form: new Form({
                         id: '',
                         patient_id: '',
-                        prescription: ''
+                        tests: '',
+                        results: ''
                 })
             }
         },
         methods: {
-              listPatients(){
-                  axios.get('api/listpatients').then((response) => {
-                    this.patientslist = response.data.data;
-                    });
-              },
-              loadPrescriptions(){
-                  axios.get('api/prescribe').then((response) => {this.prescriptions = response.data});
+              loadConsultationBills(){
+                  axios.get('api/consultbill').then((response) => {this.consultationbills = response.data});
               }
         },
         mounted() {
-            this.listPatients();
-            this.loadPrescriptions();
-            Fire.$on('Refresh',() => {this.loadPrescriptions();})
+            this.loadConsultationBills();
+            Fire.$on('Refresh',() => {this.loadConsultationBills();})
         }
     }
 </script>

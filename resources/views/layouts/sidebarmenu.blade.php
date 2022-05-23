@@ -30,11 +30,40 @@
 
              @can('isAccountant')
              <li class="nav-item">
-                <router-link to="/bills" class="nav-link">
-                  <i class="fas fa-money-bill nav-icon green"></i>
-                  <p>Bills</p>
-                </router-link>
-              </li>             
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Bills
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <router-link to="/bills" class="nav-link">
+                <i class="nav-icon fas fa-vials blue"></i>
+                <p>Pending Bills</p>                            
+              </router-link>
+              </li> 
+              <li class="nav-item">
+              <router-link to="/consultbill" class="nav-link">
+                <i class="nav-icon fas fa-vials blue"></i>
+                <p>Consultation Bills</p>                            
+              </router-link>
+              </li> 
+              <li class="nav-item">
+              <router-link to="/labtestbill" class="nav-link">
+                <i class="nav-icon fas fa-vials blue"></i>
+                <p>Lab Test Bills</p>                            
+              </router-link>
+              </li>  
+              <li class="nav-item">
+              <router-link to="/drugbill" class="nav-link">
+                <i class="nav-icon fas fa-vials blue"></i>
+                <p>Drug Bills</p>                            
+              </router-link>
+              </li>               
+            </ul>           
+          </li>             
              @endcan
              @can('isNurse')
              <li class="nav-item">

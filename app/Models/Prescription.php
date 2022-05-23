@@ -11,7 +11,7 @@ use App\Models\Drug;
 class Prescription extends Model
 {
     use HasFactory;
-    protected $fillable = ['patient_id','prescribe_doctor_id','drug_id','status'];
+    protected $fillable = ['patient_id','prescribe_doctor_id','drug_id','patient_status','status'];
 
         // A prescription belongs to a patient
         public function patient()
