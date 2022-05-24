@@ -33,7 +33,9 @@
                   <tbody>
                     <tr v-for="item in patients.data" :key="item.id">
                       <td><a href="#" @click="previewModal(item.id)">{{item.first_name}} {{item.last_name}}</a></td>
-                      <td>{{item.status}}</td>
+                      <td v-for="item in prescriptions.data" :key="item.id">
+                          {{item.patient_status}}
+                       </td>
                       <td>{{item.total}}</td>
                       <td>{{item.paid}}</td>
                       <td>{{item.balance}}</td>
@@ -218,6 +220,7 @@
                 billpreview: {},
                 editmode:false,
                 patientslist: {},
+                prescriptions: {},
                 form: new Form ({
                     id: '',
                     patient_id: '',
@@ -290,11 +293,15 @@
               },
               loadPatients(){
                   axios.get('api/patient').then((response) => {this.patients = response.data});
-              }            
+              },
+              loadPrescriptions(){
+                  axios.get('api/prescribebill').then((response) => {this.patients = response.data});
+              }             
         },
         mounted() {
             this.listPatients();
             this.loadPatients();
+            this.loadPrescriptions();
             Fire.$on('Refresh',() => {this.loadPatients()});
         }
     }

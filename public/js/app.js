@@ -3201,6 +3201,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3208,6 +3210,7 @@ __webpack_require__.r(__webpack_exports__);
       billpreview: {},
       editmode: false,
       patientslist: {},
+      prescriptions: {},
       form: new Form({
         id: '',
         patient_id: '',
@@ -3292,15 +3295,23 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/patient').then(function (response) {
         _this6.patients = response.data;
       });
+    },
+    loadPrescriptions: function loadPrescriptions() {
+      var _this7 = this;
+
+      axios.get('api/prescribebill').then(function (response) {
+        _this7.patients = response.data;
+      });
     }
   },
   mounted: function mounted() {
-    var _this7 = this;
+    var _this8 = this;
 
     this.listPatients();
     this.loadPatients();
+    this.loadPrescriptions();
     Fire.$on('Refresh', function () {
-      _this7.loadPatients();
+      _this8.loadPatients();
     });
   }
 });
@@ -77443,101 +77454,115 @@ var render = function () {
               _c(
                 "tbody",
                 _vm._l(_vm.patients.data, function (item) {
-                  return _c("tr", { key: item.id }, [
-                    _c("td", [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.previewModal(item.id)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(item.first_name) +
-                              " " +
-                              _vm._s(item.last_name)
-                          ),
-                        ]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.status))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.total))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.paid))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.balance))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editModal(item)
-                            },
-                          },
-                        },
-                        [_c("i", { staticClass: "fa fa-edit blue" })]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.$gate.isSuperAdminOrAdmin(),
-                              expression: "$gate.isSuperAdminOrAdmin()",
-                            },
-                          ],
-                        },
-                        [_vm._v("/")]
-                      ),
-                      _vm._v(" "),
-                      _vm.$gate.isSuperAdminOrAdmin()
-                        ? _c(
-                            "a",
-                            {
-                              attrs: { href: "#" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.deleteBill(_vm.bill.id)
-                                },
+                  return _c(
+                    "tr",
+                    { key: item.id },
+                    [
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.previewModal(item.id)
                               },
                             },
-                            [_c("i", { staticClass: "fa fa-trash red" })]
-                          )
-                        : _vm._e(),
-                    ]),
-                    _vm._v(" "),
-                    _vm.$gate.isAccountant()
-                      ? _c("td", [
-                          _vm.$gate.isAccountant()
-                            ? _c(
-                                "a",
-                                {
-                                  staticClass: "btn btn-sm btn-info float-left",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.generateBill(_vm.bill.id)
-                                    },
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(item.first_name) +
+                                " " +
+                                _vm._s(item.last_name)
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.prescriptions.data, function (item) {
+                        return _c("td", { key: item.id }, [
+                          _vm._v(
+                            "\n                          " +
+                              _vm._s(item.patient_status) +
+                              "\n                       "
+                          ),
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(item.total))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(item.paid))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(item.balance))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.editModal(item)
+                              },
+                            },
+                          },
+                          [_c("i", { staticClass: "fa fa-edit blue" })]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.$gate.isSuperAdminOrAdmin(),
+                                expression: "$gate.isSuperAdminOrAdmin()",
+                              },
+                            ],
+                          },
+                          [_vm._v("/")]
+                        ),
+                        _vm._v(" "),
+                        _vm.$gate.isSuperAdminOrAdmin()
+                          ? _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteBill(_vm.bill.id)
                                   },
                                 },
-                                [_vm._v("Generate")]
-                              )
-                            : _vm._e(),
-                        ])
-                      : _vm._e(),
-                  ])
+                              },
+                              [_c("i", { staticClass: "fa fa-trash red" })]
+                            )
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _vm.$gate.isAccountant()
+                        ? _c("td", [
+                            _vm.$gate.isAccountant()
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass:
+                                      "btn btn-sm btn-info float-left",
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.generateBill(_vm.bill.id)
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Generate")]
+                                )
+                              : _vm._e(),
+                          ])
+                        : _vm._e(),
+                    ],
+                    2
+                  )
                 }),
                 0
               ),

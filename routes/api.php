@@ -84,3 +84,4 @@ Route::get('completedprescriptions',[API\PrescriptionController::class,'complete
 Route::get('totalconsultfees',[API\ConsultationBillController::class,'totalfee']);
 Route::get('totallabtestfees',[API\LabTestBillController::class,'totalfee']);
 Route::get('totaldrugfees',[API\DrugBillController::class,'totalfee']);
+Route::get('prescribebill',[API\PrescriptionController::class,'bill']);

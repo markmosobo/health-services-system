@@ -20,6 +20,12 @@ class PrescriptionController extends Controller
         return response()->json($prescriptions);
     }
 
+    public function bill(){
+        $prescriptions = Prescription::latest()->with('patient','drug')
+        ->paginate(10);
+        return response()->json($prescriptions);
+    }
+
     public function pendingPrescribe()
     {
         $labs = Prescription::latest()->with('patient','drug')->where('status', 0)->paginate(10);
