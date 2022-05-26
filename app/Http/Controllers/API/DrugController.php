@@ -19,6 +19,41 @@ class DrugController extends Controller
         return DrugResource::collection($list);        
     }
 
+    public function tabletlist(){
+        $list = Drug::all()->where('dose_form','tablet');
+        return DrugResource::collection($list);        
+    }
+
+    public function injectionlist(){
+        $list = Drug::all()->where('dose_form','injection');
+        return DrugResource::collection($list);        
+    }
+
+    public function liquidlist(){
+        $list = Drug::all()->where('dose_form','liquid');
+        return DrugResource::collection($list);        
+    }
+
+    public function inhalationlist(){
+        $list = Drug::all()->where('dose_form','inhalation');
+        return DrugResource::collection($list);        
+    }
+
+    public function oralliquidlist(){
+        $list = Drug::all()->where('dose_form','oral liquid');
+        return DrugResource::collection($list);        
+    }
+
+    public function pfilist(){
+        $list = Drug::all()->where('dose_form','pfi');
+        return DrugResource::collection($list);        
+    }
+
+    public function otherlist(){
+        $list = Drug::all()->where('dose_form','');
+        return DrugResource::collection($list);        
+    }
+
     public function store(Request $request){
         $this->validate($request,[
             'name' => 'required|string|max:191',

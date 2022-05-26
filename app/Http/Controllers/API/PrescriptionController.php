@@ -32,6 +32,17 @@ class PrescriptionController extends Controller
         return response()->json($labs);        
     }
 
+    public function directpendingPrescribe(Request $request)
+    {
+        $user = auth('api')->user();
+        return Prescription::create([
+            'prescribe_doctor_id' => $user->id,
+            'patient_id' => $request->get('patient_id'),
+            'drug_id' => $request->get('drug_id'),
+            'patient_status' => 'outpatient'
+        ]);        
+    }
+
     public function store(Request $request)
     {
         $user = auth('api')->user();

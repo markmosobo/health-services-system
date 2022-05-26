@@ -33,9 +33,7 @@
                   <tbody>
                     <tr v-for="item in patients.data" :key="item.id">
                       <td><a href="#" @click="previewModal(item.id)">{{item.first_name}} {{item.last_name}}</a></td>
-                      <td v-for="item in prescriptions.data" :key="item.id">
-                          {{item.patient_status}}
-                       </td>
+                      <td> {{item.status}}</td>
                       <td>{{item.total}}</td>
                       <td>{{item.paid}}</td>
                       <td>{{item.balance}}</td>
@@ -133,81 +131,81 @@
                     </form>    
                 </div>
             </div>
-            </div>
+        </div>
         <!-- end of modal -->  
 
         <!--preview modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="addNewModalTitle">
-                            Bill Preview
-                        </h3>   
-                        <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-            
-                        <div class="card-header">
-                            <h3 class="card-title">{{this.billpreview}}</h3>
-
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body p-0">
-                            <ul class="products-list product-list-in-card pl-2 pr-2">
-                            <li class="item">                                
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title float-right">
-                                    Name</a>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title">Doctor Charge
-                                    <span class="badge badge-warning float-right">Ksh500</span></a>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title">Lab Chargebill
-                                    <span class="badge badge-info float-right">Ksh700</span></a>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title">
-                                    Room Charge <span class="badge badge-danger float-right">
-                                    Ksh350
-                                </span>
-                                </a>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title">No of Days
-                                    <span class="badge badge-success float-right">6</span></a>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="product-info">
-                                <a href="javascript:void(0)" class="product-title">Total Bill
-                                    <span class="badge badge-info float-right">Ksh7000</span></a>
-                                </div>
-                            </li>                            
-                            </ul>
-                        </div>
-                        <!-- /.card-body -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="addNewModalTitle">
+                        Bill Preview
+                    </h3>   
+                    <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+        
+                    <div class="card-header">
+                        <h3 class="card-title">{{this.billpreview}}</h3>
 
                     </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="products-list product-list-in-card pl-2 pr-2">
+                        <li class="item">                                
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title float-right">
+                                Name</a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Doctor Charge
+                                <span class="badge badge-warning float-right">Ksh500</span></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Lab Chargebill
+                                <span class="badge badge-info float-right">Ksh700</span></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">
+                                Room Charge <span class="badge badge-danger float-right">
+                                Ksh350
+                            </span>
+                            </a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">No of Days
+                                <span class="badge badge-success float-right">6</span></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Total Bill
+                                <span class="badge badge-info float-right">Ksh7000</span></a>
+                            </div>
+                        </li>                            
+                        </ul>
                     </div>
+                    <!-- /.card-body -->
+
                 </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
-            </div>        
+            </div>
+            </div>
+        </div>        
         <!--end of preview modal -->      
     </div>
 </template>
@@ -293,15 +291,11 @@
               },
               loadPatients(){
                   axios.get('api/patient').then((response) => {this.patients = response.data});
-              },
-              loadPrescriptions(){
-                  axios.get('api/prescribebill').then((response) => {this.patients = response.data});
-              }             
+              }            
         },
         mounted() {
             this.listPatients();
             this.loadPatients();
-            this.loadPrescriptions();
             Fire.$on('Refresh',() => {this.loadPatients()});
         }
     }

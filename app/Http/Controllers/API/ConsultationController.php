@@ -43,14 +43,16 @@ class ConsultationController extends Controller
         $this->validate($request,[
             'patient_id' => 'required|integer',
             'symptoms' => 'required|string',
-            'lab_test_id' => 'required|integer',
+            'lab_test_id' => 'sometimes',
+            'drug_id' => 'sometimes'
         ]);
 
         return Consultation::create([
           'patient_id' => $request['patient_id'],
           'doctor_id' => $user->id,      
           'symptoms' => $request['symptoms'],
-          'lab_test_id' => $request->input('lab_test_id')
+          'lab_test_id' => $request->input('lab_test_id'),
+          'drug_id' => $request->input('drug_id')
         ]);
     }
 
@@ -61,7 +63,8 @@ class ConsultationController extends Controller
         $this->validate($request,[
             'patient_id' => 'required|integer',
             'symptoms' => 'required|string',
-            'lab_test_id' => 'required|integer',
+            'lab_test_id' => 'sometimes',
+            'drug_id' => 'sometimes'
         ]);
 
         $consultation->update($request->all());

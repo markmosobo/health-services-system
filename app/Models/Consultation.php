@@ -16,6 +16,7 @@ class Consultation extends Model
         'doctor_id',
         'symptoms',
         'lab_test_id',
+        'drug_id',
         'status'
     ];
 
@@ -32,6 +33,11 @@ class Consultation extends Model
     public function test()
     {
         return $this->belongsTo(LabTest::class);
+    }
+
+    public function drug()
+    {
+        return $this->belongsTo(Drug::class);
     }
 
 }

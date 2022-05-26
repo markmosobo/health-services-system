@@ -92,16 +92,16 @@
                                 <label>Diagnostics</label>
                                 <br>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
+                                  <input @click="showLabTests()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
                                     <label class="form-check-label">Test(s) to be done:</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                  <input @click="showDrugs()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
                                   <label class="form-check-label" for="inlineRadio2">Drugs:</label>
                                 </div>  
 
-                                <select class="form-control" v-model="form.lab_test_id">
+                                <select id="chooselabtests" class="form-control" v-model="form.lab_test_id">
                                   <option 
                                       v-for="lab in labtests" :key="lab.id"
                                       :value="lab.id"
@@ -109,7 +109,7 @@
                                 </select>
                                     <div v-if="form.errors.has('lab_test_id')" v-html="form.errors.get('lab_test_id')" />
 
-                                <select class="form-control" v-model="form.drug_id" hidden>
+                                <select id="choosedrugs" class="form-control" v-model="form.drug_id">
                                   <option 
                                       v-for="drug in drugs" :key="drug.id"
                                       :value="drug.id"
@@ -144,7 +144,7 @@
                     </form>    
                 </div>
             </div>
-            </div>
+        </div>
         <!-- end of modal -->  
         
     </div>
@@ -172,6 +172,14 @@
             }
         },
         methods: {
+              showDrugs(){
+                document.getElementById("chooselabtests").style.visibility="hidden"
+                document.getElementById("choosedrugs").style.visibility="visible"
+              }, 
+              showLabTests(){
+                document.getElementById("chooselabtests").style.visibility="visible"
+                document.getElementById("choosedrugs").style.visibility="hidden"
+              },               
               newModal(){
                   this.editmode = false,
                   this.form.reset();
@@ -204,6 +212,7 @@
                   this.$Progress.start();
                   this.form.post('api/consult')
                   this.form.post('api/pendinglab')
+                  this.form.post('api/directpendingprescribe')
                   this.form.post('api/consultbill')
                   .then(() => {
                   $('#addNew').modal('hide')
@@ -272,7 +281,7 @@
                   axios.get('api/listconsultationcharges').then((response) => {
                     this.consultationcharges = response.data.data;
                     });
-              },               
+              },             
               loadConsultations(){
                   axios.get('api/consult').then((response) => {this.consultations = response.data});
               },
@@ -283,6 +292,8 @@
             this.listDrugs();
             this.listCharges();
             this.loadConsultations();
+            document.getElementById("chooselabtests").style.visibility="visible"
+            document.getElementById("choosedrugs").style.visibility="hidden"
             Fire.$on('Refresh',() => {this.loadConsultations();})
         }
     }

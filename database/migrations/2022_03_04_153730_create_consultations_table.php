@@ -24,10 +24,14 @@ class CreateConsultationsTable extends Migration
                     ->references('id')
                     ->on('users');
             $table->longText('symptoms')->nullable();
-            $table->integer('lab_test_id')->unsigned();
+            $table->integer('lab_test_id')->unsigned()->nullable();
             $table->foreign('lab_test_id')
                     ->references('id')
                     ->on('lab_tests');
+            $table->integer('drug_id')->unsigned()->nullable();
+            $table->foreign('drug_id')
+                    ->references('id')
+                    ->on('drugs');                    
             $table->string('status')->nullable();      
             $table->timestamps();
         });
