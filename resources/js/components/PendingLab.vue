@@ -135,14 +135,14 @@
                             <div class="form-group">
 
                                 <label>Tests done:</label><br>
-                                    <select class="form-control" v-model="form.lab_tested_id">
+                                    <select readonly="readonly" class="form-control" v-model="form.lab_test_id">
                                       <option 
                                           v-for="test in labtests" :key="test.id"
                                           :value="test.id"
-                                          :selected="test.id == form.lab_tested_id">{{ test.name }} </option>
+                                          :selected="test.id == form.lab_test_id">{{ test.name }} </option>
                                     </select>
-                                    <div v-if="form.errors.has('lab_tested_id')" v-html="form.errors.get('lab_tested_id')" /> 
-                            </div> 
+                                    <div v-if="form.errors.has('lab_test_id')" v-html="form.errors.get('lab_test_id')" /> 
+                            </div>
 
                             <div class="form-group">
                             <label>Finding</label>  
@@ -185,7 +185,6 @@ import NotFound from './NotFound.vue';
                         id: '',
                         patient_id: '',
                         lab_test_id: '',
-                        lab_tested_id: '',
                         results: ''
                 })
             }

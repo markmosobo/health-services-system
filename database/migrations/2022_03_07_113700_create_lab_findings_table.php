@@ -23,8 +23,8 @@ class CreateLabFindingsTable extends Migration
             $table->foreign('lab_user_id')
                     ->references('id')
                     ->on('users');
-            $table->integer('lab_tested_id')->unsigned();
-            $table->foreign('lab_tested_id')
+            $table->integer('lab_test_id')->unsigned();
+            $table->foreign('lab_test_id')
                     ->references('id')
                     ->on('lab_tests');
             $table->string('results')->nullable();

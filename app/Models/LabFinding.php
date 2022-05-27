@@ -10,7 +10,7 @@ use App\Models\LabTest;
 class LabFinding extends Model
 {
     use HasFactory;
-    protected $fillable = ['patient_id','lab_user_id','lab_tested_id','results', 'status'];
+    protected $fillable = ['patient_id','lab_user_id','lab_test_id','results', 'status'];
 
         // A lab test belongs to a patient
         public function patient()
@@ -26,6 +26,6 @@ class LabFinding extends Model
         
         public function tested()
         {
-            return $this->belongsTo(LabTest::class,'lab_tested_id');
+            return $this->belongsTo(LabTest::class,'lab_test_id');
         }
 }

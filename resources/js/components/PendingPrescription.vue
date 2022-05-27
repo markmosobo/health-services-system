@@ -12,7 +12,8 @@
               </div>
               <!-- /.card-header -->
               <no-pending-task v-if ="labfindingscount == 0"></no-pending-task>
-              <div v-else class="card-body table-responsive p-0">                <table class="table table-hover text-nowrap">
+              <div v-else class="card-body table-responsive p-0"> 
+                <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>Patient</th>

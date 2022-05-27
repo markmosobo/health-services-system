@@ -32,7 +32,7 @@ class LabFindingController extends Controller
         return LabFinding::create([
         'patient_id' => $request['patient_id'],
         'lab_user_id' => $user->id,
-        'lab_tested_id' => $request['lab_tested_id'],
+        'lab_test_id' => $request['lab_test_id'],
         'results' => $request['results'] 
         ]);
                

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DrugPurchase;
+use App\Models\Prescription;
 
 class DrugPurchaseController extends Controller
 {
@@ -36,7 +37,7 @@ class DrugPurchaseController extends Controller
     }
     
     public function countPendingDrugSales(){
-        $pendingdrugsales = DrugPurchase::all()->where('status','0')->count();
+        $pendingdrugsales = Prescription::all()->where('status','0')->count();
         return response()->json($pendingdrugsales);
     }
 }

@@ -8996,6 +8996,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9003,6 +9051,13 @@ __webpack_require__.r(__webpack_exports__);
       patients: {},
       pendingprescriptions: {},
       drugs: {},
+      tabletdrugs: {},
+      injectiondrugs: {},
+      liquiddrugs: {},
+      inhalationdrugs: {},
+      oralliquiddrugs: {},
+      pfidrugs: {},
+      otherdrugs: {},
       form: new Form({
         id: '',
         patient_id: '',
@@ -9068,22 +9123,148 @@ __webpack_require__.r(__webpack_exports__);
         _this3.drugs = response.data.data;
       });
     },
-    loadPendingPrescriptions: function loadPendingPrescriptions() {
+    listTabletDrugs: function listTabletDrugs() {
       var _this4 = this;
 
-      axios.get('api/pendingprescribe').then(function (response) {
-        _this4.pendingprescriptions = response.data;
+      axios.get('api/listtabletdrugs').then(function (response) {
+        _this4.tabletdrugs = response.data.data;
       });
+    },
+    listInjectionDrugs: function listInjectionDrugs() {
+      var _this5 = this;
+
+      axios.get('api/listinjectiondrugs').then(function (response) {
+        _this5.injectiondrugs = response.data.data;
+      });
+    },
+    listLiquidDrugs: function listLiquidDrugs() {
+      var _this6 = this;
+
+      axios.get('api/listliquiddrugs').then(function (response) {
+        _this6.liquiddrugs = response.data.data;
+      });
+    },
+    listInhalationDrugs: function listInhalationDrugs() {
+      var _this7 = this;
+
+      axios.get('api/listinhalationdrugs').then(function (response) {
+        _this7.inhalationdrugs = response.data.data;
+      });
+    },
+    listOralLiquidDrugs: function listOralLiquidDrugs() {
+      var _this8 = this;
+
+      axios.get('api/listoralliquiddrugs').then(function (response) {
+        _this8.oralliquiddrugs = response.data.data;
+      });
+    },
+    listPfiDrugs: function listPfiDrugs() {
+      var _this9 = this;
+
+      axios.get('api/listpfidrugs').then(function (response) {
+        _this9.pfidrugs = response.data.data;
+      });
+    },
+    listOtherDrugs: function listOtherDrugs() {
+      var _this10 = this;
+
+      axios.get('api/listotherdrugs').then(function (response) {
+        _this10.otherdrugs = response.data.data;
+      });
+    },
+    loadPendingPrescriptions: function loadPendingPrescriptions() {
+      var _this11 = this;
+
+      axios.get('api/pendingprescribe').then(function (response) {
+        _this11.pendingprescriptions = response.data;
+      });
+    },
+    showTablets: function showTablets() {
+      document.getElementById("choosetablets").style.visibility = "visible";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showInjections: function showInjections() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "visible";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showLiquids: function showLiquids() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "visible";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showInhalations: function showInhalations() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "visible";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showOralLiquids: function showOralLiquids() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "visible";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showPfis: function showPfis() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "visible";
+      document.getElementById("chooseothers").style.visibility = "hidden";
+    },
+    showOthers: function showOthers() {
+      document.getElementById("choosetablets").style.visibility = "hidden";
+      document.getElementById("chooseinjections").style.visibility = "hidden";
+      document.getElementById("chooseliquids").style.visibility = "hidden";
+      document.getElementById("chooseinhalations").style.visibility = "hidden";
+      document.getElementById("chooseoralliquids").style.visibility = "hidden";
+      document.getElementById("choosepfis").style.visibility = "hidden";
+      document.getElementById("chooseothers").style.visibility = "visible";
     }
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this12 = this;
 
     this.listPatients();
     this.listDrugs();
+    this.listTabletDrugs();
+    this.listInjectionDrugs();
+    this.listLiquidDrugs();
+    this.listInhalationDrugs();
+    this.listOralLiquidDrugs();
+    this.listPfiDrugs();
+    this.listOtherDrugs();
+    document.getElementById("choosetablets").style.visibility = "visible";
+    document.getElementById("chooseinjections").style.visibility = "hidden";
+    document.getElementById("chooseliquids").style.visibility = "hidden";
+    document.getElementById("chooseinhalations").style.visibility = "hidden";
+    document.getElementById("chooseoralliquids").style.visibility = "hidden";
+    document.getElementById("choosepfis").style.visibility = "hidden";
+    document.getElementById("chooseothers").style.visibility = "hidden";
     this.loadPendingPrescriptions();
     Fire.$on('Refresh', function () {
-      _this5.loadPendingPrescriptions();
+      _this12.loadPendingPrescriptions();
     });
   }
 });
@@ -9292,7 +9473,6 @@ __webpack_require__.r(__webpack_exports__);
         id: '',
         patient_id: '',
         lab_test_id: '',
-        lab_tested_id: '',
         results: ''
       })
     };
@@ -9398,6 +9578,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -91187,19 +91368,211 @@ var render = function () {
                       _vm._v(" "),
                       _c("br"),
                       _vm._v(" "),
-                      _vm._m(4),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio1",
+                              value: "option1",
+                              checked: "",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showTablets()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Tablet"),
+                          ]),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showInjections()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("Injection")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(6),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showLiquids()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("Liquid")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(7),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showInhalations()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("Inhalation")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(8),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showOralLiquids()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("Oral liquid")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(9),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showPfis()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("PFI")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      _vm._m(10),
+                      _c(
+                        "div",
+                        { staticClass: "form-check form-check-inline" },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "radio",
+                              name: "inlineRadioOptions",
+                              id: "inlineRadio2",
+                              value: "option2",
+                            },
+                            on: {
+                              click: function ($event) {
+                                return _vm.showOthers()
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: "inlineRadio2" },
+                            },
+                            [_vm._v("Others")]
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -91213,6 +91586,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
+                          attrs: { id: "choosetablets" },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -91233,7 +91607,385 @@ var render = function () {
                             },
                           },
                         },
-                        _vm._l(_vm.drugs, function (item) {
+                        _vm._l(_vm.tabletdrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "chooseinjections" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.injectiondrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "chooseliquids" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.liquiddrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "chooseinhalations" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.inhalationdrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "chooseoralliquids" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.oralliquiddrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "choosepfis" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.pfidrugs, function (item) {
+                          return _c(
+                            "option",
+                            {
+                              key: item.id,
+                              domProps: {
+                                value: item.id,
+                                selected: item.id == _vm.form.purchaseddrug_id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(item.name) + " " + _vm._s(item.quantity)
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _vm.form.errors.has("purchaseddrug_id")
+                        ? _c("div", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.form.errors.get("purchaseddrug_id")
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.purchaseddrug_id,
+                              expression: "form.purchaseddrug_id",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "chooseothers" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "purchaseddrug_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        _vm._l(_vm.otherdrugs, function (item) {
                           return _c(
                             "option",
                             {
@@ -91376,157 +92128,6 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio1",
-          value: "option1",
-          checked: "",
-        },
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "form-check-label" }, [_vm._v("Tablet")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("Injection")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("Liquid")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("Inhalation")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("Oral liquid")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("PFI")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-check-inline" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "radio",
-          name: "inlineRadioOptions",
-          id: "inlineRadio2",
-          value: "option2",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "inlineRadio2" } },
-        [_vm._v("Others")]
-      ),
-    ])
   },
 ]
 render._withStripped = true
@@ -91994,11 +92595,12 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.lab_tested_id,
-                              expression: "form.lab_tested_id",
+                              value: _vm.form.lab_test_id,
+                              expression: "form.lab_test_id",
                             },
                           ],
                           staticClass: "form-control",
+                          attrs: { readonly: "readonly" },
                           on: {
                             change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -92011,7 +92613,7 @@ var render = function () {
                                 })
                               _vm.$set(
                                 _vm.form,
-                                "lab_tested_id",
+                                "lab_test_id",
                                 $event.target.multiple
                                   ? $$selectedVal
                                   : $$selectedVal[0]
@@ -92026,7 +92628,7 @@ var render = function () {
                               key: test.id,
                               domProps: {
                                 value: test.id,
-                                selected: test.id == _vm.form.lab_tested_id,
+                                selected: test.id == _vm.form.lab_test_id,
                               },
                             },
                             [_vm._v(_vm._s(test.name) + " ")]
@@ -92035,11 +92637,11 @@ var render = function () {
                         0
                       ),
                       _vm._v(" "),
-                      _vm.form.errors.has("lab_tested_id")
+                      _vm.form.errors.has("lab_test_id")
                         ? _c("div", {
                             domProps: {
                               innerHTML: _vm._s(
-                                _vm.form.errors.get("lab_tested_id")
+                                _vm.form.errors.get("lab_test_id")
                               ),
                             },
                           })
