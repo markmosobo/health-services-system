@@ -20,7 +20,7 @@
 <!--     <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
-  <h3 align="center"> Larahealthcare</h3>
+  <h3 align="center"> Larahealth</h3>
 
   <p align="center">
     a web app to automate health records and supplement the manual process used in most small hospitals that involves pen and paper, slowing the            medical service delivery consierably
@@ -32,6 +32,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Here’s what your completed application will look like:
+![Record_select-area_20220625111724](https://user-images.githubusercontent.com/34887895/175765218-c7578cbd-2050-4124-be2f-1680d3be7a2b.gif)
 
 
 
