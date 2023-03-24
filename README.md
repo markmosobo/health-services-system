@@ -60,10 +60,14 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    git clone https://github.com/markmosobo/health-services-system.git
    ```
-2. Install compoer dependencies
+2. Install composer dependencies
    ```sh
-   composer install
+   composer install --ignore-platform-reqs
    ```
+2. Install laravel passport
+    ```sh
+    php artisan passport:install
+    ```
 4. Install NPM packages
    ```sh
    npm install
